@@ -3,7 +3,7 @@ import { IconShieldCheck, IconClockCheck, IconLock, IconCircleCheck } from '@tab
 
 export default function Guarantees() {
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-12 sm:py-16 scroll-mt-28" data-section="guarantees">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
         {/* Chip + H2 */}

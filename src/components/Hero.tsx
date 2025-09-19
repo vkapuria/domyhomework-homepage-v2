@@ -7,17 +7,26 @@ import {
   IconBolt, 
   IconStarFilled 
 } from '@tabler/icons-react'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import Image from 'next/image'
+
 
 export default function Hero() {
   const [formData, setFormData] = useState({
     subject: '',
-    deadline: '',
+    deadline: null as Date | null,
     email: ''
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const params = new URLSearchParams(formData as Record<string, string>)
+    const submissionData = {
+      subject: formData.subject,
+      deadline: formData.deadline ? formData.deadline.toISOString().split('T')[0] : '',
+      email: formData.email
+    }
+    const params = new URLSearchParams(submissionData)
     window.open(`https://order.domyhomework.co/?${params.toString()}`, '_blank')
   }
 
@@ -80,63 +89,74 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Quick Start Form */}
-          <div id="order-form" className="scroll-mt-28 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Start Your Homework Request</h3>
-              <p className="text-gray-600">Enter details below to move to our secure order form</p>
-            </div>
+          <div id="order-form" className="scroll-mt-28 bg-gray-100 border-[3px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_#000000]">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-2">Start Your Homework Request</h3>
+            <p className="text-gray-700 text-sm font-medium">Enter details below to move to our secure order form</p>
+          </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Subject & Deadline */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Subject/Topic</label>
+                <label className="block text-sm font-bold text-black uppercase tracking-wide mb-2">Subject/Topic *</label>
                   <input
                     type="text"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="e.g., Mathematics"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-4 border-2 border-black bg-white text-sm font-medium transition-all hover:scale-[1.01] hover:shadow-[2px_2px_0px_#000000] focus:border-purple-600 focus:shadow-[0_0_0_2px_#8300e9] focus:scale-[1.02]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Deadline</label>
-                  <input
-                    type="datetime-local"
+                <label className="block text-sm font-bold text-black uppercase tracking-wide mb-2">Deadline *</label>
+                  <DatePicker
+                    selected={formData.deadline}
+                    onChange={(date) => setFormData({ ...formData, deadline: date })}
+                    minDate={new Date()}
+                    placeholderText="Select deadline date"
+                    className="w-full p-4 border-2 border-black bg-white text-sm font-medium transition-all hover:scale-[1.01] hover:shadow-[2px_2px_0px_#000000] focus:border-purple-600 focus:shadow-[0_0_0_2px_#8300e9] focus:scale-[1.02]"
+                    calendarClassName="brutalist-calendar"
+                    wrapperClassName="w-full"
                     required
-                    value={formData.deadline}
-                    onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <label className="block text-sm font-bold text-black uppercase tracking-wide mb-2">Email Address *</label>
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your@email.com"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-4 border-2 border-black bg-white text-sm font-medium transition-all hover:scale-[1.01] hover:shadow-[2px_2px_0px_#000000] focus:border-purple-600 focus:shadow-[0_0_0_2px_#8300e9] focus:scale-[1.02]"
                 />
               </div>
 
               {/* CTA Button */}
               <button
                 type="submit"
-                className="w-full bg-neutral-900 text-white py-4 px-6 rounded-lg font-semibold hover:bg-neutral-800 transition-colors shadow-md hover:shadow-lg"
+                className="w-full bg-black text-white border-[3px] border-black py-4 px-6 font-black text-lg uppercase tracking-wide shadow-[6px_6px_0px_#374151] hover:shadow-[3px_3px_0px_#374151] hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-gray-800 transition-all flex items-center justify-center gap-3"
               >
-                Continue to Order →
+                Continue to Order
+                <Image 
+                  src="/icons/submit.svg" 
+                  alt="→" 
+                  width={36} 
+                  height={36}
+                  className="filter invert"
+                />
               </button>
             </form>
 
-            <p className="text-xs text-gray-500 text-center mt-4">
-              Your details remain secure & confidential.
-            </p>
+            <p className="text-xs text-gray-500 text-center mt-4 flex items-center justify-center gap-2">
+              <Image src="/icons/insurance.svg" alt="Secure" width={22} height={22} />
+            Your details remain secure & confidential.
+          </p>
           </div>
         </div>
 
