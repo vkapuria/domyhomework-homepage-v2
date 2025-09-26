@@ -16,7 +16,7 @@ export default function Benefits() {
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             Our service is built around reliability, quality, and student success. 
-            Here's what makes us the go-to choice for online homework help.
+            Here&apos;s what makes us the go-to choice for online homework help.
           </p>
         </div>
 

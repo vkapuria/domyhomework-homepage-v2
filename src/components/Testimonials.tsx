@@ -116,7 +116,7 @@ function useHighlighted(text: string, phrases: string[]) {
 export default function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null)
   const [loopList, setLoopList] = useState<Review[]>([])
-  const [speed, setSpeed] = useState(1)
+  const [speed] = useState(1)
 
   // Shuffle once, then duplicate the array for seamless looping
   useEffect(() => {
@@ -193,7 +193,7 @@ export default function Testimonials() {
 function Card({ review, reviewIndex }: { review: Review; reviewIndex: number }) {
   const html = useHighlighted(review.body, review.highlights)
   const src = SOURCE_BADGE[review.source]
-  const initials = getInitials(review.author)
+  // const initials = getInitials(review.author)
   const dynamicDate = generateDynamicDate(reviewIndex)
 
   return (
