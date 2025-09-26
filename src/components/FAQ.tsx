@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SEOContent from './SEOContent';
 
 const faqs = [
   {
@@ -66,7 +67,7 @@ const faqs = [
     answer: (
       <>
         <p>
-          <strong>Yes –</strong> free revisions are included until you’re
+          <strong>Yes –</strong> free revisions are included until you're
           satisfied.
         </p>
         <p>
@@ -99,7 +100,7 @@ const faqs = [
           Revision policies.
         </p>
         <p>
-          If you’re not satisfied, we’ll revise or refund, ensuring your trust
+          If you're not satisfied, we'll revise or refund, ensuring your trust
           and peace of mind.
         </p>
       </>
@@ -109,10 +110,11 @@ const faqs = [
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
+  const [showSEOContent, setShowSEOContent] = useState(false);
 
   return (
     <section className="py-12 sm:py-16">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
         {/* Chip + Heading */}
         <div className="text-center mb-10">
@@ -125,10 +127,20 @@ export default function FAQ() {
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4">
             Answers to the most common questions students ask before ordering homework help online.
           </p>
+          
+          {/* Show More Button */}
+          <div className="mt-8">
+            <button
+              onClick={() => setShowSEOContent(!showSEOContent)}
+              className="text-blue-600 hover:text-blue-800 font-medium underline transition-colors"
+            >
+              {showSEOContent ? 'Show Less ↑' : 'Read More About Our Services ↓'}
+            </button>
+          </div>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {faqs.map((faq, i) => (
             <div
               key={i}
@@ -137,7 +149,7 @@ export default function FAQ() {
               {/* Header */}
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className={`w-full flex justify-between items-center px-6 py-4 font-medium text-gray-800 bg-gray-100 hover:bg-gray-200 transition-colors`}
+                className={`w-full flex justify-between items-center px-6 py-4 font-medium text-gray-800 bg-white hover:bg-gray-200 transition-colors`}
               >
                 {faq.question}
                 <span
@@ -166,6 +178,10 @@ export default function FAQ() {
             </div>
           ))}
         </div>
+        
+        {/* Conditionally render SEO Content */}
+        {showSEOContent && <SEOContent />}
+        
       </div>
     </section>
   );

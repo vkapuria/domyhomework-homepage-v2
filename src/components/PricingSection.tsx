@@ -253,7 +253,7 @@ export default function PricingSection() {
         
         {/* ===== Left Column: Calculator Form ===== */}
         <div className="calculator-wrapper relative">
-        <div className="calculator bg-gray-100 border-[3px] border-black p-6 w-full shadow-[8px_8px_0px_#000000] relative">
+        <div className="calculator bg-white border-[3px] border-black p-6 w-full shadow-[8px_8px_0px_#000000] relative">
               <form onSubmit={handleSubmit} className="calculator__form">
                 <div className="calculator__fields mb-6">
                   

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-12 sm:py-16 bg-gray-100 overflow-hidden">
+    <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
       {/* Fade from Benefits (white) into gray */}
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-gray-100 pointer-events-none" />
 

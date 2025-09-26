@@ -6,6 +6,7 @@ import Guarantees from '@/components/Guarantees'
 import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import PricingSection from '@/components/PricingSection'
+import SEOContent from '@/components/SEOContent' // Add this import
 
 export default function Home() {
   return (

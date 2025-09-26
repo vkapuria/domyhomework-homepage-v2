@@ -96,11 +96,11 @@ export default function Guarantees() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-8">
         <p className="text-gray-600 flex flex-wrap items-center gap-2">
   *Covered by our
-  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-100 border border-gray-300  text-black text-sm font-medium">
+  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-gray-300  text-black text-sm font-medium">
     💸 Money-Back Guarantee
   </span>
   and
-  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-100 border border-gray-300 text-black text-sm font-medium">
+  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-gray-300 text-black text-sm font-medium">
     ✍️ Free Revisions Policy
   </span>
 </p>

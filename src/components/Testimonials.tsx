@@ -242,7 +242,7 @@ function Card({ review, reviewIndex }: { review: Review; reviewIndex: number }) 
           </div>
 
           {/* Source badge - stacked vertically */}
-          <div className="flex-shrink-0 flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200" title={src.label}>
+          <div className="flex-shrink-0 flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white transition-colors duration-200" title={src.label}>
             <Image src={src.icon} alt={src.label} width={30} height={30} className="object-contain" />
             <span className="text-xs font-medium text-gray-600 leading-none">{src.label}</span>
           </div>

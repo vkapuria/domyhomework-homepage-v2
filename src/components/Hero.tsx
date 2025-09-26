@@ -106,7 +106,7 @@ export default function Hero() {
             <div className="space-y-4">
               {/* Badge */}
               <div className="inline-block">
-                <span className="px-4 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-medium">
+                <span className="px-4 py-1 rounded-full bg-white text-gray-700 text-sm font-medium">
                   🎓 Do My Homework Online – 100% Human-Written
                 </span>
               </div>
@@ -128,7 +128,7 @@ export default function Hero() {
               {/* Avatar Stack */}
               <div className="flex -space-x-3">
                 {['John Doe', 'Mary Smith', 'Sarah Johnson', 'Alex Brown'].map((name, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-gray-100 shadow-sm">
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white shadow-sm">
                     <img 
                       src={`https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=3B82F6&color=fff&size=40`} 
                       alt={name} 
