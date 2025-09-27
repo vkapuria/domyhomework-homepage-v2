@@ -5,8 +5,6 @@ import { motion } from 'framer-motion'
 export default function HowItWorks() {
   return (
     <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
-      {/* Fade from Benefits (white) into gray */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-gray-100 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center z-10">
         {/* Section Chip + Heading */}
@@ -102,9 +100,6 @@ export default function HowItWorks() {
           </a>
         </div>
       </div>
-
-      {/* Fade from gray into Services (white) */}
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-gray-100 to-white pointer-events-none" />
     </section>
   )
 }

@@ -144,7 +144,7 @@ export default function Testimonials() {
   }, [loopList, speed])
 
   return (
-    <section className="relative py-12 sm:py-6 bg-slate-100">
+    <section className="relative py-12 sm:py-6 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
         {/* Chip + H2 + description (centered) */}
@@ -152,7 +152,7 @@ export default function Testimonials() {
           <span className="inline-block text-sm font-medium border border-purple-500 bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
             Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Reviews of Our Do My Homework Online Service
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-4">
@@ -184,7 +184,6 @@ export default function Testimonials() {
           </a>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-slate-100 to-white pointer-events-none"></div>
 
     </section>
   )

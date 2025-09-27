@@ -121,7 +121,7 @@ export default function FAQ() {
           <span className="inline-block text-sm font-medium bg-purple-50 border border-purple-500 text-purple-700 px-3 py-1 rounded-full mb-4">
             FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             FAQ – Online Homework Help &amp; Do My Homework Services
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4">

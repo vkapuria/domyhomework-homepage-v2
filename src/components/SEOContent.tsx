@@ -6,7 +6,7 @@ export default function SEOContent() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         
         {/* Two-column layout with fixed height and scroll */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 h-[400px] overflow-y-auto border border-gray-700 rounded-2xl bg-gray-50 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 h-[400px] overflow-y-auto border border-gray-700 rounded-2xl bg-white p-8">
           
           {/* Left Column */}
           <div className="space-y-6 pr-6">

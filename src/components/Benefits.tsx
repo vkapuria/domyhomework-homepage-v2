@@ -63,7 +63,7 @@ export default function Benefits() {
                 On-Time Delivery
               </h3>
               <p className="text-sm text-gray-600 text-left">
-              We meet even tight deadlines so you never miss a submission. Our efficient workflow and dedicated professional team ensure punctual delivery every single time without any compromis.
+              We meet even tight deadlines so you never miss a submission. Our efficient workflow and dedicated professional team ensure punctual delivery every single time.
               </p>
             </div>
           </div>

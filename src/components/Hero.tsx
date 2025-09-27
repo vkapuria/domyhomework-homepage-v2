@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   IconBook, 
   IconClock, 
@@ -14,7 +15,53 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import Image from 'next/image'
 
-// ==================== DOCUMENT TYPES CONFIGURATION ====================
+// ==================== CONSTANTS ====================
+
+// Trust metrics for flip animation
+const TRUST_METRICS = [
+  <>Trusted by <span className="text-blue-600 font-bold">14,800+</span> students for online homework help</>,
+  <><span className="text-green-600 font-bold">12,400+</span> students helped this year</>, 
+  <><span className="text-purple-600 font-bold">47,000+</span> assignments completed successfully</>,
+  <><span className="text-orange-600 font-bold">8 years</span> of academic writing excellence</>
+]
+
+// Avatar images for social proof
+const AVATAR_IMAGES = [
+  'https://randomuser.me/api/portraits/women/12.jpg',  // Young woman
+  'https://randomuser.me/api/portraits/women/23.jpg',  // Young woman  
+  'https://randomuser.me/api/portraits/women/18.jpg',  // Young woman
+  'https://randomuser.me/api/portraits/men/15.jpg',    // Young man
+]
+
+// Feature highlights for bottom section
+const FEATURE_HIGHLIGHTS = [
+  {
+    icon: IconBook,
+    color: 'text-blue-600',
+    title: 'Professional Homework Writers',
+    description: 'Qualified experts with advanced degrees across subjects.'
+  },
+  {
+    icon: IconClock,
+    color: 'text-green-600',
+    title: '24/7 Support',
+    description: 'Round-the-clock assistance whenever you need help.'
+  },
+  {
+    icon: IconShieldCheck,
+    color: 'text-yellow-600',
+    title: 'Plagiarism-Free Guarantee',
+    description: 'Original work checked with advanced plagiarism tools.'
+  },
+  {
+    icon: IconBolt,
+    color: 'text-pink-600',
+    title: 'Fast & Simple Homework Help',
+    description: 'Submit, pay, receive—homework done in 3 easy steps.'
+  }
+]
+
+// Document types configuration
 const DOCUMENT_TYPES = [
   {
     group: 'Popular Choices',
@@ -66,11 +113,69 @@ const DOCUMENT_TYPES = [
   }
 ]
 
-// ==================== SHARED STYLES ====================
-const inputStyles = "w-full h-[60px] p-4 border-2 border-black bg-white text-base font-medium transition-all hover:scale-[1.01] hover:shadow-[2px_2px_0px_#000000] focus:border-purple-600 focus:shadow-[0_0_0_2px_#8300e9] focus:scale-[1.02]"
-const labelStyles = "block text-sm font-bold text-black uppercase tracking-wide mb-2 flex items-center gap-2"
+// Shared form styles
+const INPUT_STYLES = "w-full h-[60px] p-4 border-2 border-black bg-white text-base font-medium transition-all hover:scale-[1.01] hover:shadow-[2px_2px_0px_#000000] focus:border-purple-600 focus:shadow-[0_0_0_2px_#8300e9] focus:scale-[1.02]"
+const LABEL_STYLES = "block text-sm font-bold text-black uppercase tracking-wide mb-2 flex items-center gap-2"
+
+// ==================== SUB-COMPONENTS ====================
+
+const AvatarStack = () => (
+  <div className="flex -space-x-3">
+    {AVATAR_IMAGES.map((src, i) => (
+      <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white shadow-sm">
+        <img 
+          src={src}
+          alt={`Student ${i + 1}`} 
+          className="object-cover w-full h-full" 
+        />
+      </div>
+    ))}
+    {/* 5th avatar with initials "AS" */}
+    <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-blue-600 shadow-sm flex items-center justify-center">
+      <span className="text-white text-xs font-bold">AS</span>
+    </div>
+  </div>
+)
+
+const FlippingTrustMetrics = ({ currentMetric }: { currentMetric: number }) => (
+  <div className="text-sm text-gray-600 font-medium mt-1 h-6 flex items-center overflow-hidden">
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={currentMetric}
+        initial={{ rotateX: 90, opacity: 0, scale: 0.95, filter: "blur(2px)" }}
+        animate={{ rotateX: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+        exit={{ rotateX: -90, opacity: 0, scale: 0.95, filter: "blur(2px)" }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="block"
+      >
+        {TRUST_METRICS[currentMetric]}
+      </motion.span>
+    </AnimatePresence>
+  </div>
+)
+
+const FeatureHighlights = () => (
+  <motion.div
+    className="flex flex-col md:flex-row items-center justify-between gap-8 py-12 border-y border-gray-200 mt-20"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.1 }}
+  >
+    {FEATURE_HIGHLIGHTS.map((feature, index) => (
+      <div key={index} className="flex items-center gap-3 text-center md:text-left max-w-xs">
+        <feature.icon className={`w-6 h-6 ${feature.color}`} />
+        <div>
+          <h3 className="text-sm font-semibold text-gray-900">{feature.title}</h3>
+          <p className="text-xs text-gray-500">{feature.description}</p>
+        </div>
+      </div>
+    ))}
+  </motion.div>
+)
 
 // ==================== MAIN COMPONENT ====================
+
 export default function Hero() {
   // ========== STATE ==========
   const [formData, setFormData] = useState({
@@ -78,6 +183,17 @@ export default function Hero() {
     deadline: null as Date | null,
     email: ''
   })
+
+  const [currentMetric, setCurrentMetric] = useState(0)
+
+  // ========== EFFECTS ==========
+  // Auto-flip trust metrics every 5 seconds (increased delay for better readability)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMetric((prev) => (prev + 1) % TRUST_METRICS.length)
+    }, 5000) // Increased to 5 seconds for better readability
+    return () => clearInterval(interval)
+  }, [])
 
   // ========== HANDLERS ==========
   const handleSubmit = (e: React.FormEvent) => {
@@ -94,19 +210,17 @@ export default function Hero() {
   // ========== RENDER ==========
   return (
     <section className="relative bg-white py-16 sm:py-20">
-      {/* Gradient fade at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-white to-slate-100 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* ========== LEFT COLUMN - CONTENT ========== */}
           <div className="space-y-8 text-center lg:text-left">
+            
             {/* Header Content */}
             <div className="space-y-4">
               {/* Badge */}
               <div className="inline-block">
-                <span className="px-4 py-1 rounded-full bg-white text-gray-700 text-sm font-medium">
+                <span className="px-4 py-1 rounded-full bg-purple-50 border border-purple-500 text-purple-700 text-sm font-medium">
                   🎓 Do My Homework Online – 100% Human-Written
                 </span>
               </div>
@@ -126,28 +240,16 @@ export default function Hero() {
             {/* Social Proof */}
             <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 mt-4">
               {/* Avatar Stack */}
-              <div className="flex -space-x-3">
-                {['John Doe', 'Mary Smith', 'Sarah Johnson', 'Alex Brown'].map((name, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white shadow-sm">
-                    <img 
-                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=3B82F6&color=fff&size=40`} 
-                      alt={name} 
-                      className="object-cover w-full h-full" 
-                    />
-                  </div>
-                ))}
-              </div>
+              <AvatarStack />
 
-              {/* Rating & Trust */}
+              {/* Rating & Trust Metrics */}
               <div className="flex flex-col justify-center items-center md:items-start">
                 <div className="flex items-center text-yellow-400">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <IconStarFilled key={i} className="w-5 h-5" />
                   ))}
                 </div>
-                <span className="text-sm text-gray-600 font-medium mt-1">
-                  Trusted by 15,000+ students for online homework help
-                </span>
+                <FlippingTrustMetrics currentMetric={currentMetric} />
               </div>
             </div>
           </div>
@@ -172,7 +274,7 @@ export default function Hero() {
                 
                 {/* Assignment Type Field */}
                 <div>
-                  <label className={labelStyles}>
+                  <label className={LABEL_STYLES}>
                     <IconFileText className="w-4 h-4 text-gray-600" />
                     Assignment Type *
                   </label>
@@ -181,7 +283,7 @@ export default function Hero() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className={`${inputStyles} ${formData.subject === '' ? 'text-gray-400' : 'text-black'}`} 
+                    className={`${INPUT_STYLES} ${formData.subject === '' ? 'text-gray-400' : 'text-black'}`} 
                   >
                     <option value="">Choose one...</option>
                     {DOCUMENT_TYPES.map((group) => (
@@ -198,7 +300,7 @@ export default function Hero() {
 
                 {/* Deadline Field */}
                 <div>
-                  <label className={labelStyles}>
+                  <label className={LABEL_STYLES}>
                     <IconCalendarEvent className="w-4 h-4 text-gray-600" />
                     Deadline *
                   </label>
@@ -207,7 +309,7 @@ export default function Hero() {
                     onChange={(date) => setFormData({ ...formData, deadline: date })}
                     minDate={new Date()}
                     placeholderText="Select deadline date"
-                    className={inputStyles}
+                    className={INPUT_STYLES}
                     calendarClassName="brutalist-calendar"
                     wrapperClassName="w-full"
                     required
@@ -217,7 +319,7 @@ export default function Hero() {
 
               {/* Email & CTA Row */}
               <div className="space-y-2">
-                <label className={labelStyles}>
+                <label className={LABEL_STYLES}>
                   <IconMail className="w-4 h-4 text-gray-600" />
                   Email Address *
                 </label>
@@ -229,7 +331,7 @@ export default function Hero() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your@email.com"
-                    className={inputStyles}
+                    className={INPUT_STYLES}
                   />
                   
                   {/* CTA Button */}
@@ -262,44 +364,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ========== FEATURE BLOCKS ========== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 py-16">
-          {/* Feature Cards */}
-          {[
-            {
-              icon: IconBook,
-              color: 'text-blue-600',
-              title: 'Professional Homework Writers',
-              description: 'Qualified experts with advanced degrees across subjects.'
-            },
-            {
-              icon: IconClock,
-              color: 'text-green-600',
-              title: '24/7 Support',
-              description: 'Round-the-clock assistance whenever you need help.'
-            },
-            {
-              icon: IconShieldCheck,
-              color: 'text-yellow-600',
-              title: 'Plagiarism-Free Guarantee',
-              description: 'Original work checked with advanced plagiarism tools.'
-            },
-            {
-              icon: IconBolt,
-              color: 'text-pink-600',
-              title: 'Fast & Simple Homework Help',
-              description: 'Submit, pay, receive—homework done in 3 easy steps.'
-            }
-          ].map((feature, index) => (
-            <div key={index} className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
-              <feature.icon className={`w-7 h-7 ${feature.color}`} />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                <p className="text-sm text-gray-500">{feature.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* ========== FEATURE HIGHLIGHTS ========== */}
+        <FeatureHighlights />
+
       </div>
     </section>
   )
