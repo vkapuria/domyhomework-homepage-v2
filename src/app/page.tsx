@@ -10,7 +10,7 @@ import SEOContent from '@/components/SEOContent' // Add this import
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" id="main-content" role="main">
       <Hero />
       <Testimonials />
       <Benefits />

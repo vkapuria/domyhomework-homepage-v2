@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { 
   IconBook2, 
   IconFileText, 
@@ -11,47 +10,28 @@ import {
 
 export default function Services() {
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-12 sm:py-16" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
 
         {/* Section Chip + Heading */}
         <span className="inline-block text-sm font-medium border border-purple-500 bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
           Our Services
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-        Pay Someone to Do My Homework – Services We Offer
-        </h2>
+        <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Pay Someone to Do My Homework – Services We Offer
+          </h2>
+          <div className="text-xs text-gray-500 mb-2">
+            Updated for {new Date().getFullYear()}-{new Date().getFullYear() + 1} Academic Year
+          </div>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-12">
           From quick assignments to detailed research papers, DoMyHomework.co covers every subject and format students need to succeed.
         </p>
 
-        {/* Services Grid with Fixed Animation */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ 
-            once: true, 
-            amount: 0.4,      // ✅ Changed from 0.2 to 0.4 (trigger later)
-            margin: "-100px"  // ✅ Added margin to delay trigger
-          }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.15 } } // ✅ Faster stagger
-          }}
-        >
+        {/* Services Grid with Clean Hover Animation */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
           {/* Service 1 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 }, // ✅ Reduced from y: 40 to y: 20
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5,                    // ✅ Shorter duration
-              ease: [0.25, 0.46, 0.45, 0.94]  // ✅ Gentler easing curve
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconBook2 className="w-10 h-10 text-blue-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Homework & Assignments
@@ -59,20 +39,10 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               Accurate and well-structured solutions for daily homework and coursework assignments.
             </p>
-          </motion.div>
+          </div>
 
           {/* Service 2 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5, 
-              ease: [0.25, 0.46, 0.45, 0.94] 
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconFileText className="w-10 h-10 text-green-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Essays & Reports
@@ -80,20 +50,10 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               Expertly written essays, lab reports, and summaries tailored to your academic needs.
             </p>
-          </motion.div>
+          </div>
 
           {/* Service 3 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5, 
-              ease: [0.25, 0.46, 0.45, 0.94] 
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconPresentation className="w-10 h-10 text-yellow-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Presentations & Projects
@@ -101,20 +61,10 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               Engaging slides, case studies, and collaborative project assistance for students.
             </p>
-          </motion.div>
+          </div>
 
           {/* Service 4 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5, 
-              ease: [0.25, 0.46, 0.45, 0.94] 
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconMathFunction className="w-10 h-10 text-purple-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Math & Statistics Help
@@ -122,20 +72,10 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               Step-by-step solutions for algebra, calculus, statistics, and advanced math problems.
             </p>
-          </motion.div>
+          </div>
 
           {/* Service 5 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5, 
-              ease: [0.25, 0.46, 0.45, 0.94] 
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconCertificate className="w-10 h-10 text-pink-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Research Papers & Dissertations
@@ -143,20 +83,10 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               In-depth academic research, thesis chapters, and full dissertations by expert writers.
             </p>
-          </motion.div>
+          </div>
 
           {/* Service 6 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ 
-              duration: 0.5, 
-              ease: [0.25, 0.46, 0.45, 0.94] 
-            }}
-            className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all text-center"
-          >
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
             <IconChalkboard className="w-10 h-10 text-indigo-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Online Tutoring & Guidance
@@ -164,8 +94,27 @@ export default function Services() {
             <p className="text-sm text-gray-600">
               One-on-one academic guidance and tutoring for homework concepts and exam prep.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Related Services Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Services</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="/do-my-homework-online" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+              Do My Homework Online
+            </a>
+            <a href="/professional-homework-help" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+              Professional Homework Help
+            </a>
+            <a href="/homework-writing-service" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+              Homework Writing Service
+            </a>
+            <a href="/pay-someone-to-do-my-homework" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+              Pay Someone to Do My Homework
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )

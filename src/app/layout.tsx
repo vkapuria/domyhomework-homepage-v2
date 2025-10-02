@@ -4,11 +4,18 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
+  variable: '--font-inter'
+})
 
 export const metadata: Metadata = {
   title: 'Do My Homework Online | Expert Homework Help 24/7',
-  description: 'Get plagiarism-free homework help online from expert writers. Do my homework services with A+ quality, on-time delivery, and 24/7 support.',
+  description: 'Expert homework help online. Plagiarism-free, A+ quality work with 24/7 support. Get assignments done by qualified writers.',
   keywords: 'do my homework online, homework help, pay someone to do my homework, online homework help, professional homework help, urgent homework help, homework writing service',
   authors: [{ name: 'DoMyHomework.co' }],
   creator: 'DoMyHomework.co',
@@ -23,7 +30,7 @@ export const metadata: Metadata = {
     url: 'https://domyhomework.co',
     siteName: 'DoMyHomework.co',
     title: 'Do My Homework Online | Expert Homework Help 24/7',
-    description: 'Plagiarism-free homework help online from qualified experts. Do my homework services with guaranteed A+ results, secure payments, and round-the-clock support.',
+    description: 'Expert homework help online. Plagiarism-free, A+ quality work with 24/7 support. Get assignments done by qualified writers.',
     images: [
       {
         url: '/og-image.jpg',
@@ -36,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Do My Homework Online | Expert Homework Help 24/7',
-    description: 'Get expert homework help online. Plagiarism-free, original, and on-time homework solutions from professional writers.',
+    description: 'Expert homework help online. Plagiarism-free, A+ quality work with 24/7 support. Get assignments done by qualified writers.',
     images: ['/twitter-image.jpg'],
   },
   verification: {
@@ -68,6 +75,49 @@ function generateStructuredData() {
     }
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Online Homework Help Service",
+    "description": "Professional homework writing and academic assistance service with 24/7 support, plagiarism-free guarantee, and expert writers.",
+    "provider": {
+      "@type": "Organization",
+      "name": "DoMyHomework.co"
+    },
+    "areaServed": "Worldwide",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://domyhomework.co",
+      "availableLanguage": "English"
+    },
+    "serviceType": "Academic Writing Service",
+    "offers": {
+      "@type": "Offer",
+      "price": "12",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://domyhomework.co"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Do My Homework Online",
+        "item": "https://domyhomework.co"
+      }
+    ]
+  };
+
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -88,7 +138,9 @@ function generateStructuredData() {
       "price": "12",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "url": "https://order.domyhomework.co/"
+      "url": "https://order.domyhomework.co/",
+      "validFrom": "2024-01-01",
+      "priceValidUntil": "2025-12-31"
     }
   };
 
@@ -131,7 +183,7 @@ function generateStructuredData() {
     ]
   };
 
-  return [organizationSchema, productSchema, faqSchema];
+  return [organizationSchema, serviceSchema, breadcrumbSchema, productSchema, faqSchema];
 }
 
 export default function RootLayout({
@@ -142,16 +194,21 @@ export default function RootLayout({
   const structuredData = generateStructuredData();
 
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        {structuredData.map((schema, index) => (
-          <script
-            key={index}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ))}
-      </head>
+  <html lang="en" className="scroll-smooth">
+    <head>
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="referrer" content="origin-when-cross-origin" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+      {structuredData.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+    </head>
       <body className={inter.className}>
         <Header />
         {children}

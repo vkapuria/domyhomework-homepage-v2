@@ -140,14 +140,14 @@ const AvatarStack = () => (
 const FlippingTrustMetrics = ({ currentMetric }: { currentMetric: number }) => (
   <div className="text-sm text-gray-600 font-medium mt-1 h-6 flex items-center overflow-hidden">
     <AnimatePresence mode="wait">
-      <motion.span
-        key={currentMetric}
-        initial={{ rotateX: 90, opacity: 0, scale: 0.95, filter: "blur(2px)" }}
-        animate={{ rotateX: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
-        exit={{ rotateX: -90, opacity: 0, scale: 0.95, filter: "blur(2px)" }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="block"
-      >
+    <motion.span
+      key={currentMetric}
+      initial={{ rotateX: 90, opacity: 0, scale: 0.95, filter: "blur(2px)", y: 10 }}
+      animate={{ rotateX: 0, opacity: 1, scale: 1, filter: "blur(0px)", y: 0 }}
+      exit={{ rotateX: -90, opacity: 0, scale: 0.95, filter: "blur(2px)", y: -10 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="block"
+    >
         {TRUST_METRICS[currentMetric]}
       </motion.span>
     </AnimatePresence>
@@ -258,14 +258,13 @@ export default function Hero() {
           <div id="order-form" className="scroll-mt-28 bg-white border-[3px] border-[#9333ea] p-6 sm:p-8 shadow-[8px_8px_0px_#9333ea]">
             {/* Form Header */}
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-2">
-                Start Your Homework Request
-              </h3>
-              <p className="text-gray-700 text-sm font-medium">
-                Tell us about your assignment and get started in 15 minutes
-              </p>
-            </div>
-
+            <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-2">
+              Start Your Homework Request
+            </h3>
+            <p className="text-gray-700 text-sm font-medium">
+              Tell us about your assignment and get started in 15 minutes
+            </p>
+          </div>
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-5">
               
@@ -347,6 +346,7 @@ export default function Hero() {
                       width={24} 
                       height={24}
                       className="filter invert"
+                      priority
                     />
                   </button>
                 </div>
@@ -356,9 +356,14 @@ export default function Hero() {
             {/* Form Footer - Guarantees */}
             <div className="text-center mt-4">
               <p className="text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
-                <span>Secure & Confidential</span>
-                <span className="hidden sm:inline text-gray-400">•</span>
-                <span>Free Quote - No Payment Required</span>
+                <span className="flex items-center gap-1">
+                  <span className="text-gray-600">✓</span>
+                  Free Quote - No Payment Required
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-gray-600">✓</span>
+                  Secure & Confidential
+                </span>
               </p>
             </div>
           </div>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Benefits() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-16 sm:py-20" aria-labelledby="benefits-heading">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         
         {/* Section Chip + Heading */}
@@ -11,7 +11,7 @@ export default function Benefits() {
           <span className="inline-block text-sm font-medium bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
             Your Benefits
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="benefits-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Why Choose Our Online Homework Help Services
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -33,7 +33,7 @@ export default function Benefits() {
                 Expert Writers
               </h3>
               <p className="text-sm text-gray-600 text-left">
-                Qualified professionals with advanced degrees delivering accurate, subject-specific help. Our writers undergo rigorous screening to ensure top-quality academic assistance.
+                Qualified professionals with advanced degrees delivering accurate, subject-specific help. Our writers undergo rigorous screening to ensure top-quality <a href="/services" className="text-blue-600 hover:text-blue-800 underline">academic assistance</a>.
               </p>
             </div>
           </div>
@@ -63,8 +63,7 @@ export default function Benefits() {
                 On-Time Delivery
               </h3>
               <p className="text-sm text-gray-600 text-left">
-              We meet even tight deadlines so you never miss a submission. Our efficient workflow and dedicated professional team ensure punctual delivery every single time.
-              </p>
+              We meet even tight deadlines so you never miss a submission. Our efficient workflow and dedicated professional team ensure punctual delivery every single time. <a href="/how-it-works" className="text-blue-600 hover:text-blue-800 underline">See how it works</a>.              </p>
             </div>
           </div>
 
@@ -78,7 +77,7 @@ export default function Benefits() {
                 Affordable Pricing
               </h3>
               <p className="text-sm text-gray-600 text-left">
-              Fair pricing with no hidden fees—get high-quality work within your budget. Completely transparent rates with no subscription, no hidden fee, secure payment for all students.
+              Fair pricing with no hidden fees—get high-quality work within your budget. Completely transparent rates with no subscription, no hidden fee, secure payment for all students. <a href="/pricing" className="text-blue-600 hover:text-blue-800 underline">View pricing</a>.
               </p>
             </div>
           </div>

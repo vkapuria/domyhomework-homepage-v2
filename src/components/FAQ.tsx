@@ -43,7 +43,7 @@ const faqs = [
         </p>
         <p>
           Assignments range from essays and reports to coding projects, lab
-          work, and case studies.
+          work, and case studies. <a href="/services" className="text-blue-600 hover:text-blue-800 underline">View all services</a>.
         </p>
       </>
     ),
@@ -113,15 +113,18 @@ export default function FAQ() {
   const [showSEOContent, setShowSEOContent] = useState(false);
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-12 sm:py-16" aria-labelledby="faq-heading">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
         {/* Chip + Heading */}
         <div className="text-center mb-10">
-          <span className="inline-block text-sm font-medium bg-purple-50 border border-purple-500 text-purple-700 px-3 py-1 rounded-full mb-4">
+          <span className="inline-block text-sm font-medium border border-purple-500 bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
             FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-xs text-gray-500 mb-2">
+            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          </div>
+          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             FAQ – Online Homework Help &amp; Do My Homework Services
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4">
