@@ -20,6 +20,8 @@ interface DynamicHeroProps {
   badgeText?: string
   title: string
   subtitle: string
+  bulletPoints?: string[]  // Add this line
+  ctaText: string
   trustSignals?: string[]
 }
 
