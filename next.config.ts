@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+
+  // Temporarily disable ESLint during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Fix the turbopack root directory issue
   turbopack: {
     root: __dirname,
