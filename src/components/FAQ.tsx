@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SEOContent from './SEOContent';
+import { IconPlus, IconMinus } from '@tabler/icons-react'
 
 const faqs = [
   {
@@ -155,13 +156,11 @@ export default function FAQ() {
                 className={`w-full flex justify-between items-center px-6 py-4 font-medium text-gray-800 bg-white hover:bg-gray-200 transition-colors`}
               >
                 {faq.question}
-                <span
-                  className={`ml-2 transform transition-transform duration-300 ${
-                    open === i ? "rotate-180" : ""
-                  }`}
-                >
-                  ⌄
-                </span>
+                {open === i ? (
+                  <IconMinus className="w-5 h-5 text-gray-600" />
+                ) : (
+                  <IconPlus className="w-5 h-5 text-gray-600" />
+                )}
               </button>
 
               {/* Answer */}

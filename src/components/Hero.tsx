@@ -204,7 +204,7 @@ export default function Hero() {
       email: formData.email
     }
     const params = new URLSearchParams(submissionData)
-    window.open(`https://order.domyhomework.co/?${params.toString()}`, '_blank')
+    window.location.href = `https://order.domyhomework.co/?${params.toString()}`
   }
 
   // ========== RENDER ==========

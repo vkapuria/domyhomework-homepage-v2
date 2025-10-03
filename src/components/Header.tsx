@@ -35,7 +35,7 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <Link href="/order" className="bg-black text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors hidden md:block">
+          <Link href="https://order.domyhomework.co" className="bg-black text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors hidden md:block">
             Order Now
           </Link>
 
@@ -65,9 +65,9 @@ export default function Header() {
               <Link href="/pricing" className="text-gray-700">Pricing</Link>
               <Link href="/reviews" className="text-gray-700">Reviews</Link>
               <Link href="/top-writers" className="text-gray-700">Writers</Link>
-              <Link href="/order" className="bg-black text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center">
-  Order Now
-</Link>
+              <Link href="https://order.domyhomework.co" className="bg-black text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center">
+                Order Now
+              </Link>
             </div>
           </div>
         )}

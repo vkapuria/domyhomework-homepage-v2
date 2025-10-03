@@ -153,11 +153,8 @@ export default function Testimonials() {
             Testimonials
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-  Reviews of Our Do My Homework Online Service
-</h2>
-<div className="text-sm text-gray-600 mb-2">
-  {(1792 + Math.floor((new Date().getMonth() + 1) * 25)).toLocaleString()} verified reviews and growing daily
-</div>
+            Reviews of Our Do My Homework Online Service
+          </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-4">
             Real feedback from students who trust our expert writers for plagiarism-free, on-time homework help.
           </p>
@@ -175,18 +172,19 @@ export default function Testimonials() {
             ))}
           </div>
           </div>
-
-               {/* See All Reviews button */}
-               <div className="text-center mt-10">
-          <a
-            href="/reviews"
+          {/* See All Reviews button */}
+        <div className="text-center mt-10">
+          <div className="text-sm text-gray-600 mb-4">
+            {(1792 + Math.floor((new Date().getMonth() + 1) * 25)).toLocaleString()} verified reviews and growing daily
+          </div>
+            <a href="/reviews"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white bg-[#8300e9] hover:bg-purple-700 transition-colors shadow-sm"
-          >
-            <IconMessageCircle className="w-5 h-5" />
+        >
+            <IconStarFilled className="w-5 h-5" />
             See All Reviews
           </a>
         </div>
-      </div>
+        </div>
 
     </section>
   )
