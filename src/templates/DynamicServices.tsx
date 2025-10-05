@@ -8,26 +8,38 @@ import {
   IconChalkboard 
 } from '@tabler/icons-react'
 
-export default function Services() {
+interface DynamicServicesProps {
+  title: string
+  subtitle: string
+  chipText?: string
+  showRelatedServices?: boolean
+}
+
+export default function DynamicServices({ 
+  title, 
+  subtitle, 
+  chipText = "Our Services",
+  showRelatedServices = true 
+}: DynamicServicesProps) {
   return (
     <section className="py-12 sm:py-16" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
 
-        {/* Section Chip + Heading */}
+        {/* DYNAMIC HEADER - Only this changes */}
         <span className="inline-block text-sm font-medium border border-purple-500 bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
-          Our Services
+          {chipText}
         </span>
         <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          Pay Someone to Do My Homework – Services We Offer
-          </h2>
-          <div className="text-xs text-gray-500 mb-2">
-            Updated for {new Date().getFullYear()}-{new Date().getFullYear() + 1} Academic Year
-          </div>
+          {title}
+        </h2>
+        <div className="text-xs text-gray-500 mb-2">
+          Updated for {new Date().getFullYear()}-{new Date().getFullYear() + 1} Academic Year
+        </div>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-          From quick assignments to detailed research papers, DoMyHomework.co covers every subject and format students need to succeed.
+          {subtitle}
         </p>
 
-        {/* Services Grid with Clean Hover Animation */}
+        {/* EXACT SAME SERVICES GRID AS HOMEPAGE */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Service 1 */}
@@ -97,24 +109,26 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Related Services Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Services</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="/do-my-homework-online" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
-              Do My Homework Online
-            </a>
-            <a href="/professional-homework-help" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
-              Professional Homework Help
-            </a>
-            <a href="/homework-writing-service" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
-              Homework Writing Service
-            </a>
-            <a href="/pay-someone-to-do-my-homework" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
-              Pay Someone to Do My Homework
-            </a>
+        {/* OPTIONAL RELATED SERVICES SECTION */}
+        {showRelatedServices && (
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Services</h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/do-my-homework-online" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+                Do My Homework Online
+              </a>
+              <a href="/professional-homework-help" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+                Professional Homework Help
+              </a>
+              <a href="/homework-writing-service" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+                Homework Writing Service
+              </a>
+              <a href="/pay-someone-to-do-my-homework" className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors">
+                Pay Someone to Do My Homework
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )

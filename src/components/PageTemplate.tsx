@@ -1,8 +1,11 @@
 'use client'
 import DynamicHero from '@/templates/DynamicHero'
+import DynamicTestimonials from '@/templates/DynamicTestimonials'
 import DynamicBenefits from '@/templates/DynamicBenefits'
+import DynamicHowItWorks from '@/templates/DynamicHowItWorks'
+import DynamicServices from '@/templates/DynamicServices'
+import DynamicPricingSection from '@/templates/DynamicPricingSection'
 import DynamicFAQ from '@/templates/DynamicFAQ'
-// Import other dynamic components as needed
 import { ServicePageData } from '@/types/servicePage'
 
 interface PageTemplateProps {
@@ -20,19 +23,39 @@ export default function PageTemplate({ data }: PageTemplateProps) {
         trustSignals={data.hero.trustSignals}
       />
       
+      <DynamicTestimonials 
+        title={data.sections.testimonials.title}
+        subtitle={data.sections.testimonials.subtitle}
+      />
+      
       <DynamicBenefits 
         title={data.sections.benefits.title}
         subtitle={data.sections.benefits.subtitle}
         items={data.sections.benefits.items}
       />
       
+      <DynamicHowItWorks 
+        title={data.sections.howItWorks.title}
+        subtitle={data.sections.howItWorks.subtitle}
+        steps={data.sections.howItWorks.steps}
+      />
+      
+      <DynamicServices 
+        title={data.sections.services.title}
+        subtitle={data.sections.services.subtitle}
+      />
+      
+      <DynamicPricingSection 
+        title={data.sections.pricing.title}
+        subtitle={data.sections.pricing.subtitle}
+      />
+      
       <DynamicFAQ 
         title={data.sections.faq.title}
         subtitle={data.sections.faq.subtitle}
         items={data.sections.faq.items}
+        seoContent={data.sections.seoContent}
       />
-      
-      {/* Add other dynamic components as we create them */}
     </main>
   )
 }

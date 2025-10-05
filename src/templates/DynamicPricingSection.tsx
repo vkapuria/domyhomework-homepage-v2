@@ -2,12 +2,16 @@
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
 
+interface DynamicPricingSectionProps {
+  title: string
+  subtitle: string
+  chipText?: string
+}
 
-// Constants from WordPress version
+// Keep all existing pricing logic exactly the same
 const WORDS_PER_PAGE = 300
 const specialPricingRules = { smallOrder: 3, mediumOrder: 8 }
 
-// Document types mapping
 const ALL_DOCUMENTS = {
   // Popular choices
   article_review: 'Article Review',
@@ -53,7 +57,11 @@ interface CalculatorState {
   quantity: number
 }
 
-export default function PricingSection() {
+export default function DynamicPricingSection({ 
+  title, 
+  subtitle, 
+  chipText = "Pricing & Rates" 
+}: DynamicPricingSectionProps) {
   const [state, setState] = useState<CalculatorState>({
     educationLevel: 'bachelor',
     documentType: 'essay',
@@ -61,7 +69,7 @@ export default function PricingSection() {
     quantity: 1
   })
 
-  // Pricing calculation functions (exact from WordPress)
+  // Keep all existing calculation functions exactly the same
   const calculateBasePricePerPage = useCallback((): number => {
     let basePricePerPage: number
 
@@ -73,7 +81,6 @@ export default function PricingSection() {
       default: basePricePerPage = 14
     }
 
-    // Document type specific pricing
     if (state.documentType === 'powerpoint') {
       switch (state.educationLevel) {
         case 'high_school': basePricePerPage = 10; break
@@ -212,13 +219,11 @@ export default function PricingSection() {
       price: discountedPrice
     }
 
-    // Store in session storage
     sessionStorage.setItem('calculatorData', JSON.stringify({
       ...orderData,
       timestamp: Date.now()
     }))
 
-    // Redirect to order page
     const params = new URLSearchParams({
       education_level: state.educationLevel,
       document_type: state.documentType,
@@ -235,23 +240,23 @@ export default function PricingSection() {
     <section className="relative py-16 sm:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
         
-        {/* Chip + Heading */}
+        {/* DYNAMIC HEADER - Only this changes */}
         <div className="text-center mb-12">
           <span className="inline-block text-sm font-medium border border-purple-500 bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4">
-            Pricing & Rates
+            {chipText}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Affordable Homework Writing Service Pricing
+            {title}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Get expert homework help at transparent & student-friendly rates. No hidden fees, no surprises—just quality academic assistance within your budget.
+            {subtitle}
           </p>
         </div>
 
-        {/* Calculator + Pricing Grid */}
+        {/* EXACT SAME CONTENT AS HOMEPAGE - Calculator + Pricing Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
-        {/* ===== Left Column: Calculator Form ===== */}
+        {/* Keep all existing calculator functionality exactly the same */}
         <div className="calculator-wrapper relative">
         <div className="calculator bg-white border-[3px] border-black p-6 w-full shadow-[8px_8px_0px_#000000] relative">
               <form onSubmit={handleSubmit} className="calculator__form">
@@ -344,7 +349,7 @@ export default function PricingSection() {
                     </label>
                   </div>
 
-                  {/* Quantity Control */}
+                  {/* Keep all existing quantity control, pricing display, buttons exactly the same */}
                   <div className="calculator__group flex flex-col mb-4">
                     <label className="calculator__label text-sm font-bold text-black uppercase tracking-wide mb-2">
                       Quantity
@@ -445,89 +450,83 @@ export default function PricingSection() {
             </div>
           </div>
 
-          {/* ===== Right Column: All-Inclusive Pricing Card ===== */}
+          {/* Right Column: All-Inclusive Pricing Card - EXACT SAME */}
           <div className="relative bg-white border-[3px] border-black p-0 shadow-[8px_8px_0px_#000] text-center h-fit">
-            {/* Yellow Badge Above Header */}
             <div className="bg-yellow-400 text-black px-4 py-2 border-b-[3px] border-black">
             <div className="text-center text-sm font-bold uppercase tracking-wide">
                 100% Human Written
             </div>
             </div>
 
-            {/* Black Header */}
             <div className="bg-black text-white py-4 px-6 border-b-[3px] border-black">
             <h3 className="text-xl font-bold uppercase tracking-wide">
                 ALL-INCLUSIVE PRICING
             </h3>
             </div>
 
-{/* Content Area */}
-<div className="p-6">
-  {/* Features List */}
-  <div className="space-y-0">
-    <div className="flex items-center justify-between py-2 border-b-2 border-gray-200">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Writing Services</span>
-      </div>
-      <span className="text-sm text-gray-500 font-medium">from $12.00/page</span>
-    </div>
-    
-    <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Rewriting Services</span>
-      </div>
-      <span className="text-sm text-gray-500 font-medium">from $8.00/page</span>
-    </div>
-    
-    <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Originality Report</span>
-      </div>
-      <span className="text-sm font-bold text-purple-600">FREE</span>
-    </div>
-    
-    <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Unlimited Edits</span>
-      </div>
-      <span className="text-sm font-bold text-purple-600">FREE</span>
-    </div>
-    
-    <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Formatting</span>
-      </div>
-      <span className="text-sm font-bold text-purple-600">FREE</span>
-    </div>
-    
-    <div className="flex items-center justify-between py-4">
-      <div className="flex items-center gap-3">
-        <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
-        <span className="text-base font-medium text-gray-900">Title Page</span>
-      </div>
-      <span className="text-sm font-bold text-purple-600">FREE</span>
-    </div>
-  </div>
+            <div className="p-6">
+              <div className="space-y-0">
+                <div className="flex items-center justify-between py-2 border-b-2 border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Writing Services</span>
+                  </div>
+                  <span className="text-sm text-gray-500 font-medium">from $12.00/page</span>
+                </div>
+                
+                <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Rewriting Services</span>
+                  </div>
+                  <span className="text-sm text-gray-500 font-medium">from $8.00/page</span>
+                </div>
+                
+                <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Originality Report</span>
+                  </div>
+                  <span className="text-sm font-bold text-purple-600">FREE</span>
+                </div>
+                
+                <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Unlimited Edits</span>
+                  </div>
+                  <span className="text-sm font-bold text-purple-600">FREE</span>
+                </div>
+                
+                <div className="flex items-center justify-between py-4 border-b-2 border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Formatting</span>
+                  </div>
+                  <span className="text-sm font-bold text-purple-600">FREE</span>
+                </div>
+                
+                <div className="flex items-center justify-between py-4">
+                  <div className="flex items-center gap-3">
+                    <Image src="/icons/checked.svg" alt="✓" width={24} height={24} />
+                    <span className="text-base font-medium text-gray-900">Title Page</span>
+                  </div>
+                  <span className="text-sm font-bold text-purple-600">FREE</span>
+                </div>
+              </div>
 
-  {/* Secondary CTA */}
-  <button
-    onClick={() => {
-      // Scroll to guarantees section or open help
-      const guaranteesSection = document.querySelector('[data-section="guarantees"]')
-      if (guaranteesSection) {
-        guaranteesSection.scrollIntoView({ behavior: 'smooth' })
-      }
-    }}
-    className="mt-6 w-full bg-purple-600 text-white py-4 px-6 border-[3px] border-black font-bold text-lg uppercase tracking-wide shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
-  >
-    View All Guarantees
-  </button>
-</div>
+              <button
+                onClick={() => {
+                  const guaranteesSection = document.querySelector('[data-section="guarantees"]')
+                  if (guaranteesSection) {
+                    guaranteesSection.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
+                className="mt-6 w-full bg-purple-600 text-white py-4 px-6 border-[3px] border-black font-bold text-lg uppercase tracking-wide shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+              >
+                View All Guarantees
+              </button>
+            </div>
           </div>
         </div>
       </div>
