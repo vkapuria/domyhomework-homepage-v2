@@ -43,11 +43,17 @@ function FAQSection() {
         {/* FAQ Items */}
         <div className="space-y-4 mb-16">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white border-2 border-black shadow-[4px_4px_0px_#000] rounded-lg overflow-hidden">
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-              >
+            <div key={index} className={`bg-white border-2 rounded-lg overflow-hidden transition-all ${
+                openIndex === index 
+                  ? 'border-purple-600 shadow-[4px_4px_0px_#8300e9]' 
+                  : 'border-black shadow-[4px_4px_0px_#000]'
+              }`}>
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className={`w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors ${
+                    openIndex === index ? 'border-t-4 border-purple-600' : ''
+                  }`}
+                >
                 <h3 className="text-lg font-semibold text-gray-900 pr-4">
                   {faq.question}
                 </h3>
@@ -58,11 +64,11 @@ function FAQSection() {
                 )}
               </button>
               
-              <div className={`grid transition-all duration-300 ease-in-out ${
+              <div className={`grid transition-all duration-200 ease-in-out ${
                 openIndex === index 
-                  ? "grid-rows-[1fr] opacity-100" 
-                  : "grid-rows-[0fr] opacity-0"
-              }`}>
+                    ? "grid-rows-[1fr] opacity-100" 
+                    : "grid-rows-[0fr] opacity-0"
+                }`}>
                 <div className="overflow-hidden">
                   <div className="px-6 pb-4 text-gray-700 leading-relaxed">
                     {faq.answer}
@@ -73,37 +79,58 @@ function FAQSection() {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-white border-2 border-black shadow-[6px_6px_0px_#000] rounded-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Ready to Make Your Homework Stress-Free?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">
-            Join thousands of successful students who trust us with their academic success.
-          </p>
-          
-          {/* Trust indicators */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="flex items-center text-yellow-400">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <IconStarFilled key={i} className="w-5 h-5" />
-              ))}
+        {/* CTA Section - Compact Professional Layout */}
+        <div className="bg-gradient-to-br from-purple-50 to-white border-2 border-black shadow-[8px_8px_0px_#000] rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 items-center min-h-[450px]">
+            
+            {/* Left Column - Image + Social Proof (2 columns) */}
+            <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center items-center space-y-6">
+            {/* Properly Sized Image */}
+            <div className="w-full max-w-[480px]">
+                <Image 
+                src="/images/Happy-student.png"
+                alt="Happy Student"
+                width={280}
+                height={280}
+                className="w-full h-auto"
+                priority
+                />
             </div>
-            <span className="text-sm text-gray-600 font-medium">
-              Trusted by 14,800+ students
-            </span>
-          </div>
-          
-          
-          <a  href="https://order.domyhomework.co"
-            className="inline-block bg-black text-white px-8 py-4 border-2 border-black font-bold text-lg hover:bg-gray-800 transition-all shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px]"
-          >
-            Get My Homework Quote Now
-          </a>
-          
-          <p className="text-xs text-gray-500 mt-4">
-            ✓ Free quote • ✓ No payment required • ✓ Get started in 2 minutes
-          </p>
+            
+            {/* Compact Social Proof Box */}
+                <div className="w-full max-w-[280px]">
+                <div className="flex items-center justify-center text-yellow-400 gap-0.5 mb-2">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                    <IconStarFilled key={i} className="w-6 h-6" />
+                    ))}
+                </div>
+                <p className="text-base font-bold text-gray-900 text-center">
+                    Trusted by 14,800+ students
+                </p>
+                </div>
+            </div>
+            
+            {/* Right Column - Content + CTA (3 columns) */}
+            <div className="lg:col-span-3 p-6 lg:p-10 bg-white flex flex-col justify-center">
+            {/* Heading */}
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                Ready to Make Your Homework Stress-Free?
+            </h3>
+            
+            {/* Description */}
+            <p className="text-base text-gray-600 mb-6 leading-relaxed">
+                Join thousands of successful students who trust us with their academic success.
+            </p>
+            
+            {/* CTA Button */}
+            <a 
+                href="https://order.domyhomework.co"
+                className="inline-block bg-purple-600 text-white px-8 py-4 border-2 border-black font-bold text-lg hover:bg-purple-700 transition-all shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] text-center mb-5 rounded w-full sm:w-auto"
+            >
+                Get My Homework Quote Now
+            </a>            
+        </div>
+        </div>
         </div>
       </div>
     </section>
@@ -112,6 +139,25 @@ function FAQSection() {
 
 // Generate structured data for How It Works page
 function generateHowItWorksStructuredData() {
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://domyhomework.co"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How It Works",
+            "item": "https://domyhomework.co/how-it-works"
+          }
+        ]
+      }
+
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -152,7 +198,7 @@ function generateHowItWorksStructuredData() {
     }))
   }
 
-  return [howToSchema, faqSchema]
+  return [breadcrumbSchema, howToSchema, faqSchema]
 }
 
 export default function HowItWorksPage() {
@@ -176,22 +222,65 @@ export default function HowItWorksPage() {
             How Our Homework Help Actually Works
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4 leading-relaxed">
-            From overwhelmed to confident in 3 simple steps. See exactly how we help students succeed without the stress.
+            From overwhelmed to confident in just 3 steps. Here's how we make homework stress-free.   
           </p>
-          <div className="text-sm text-gray-500 font-medium">
-            ✓ Transparent process • ✓ No hidden fees • ✓ Get started in under 5 minutes
-          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 text-gray-800" style={{borderRadius: '60px', border: '1px solid #d1f4d5', background: '#f3fcf4', boxShadow: '0px 69px 19px 0px rgba(64, 160, 83, 0), 0px 44px 18px 0px rgba(64, 160, 83, 0.02), 0px 25px 15px 0px rgba(64, 160, 83, 0.07), 0px 11px 11px 0px rgba(64, 160, 83, 0.13), 0px 3px 6px 0px rgba(64, 160, 83, 0.15)'}}>
+                <Image src="/icons/checked.svg" alt="" width={17} height={17} />
+                Transparent process
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 text-gray-800" style={{borderRadius: '60px', border: '1px solid #d1f4d5', background: '#f3fcf4', boxShadow: '0px 69px 19px 0px rgba(64, 160, 83, 0), 0px 44px 18px 0px rgba(64, 160, 83, 0.02), 0px 25px 15px 0px rgba(64, 160, 83, 0.07), 0px 11px 11px 0px rgba(64, 160, 83, 0.13), 0px 3px 6px 0px rgba(64, 160, 83, 0.15)'}}>
+                <Image src="/icons/checked.svg" alt="" width={17} height={17} />
+                No hidden fees
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 text-gray-800" style={{borderRadius: '60px', border: '1px solid #d1f4d5', background: '#f3fcf4', boxShadow: '0px 69px 19px 0px rgba(64, 160, 83, 0), 0px 44px 18px 0px rgba(64, 160, 83, 0.02), 0px 25px 15px 0px rgba(64, 160, 83, 0.07), 0px 11px 11px 0px rgba(64, 160, 83, 0.13), 0px 3px 6px 0px rgba(64, 160, 83, 0.15)'}}>
+                <Image src="/icons/checked.svg" alt="" width={17} height={17} />
+                Get started in 5 minutes
+            </span>
+            </div>
         </div>
       </section>
 
+      {/* Trust Stats Divider */}
+<div className="bg-black text-white py-10">
+  <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      <div className="transition-transform hover:scale-105">
+        <div className="text-4xl font-extrabold text-purple-400 mb-1">47,000+</div>
+        <div className="text-sm text-gray-300">Assignments Completed</div>
+      </div>
+      <div className="transition-transform hover:scale-105">
+        <div className="text-4xl font-extrabold text-purple-400 mb-1">98%</div>
+        <div className="text-sm text-gray-300">Customer Satisfaction</div>
+      </div>
+      <div className="transition-transform hover:scale-105">
+        <div className="text-4xl font-extrabold text-purple-400 mb-1">24/7</div>
+        <div className="text-sm text-gray-300">Expert Support</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
       {/* How It Works Process */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
-          
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Three Simple Steps to Academic Success
-            </h2>
+      {/* How It Works Process */}
+<section className="py-16 sm:py-20 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+    
+    {/* Card Container - LiveChat Style */}
+    <div className="bg-white border border-gray-200 rounded-3xl p-8 sm:p-12 lg:p-16" style={{boxShadow: '0px 149px 42px 0px rgba(0, 0, 0, 0.00), 0px 95px 38px 0px rgba(0, 0, 0, 0.01), 0px 53px 32px 0px rgba(0, 0, 0, 0.02), 0px 24px 24px 0px rgba(0, 0, 0, 0.04), 0px 6px 13px 0px rgba(0, 0, 0, 0.05)'}}>
+      
+      {/* Chip Badge */}
+      <div className="text-center mb-8">
+        <span className="inline-block text-xs font-semibold text-gray-700 border border-gray-300 rounded-full px-3 py-1.5 uppercase tracking-wide">
+          How It Works
+        </span>
+      </div>
+      
+      <div className="text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Three Simple Steps to Academic Success
+        </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Our proven process ensures you get high-quality help quickly and securely.
             </p>
@@ -258,16 +347,24 @@ export default function HowItWorksPage() {
           </motion.div>
 
           {/* Process CTA */}
-          <div className="text-center mt-12">
-            
-             <a href="#faq"
-              className="inline-block bg-purple-600 text-white px-8 py-3 border-2 border-black font-semibold hover:bg-purple-700 transition-colors shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px]"
-            >
-              Get Started in Minutes
-            </a>
-          </div>
-        </div>
-      </section>
+            <div className="text-center mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#faq"
+                className="inline-block bg-purple-600 text-white px-8 py-3 border-2 border-black font-semibold hover:bg-purple-700 transition-colors shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px]"
+                >
+                Get Started in Minutes
+                </a>
+                
+                <a href="/pricing"
+                className="inline-block bg-white text-black-600 px-8 py-3 border-2 border-purple-600 font-semibold hover:bg-purple-50 transition-colors shadow-[4px_4px_0px_#8300e9] hover:shadow-[2px_2px_0px_#8300e9] hover:translate-x-[2px] hover:translate-y-[2px]"
+                >
+                Or, See Our Pricing →
+                </a>
+            </div>
+            </div>
+            </div>
+      </div> {/* End Card Container */}
+  </section>
 
       {/* FAQ + CTA Section */}
       <FAQSection />

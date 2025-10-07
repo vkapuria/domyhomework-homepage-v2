@@ -14,6 +14,8 @@ interface DynamicHowItWorksProps {
   steps: HowItWorksStep[]
   chipText?: string
   ctaText?: string
+  secondaryCtaText?: string
+  secondaryCtaLink?: string
 }
 
 export default function DynamicHowItWorks({ 
@@ -21,7 +23,9 @@ export default function DynamicHowItWorks({
   subtitle, 
   steps,
   chipText = "How It Works",
-  ctaText = "Start Your Order"
+  ctaText = "Start Your Order",
+  secondaryCtaText = "Or, See Our Pricing →",
+  secondaryCtaLink = "/pricing"
 }: DynamicHowItWorksProps) {
   return (
     <section className="relative py-12 sm:py-16 bg-white overflow-hidden" aria-labelledby="how-it-works-heading">
@@ -61,14 +65,25 @@ export default function DynamicHowItWorks({
           ))}
         </motion.div>
 
-        {/* CTA - EXACT SAME AS HOMEPAGE */}
-        <div className="mt-12">
-          <a 
-            href="#order-form"
-            className="inline-block bg-neutral-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-neutral-800 transition-colors"
-          >
-            {ctaText}
-          </a>
+        {/* UPDATED: Dual CTA Buttons */}
+        <div className="text-center mt-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Primary CTA */}
+            <a 
+              href="#order-form"
+              className="inline-block bg-neutral-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-neutral-800 transition-colors"
+            >
+              {ctaText}
+            </a>
+            
+            {/* Secondary CTA */}
+            <a 
+              href={secondaryCtaLink}
+              className="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg border-2 border-purple-600 font-medium hover:bg-purple-50 transition-colors"
+            >
+              {secondaryCtaText}
+            </a>
+          </div>
         </div>
       </div>
     </section>
