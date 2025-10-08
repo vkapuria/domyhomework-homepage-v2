@@ -1,0 +1,137 @@
+[
+    {
+      "id": "sarah-chen",
+      "name": "Dr. Sarah Chen",
+      "photo": "/images/writers/sarah-chen.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Academic Writing", "Research Methods"],
+      "stats": {
+        "projects": 247,
+        "successRate": 98,
+        "rating": 4.9
+      },
+      "bio": "PhD in Education with 8+ years helping students master academic writing, research methodology, and critical analysis across multiple disciplines.",
+      "subjects": ["Education", "Social Sciences", "Humanities"]
+    },
+    {
+      "id": "marcus-wright",
+      "name": "Marcus Wright",
+      "photo": "/images/writers/marcus-wright.jpg",
+      "country": "UK",
+      "countryFlag": "🇬🇧",
+      "specializations": ["STEM Writing", "Engineering"],
+      "stats": {
+        "projects": 189,
+        "successRate": 96,
+        "rating": 4.8
+      },
+      "bio": "MS Engineering from MIT. Combines technical expertise with exceptional writing skills to make complex STEM concepts accessible and engaging.",
+      "subjects": ["Engineering", "Mathematics", "Physics"]
+    },
+    {
+      "id": "priya-sharma",
+      "name": "Dr. Priya Sharma",
+      "photo": "/images/writers/priya-sharma.jpg",
+      "country": "CA",
+      "countryFlag": "🇨🇦",
+      "specializations": ["Business Analysis", "Finance"],
+      "stats": {
+        "projects": 312,
+        "successRate": 97,
+        "rating": 4.9
+      },
+      "bio": "MBA from Harvard. Specializes in business cases, financial analysis, and strategic management papers with real-world industry insights.",
+      "subjects": ["Business", "Finance", "Economics"]
+    },
+    {
+      "id": "james-anderson",
+      "name": "Prof. James Anderson",
+      "photo": "/images/writers/james-anderson.jpg",
+      "country": "AU",
+      "countryFlag": "🇦🇺",
+      "specializations": ["Literature Review", "Critical Analysis"],
+      "stats": {
+        "projects": 421,
+        "successRate": 99,
+        "rating": 5.0
+      },
+      "bio": "Professor of English Literature with 15+ years of academic experience. Expert in literary analysis, comparative literature, and research papers.",
+      "subjects": ["Literature", "English", "Humanities"]
+    },
+    {
+      "id": "elena-rodriguez",
+      "name": "Dr. Elena Rodriguez",
+      "photo": "/images/writers/elena-rodriguez.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Psychology Research", "Statistics"],
+      "stats": {
+        "projects": 278,
+        "successRate": 97,
+        "rating": 4.8
+      },
+      "bio": "Clinical psychologist with expertise in research methodology, statistical analysis, and APA formatting for psychology papers.",
+      "subjects": ["Psychology", "Statistics", "Social Sciences"]
+    },
+    {
+      "id": "david-kim",
+      "name": "David Kim",
+      "photo": "/images/writers/david-kim.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Programming", "Computer Science"],
+      "stats": {
+        "projects": 193,
+        "successRate": 95,
+        "rating": 4.7
+      },
+      "bio": "Software engineer and CS educator. Delivers well-commented code, algorithms, and technical documentation for programming assignments.",
+      "subjects": ["Computer Science", "Programming", "IT"]
+    },
+    {
+      "id": "sophia-martinez",
+      "name": "Dr. Sophia Martinez",
+      "photo": "/images/writers/sophia-martinez.jpg",
+      "country": "ES",
+      "countryFlag": "🇪🇸",
+      "specializations": ["Nursing Papers", "Healthcare"],
+      "stats": {
+        "projects": 256,
+        "successRate": 98,
+        "rating": 4.9
+      },
+      "bio": "DNP with clinical experience. Specializes in evidence-based nursing papers, case studies, and healthcare policy analysis.",
+      "subjects": ["Nursing", "Healthcare", "Medicine"]
+    },
+    {
+      "id": "thomas-mueller",
+      "name": "Prof. Thomas Mueller",
+      "photo": "/images/writers/thomas-mueller.jpg",
+      "country": "DE",
+      "countryFlag": "🇩🇪",
+      "specializations": ["History Research", "Political Science"],
+      "stats": {
+        "projects": 367,
+        "successRate": 98,
+        "rating": 4.9
+      },
+      "bio": "History professor with deep expertise in historical research, archival analysis, and political science papers with global perspectives.",
+      "subjects": ["History", "Political Science", "International Relations"]
+    },
+    {
+      "id": "olivia-chen",
+      "name": "Olivia Chen",
+      "photo": "/images/writers/olivia-chen.jpg",
+      "country": "SG",
+      "countryFlag": "🇸🇬",
+      "specializations": ["Marketing Strategy", "Digital Media"],
+      "stats": {
+        "projects": 215,
+        "successRate": 96,
+        "rating": 4.8
+      },
+      "bio": "Marketing strategist with agency experience. Expert in digital marketing plans, consumer behavior analysis, and brand strategy papers.",
+      "subjects": ["Marketing", "Business", "Communications"]
+    }
+  ]
