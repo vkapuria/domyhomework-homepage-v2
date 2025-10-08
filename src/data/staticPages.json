@@ -6,6 +6,12 @@
       "priority": 1.0
     },
     {
+        "slug": "about",
+        "title": "About Us",
+        "changeFrequency": "monthly",
+        "priority": 0.8
+      },
+    {
       "slug": "contact",
       "title": "Contact",
       "changeFrequency": "monthly",
