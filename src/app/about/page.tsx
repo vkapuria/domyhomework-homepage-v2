@@ -35,27 +35,58 @@ export default function AboutPage() {
   const faqs = [
     {
       question: "How long has DoMyHomework.co been in business?",
-      answer: "We've been helping students since 2017, growing from a small team to over 500 verified experts serving students in 120+ countries."
+      answer: (
+        <>
+          We've been helping students since 2017, growing from a small team to over 500 verified experts serving students in 120+ countries.
+        </>
+      )
     },
     {
       question: "What makes your expert selection process unique?",
-      answer: "We accept only the top 2% of applicants through a rigorous 4-stage vetting process including background checks, subject expertise tests, writing assessments, and quality control reviews."
+      answer: (
+        <>
+          We accept only the top 2% of applicants through a rigorous 4-stage vetting process including background checks, subject expertise tests, writing assessments, and quality control reviews.
+        </>
+      )
     },
     {
       question: "How do you ensure quality control?",
-      answer: "Every expert goes through continuous performance monitoring, plagiarism checks on all work, customer feedback reviews, and regular quality assurance audits by our QA team."
+      answer: (
+        <>
+          Every expert goes through continuous performance monitoring, plagiarism checks on all work, customer feedback reviews, and regular quality assurance audits by our QA team. Read more about our{' '}
+          <Link href="/money-back-guarantee" className="text-purple-600 hover:underline font-medium">
+            Money Back Guarantee
+          </Link>.
+        </>
+      )
     },
     {
       question: "What subjects and academic levels do you cover?",
-      answer: "We cover 100+ subjects across all academic levels from high school to PhD, including STEM, humanities, business, law, nursing, and technical fields."
+      answer: (
+        <>
+          We cover 100+ subjects across all academic levels from high school to PhD, including STEM, humanities, business, law, nursing, and technical fields.
+        </>
+      )
     },
     {
       question: "Is my personal information kept confidential?",
-      answer: "Absolutely. We never share your information with third parties or your educational institution. All data is encrypted and stored securely with strict privacy protocols."
+      answer: (
+        <>
+          Absolutely. We never share your information with third parties or your educational institution. All data is encrypted and stored securely with strict privacy protocols. See our{' '}
+          <Link href="/privacy" className="text-purple-600 hover:underline font-medium">
+            Privacy Policy
+          </Link>{' '}
+          for complete details.
+        </>
+      )
     },
     {
       question: "How quickly can I get help?",
-      answer: "We offer 24/7 support with an average response time of under 1 hour. For urgent assignments, we can deliver quality work in as little as 6 hours depending on complexity."
+      answer: (
+        <>
+          We offer 24/7 support with an average response time of under 1 hour. For urgent assignments, we can deliver quality work in as little as 6 hours depending on complexity.
+        </>
+      )
     }
   ]
 
@@ -156,13 +187,16 @@ export default function AboutPage() {
 
             {/* Value 2 */}
             <div className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-[4px_4px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-                <div className="mb-4">
+            <div className="mb-4">
                 <ShieldCheckIcon className="w-12 h-12 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Guaranteed</h3>
-                <p className="text-gray-700">
-                Every paper checked, reviewed, and verified.
-                </p>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Guaranteed</h3>
+            <p className="text-gray-700">
+                Every paper checked, reviewed, and verified.{' '}
+                <Link href="/money-back-guarantee" className="text-purple-600 hover:underline font-medium">
+                See our guarantee
+                </Link>
+            </p>
             </div>
 
             {/* Value 3 */}
@@ -278,12 +312,18 @@ export default function AboutPage() {
 
     {/* Bottom graphic */}
     <div className="mt-12 text-center">
-      <div className="inline-flex items-center gap-4 bg-white border-2 border-black rounded-lg px-8 py-4">
+    <div className="inline-flex items-center gap-4 bg-white border-2 border-black rounded-lg px-8 py-4">
         <UserGroupIcon className="w-8 h-8 text-purple-600" />
         <p className="text-lg font-bold text-gray-900">
-          Top 2% Academic Talent = Guaranteed Excellence
+        Top 2% Academic Talent = Guaranteed Excellence
         </p>
-      </div>
+    </div>
+    <p className="text-gray-700 mt-6">
+        Learn more about our commitment to academic integrity in our{' '}
+        <Link href="/fair-use-policy" className="text-purple-600 hover:underline font-medium">
+        Fair Use Policy
+        </Link>
+    </p>
     </div>
   </div>
 </div>
@@ -411,7 +451,7 @@ export default function AboutPage() {
                     >
                       <div className="px-6 py-4 border-t-2 border-black bg-gray-50 text-gray-700 leading-relaxed">
                         {faq.answer}
-                      </div>
+                        </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
