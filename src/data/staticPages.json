@@ -1,0 +1,56 @@
+[
+    {
+      "slug": "",
+      "title": "Home",
+      "changeFrequency": "daily",
+      "priority": 1.0
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "changeFrequency": "monthly",
+      "priority": 0.8
+    },
+    {
+      "slug": "faq",
+      "title": "FAQ",
+      "changeFrequency": "monthly",
+      "priority": 0.9
+    },
+    {
+      "slug": "how-it-works",
+      "title": "How It Works",
+      "changeFrequency": "monthly",
+      "priority": 0.9
+    },
+    {
+      "slug": "pricing",
+      "title": "Pricing",
+      "changeFrequency": "weekly",
+      "priority": 0.9
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy Policy",
+      "changeFrequency": "yearly",
+      "priority": 0.5
+    },
+    {
+      "slug": "terms",
+      "title": "Terms and Conditions",
+      "changeFrequency": "yearly",
+      "priority": 0.5
+    },
+    {
+      "slug": "fair-use-policy",
+      "title": "Fair Use Policy",
+      "changeFrequency": "yearly",
+      "priority": 0.5
+    },
+    {
+      "slug": "money-back-guarantee",
+      "title": "Money Back Guarantee",
+      "changeFrequency": "yearly",
+      "priority": 0.6
+    }
+  ]

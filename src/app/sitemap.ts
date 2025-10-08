@@ -1,68 +1,36 @@
 import { MetadataRoute } from 'next'
-import { getServicePages } from '@/lib/content'
+import servicePages from '@/data/servicePages.json'
 import blogs from '@/data/blogs.json'
+import staticPagesData from '@/data/staticPages.json'
+
+type ServicePage = {
+  slug: string
+  [key: string]: any
+}
+
+type StaticPage = {
+  slug: string
+  title: string
+  changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
+  priority: number
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Use environment variable with fallback
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://domyhomework-co.vercel.app'
   
-  // Get dynamic service pages
-  const servicePages = getServicePages()
+  // Cast JSON data to proper type
+  const staticPages = staticPagesData as StaticPage[]
   
-  // Static pages
-  const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/how-it-works`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/fair-use-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/money-back-guarantee`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.6,
-    },
-  ]
+  // Static pages - NOW FULLY DYNAMIC FROM JSON!
+  const staticPageUrls = staticPages.map((page) => ({
+    url: page.slug ? `${baseUrl}/${page.slug}` : baseUrl,
+    lastModified: new Date(),
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }))
 
   // Service pages
-  const servicePageUrls = servicePages.map((page) => ({
+  const servicePageUrls = servicePages.map((page: ServicePage) => ({
     url: `${baseUrl}/${page.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
@@ -77,5 +45,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...servicePageUrls, ...blogUrls]
+  return [...staticPageUrls, ...servicePageUrls, ...blogUrls]
 }
