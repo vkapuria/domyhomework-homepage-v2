@@ -25,14 +25,14 @@ interface Writer {
     subjects: string[]
     lastOrder: string
     reviewCount: number
-    ratingBreakdown: {
+    ratingBreakdown?: {
       qualityOfWork: number
       followsInstructions: number
       responseSpeed: number
       communication: number
     }
-    topSubjects: Array<{ name: string; count: number; percentage: number }>
-    topPaperTypes: Array<{ name: string; count: number; percentage: number }>
+    topSubjects?: Array<{ name: string; count: number; percentage: number }>
+    topPaperTypes?: Array<{ name: string; count: number; percentage: number }>
     premiumReviews?: Array<{
       id: string
       orderNumber: string
@@ -43,7 +43,7 @@ interface Writer {
       writerResponse?: string | null
       helpfulCount: number
     }>
-    reviews: Array<{
+    reviews?: Array<{
       id: string
       orderNumber: string
       date: string
@@ -149,13 +149,13 @@ interface Writer {
 
       {/* Rating Stars */}
       <div className="flex items-center justify-center md:justify-start gap-2">
-      <div className="flex items-center gap-1">
-            {[...Array(5)].map((_, i) => (
-                <IconStarFilled 
-                key={i} 
-                className={`w-5 h-5 ${i < writer.stats.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                />
-            ))}
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <IconStarFilled 
+              key={i} 
+              className={`w-5 h-5 ${i < Math.floor(writer.stats.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
+            />
+          ))}
         </div>
         <span className="text-lg font-bold text-gray-900">{writer.stats.rating}</span>
         <span className="text-sm text-gray-600">({writer.reviewCount} reviews)</span>
@@ -174,34 +174,38 @@ interface Writer {
 </div>
 
               {/* Specializations */}
-              <div className="mb-8">
-                <h2 className="text-lg font-bold text-gray-900 mb-3">Specializations</h2>
-                <div className="flex flex-wrap gap-2">
-                  {writer.specializations.map((spec, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1.5 rounded-full border border-purple-200"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+              {writer.specializations && writer.specializations.length > 0 && (
+                <div className="mb-8">
+                  <h2 className="text-lg font-bold text-gray-900 mb-3">Specializations</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {writer.specializations.map((spec, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1.5 rounded-full border border-purple-200"
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Subjects */}
-              <div className="mb-8">
-                <h2 className="text-lg font-bold text-gray-900 mb-3">Expert In</h2>
-                <div className="flex flex-wrap gap-2">
-                  {writer.subjects.map((subject, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-200"
-                    >
-                      {subject}
-                    </span>
-                  ))}
+              {writer.subjects && writer.subjects.length > 0 && (
+                <div className="mb-8">
+                  <h2 className="text-lg font-bold text-gray-900 mb-3">Expert In</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {writer.subjects.map((subject, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-200"
+                      >
+                        {subject}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Bio */}
               <div>
@@ -209,7 +213,7 @@ interface Writer {
                 <p className={`text-gray-700 leading-relaxed ${!bioExpanded && 'line-clamp-4'}`}>
                   {writer.bio}
                 </p>
-                {writer.bio.length > 200 && (
+                {writer.bio && writer.bio.length > 200 && (
                   <button
                     onClick={() => setBioExpanded(!bioExpanded)}
                     className="text-purple-600 font-medium text-sm mt-2 hover:text-purple-700"
@@ -222,85 +226,91 @@ interface Writer {
 
             {/* Featured Reviews - What Students Loved */}
             {writer.premiumReviews && writer.premiumReviews.length > 0 && (
-            <FeaturedReviews 
+              <FeaturedReviews 
                 reviews={writer.premiumReviews} 
                 writerName={writer.name} 
-            />
+              />
             )}
 
             {/* Top Subjects & Paper Types Grid - With Animations */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Top Subjects */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Top 4 Subjects</h3>
-                <div className="space-y-3">
-                  {writer.topSubjects.map((subject, idx) => (
-                    <div key={idx}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-gray-700">{subject.name}</span>
-                        <span className="font-semibold text-gray-900">{subject.count}</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        className="bg-purple-600 h-2 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${subject.percentage}%` }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
-                        />
-                      </div>
+            {(writer.topSubjects || writer.topPaperTypes) && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* Top Subjects */}
+                {writer.topSubjects && writer.topSubjects.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">Top 4 Subjects</h3>
+                    <div className="space-y-3">
+                      {writer.topSubjects.map((subject, idx) => (
+                        <div key={idx}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-gray-700">{subject.name}</span>
+                            <span className="font-semibold text-gray-900">{subject.count}</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                            <motion.div
+                              className="bg-purple-600 h-2 rounded-full"
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${subject.percentage}%` }}
+                              viewport={{ once: true, amount: 0.5 }}
+                              transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
+                )}
 
-              {/* Top Paper Types */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Top 4 Paper Types</h3>
-                <div className="space-y-3">
-                  {writer.topPaperTypes.map((paper, idx) => (
-                    <div key={idx}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-gray-700">{paper.name}</span>
-                        <span className="font-semibold text-gray-900">{paper.count}</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        className="bg-yellow-400 h-2 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${paper.percentage}%` }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
-                        />
-                      </div>
+                {/* Top Paper Types */}
+                {writer.topPaperTypes && writer.topPaperTypes.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">Top 4 Paper Types</h3>
+                    <div className="space-y-3">
+                      {writer.topPaperTypes.map((paper, idx) => (
+                        <div key={idx}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-gray-700">{paper.name}</span>
+                            <span className="font-semibold text-gray-900">{paper.count}</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                            <motion.div
+                              className="bg-yellow-400 h-2 rounded-full"
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${paper.percentage}%` }}
+                              viewport={{ once: true, amount: 0.5 }}
+                              transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
 
             {/* Work History & Feedback Section */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Work History & Client Feedback</h2>
-        <p className="text-sm text-gray-600 mb-6">Real feedback from verified projects</p>
-        <div className="space-y-6">
-    {displayedReviews.map((review) => (
-      <ReviewCard key={review.id} review={review} writerName={writer.name} />
-    ))}
-  </div>
-  
-  {!showAllReviews && regularReviews.length > 6 && (
-    <div className="mt-6 text-center">
-      <button
-        onClick={() => setShowAllReviews(true)}
-        className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
-      >
-        Load More Reviews ({regularReviews.length - 6} more)
-      </button>
-    </div>
-  )}
-</div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Work History & Client Feedback</h2>
+              <p className="text-sm text-gray-600 mb-6">Real feedback from verified projects</p>
+              <div className="space-y-6">
+                {displayedReviews.map((review) => (
+                  <ReviewCard key={review.id} review={review} writerName={writer.name} />
+                ))}
+              </div>
+              
+              {!showAllReviews && regularReviews.length > 6 && (
+                <div className="mt-6 text-center">
+                  <button
+                    onClick={() => setShowAllReviews(true)}
+                    className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
+                  >
+                    Load More Reviews ({regularReviews.length - 6} more)
+                  </button>
+                </div>
+              )}
+            </div>
 
           </div>
 
@@ -347,7 +357,7 @@ interface Writer {
 
                 {/* CTA Button */}
                 
-                 <a href="https://order.domyhomework.co"
+                  href="https://order.domyhomework.co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold text-base hover:bg-purple-700 transition-all shadow-lg mb-4"
@@ -384,7 +394,6 @@ function StatBlock({ label, value, icon }: { label: string; value: any; icon?: b
 
 // Review Card Component - Balanced Layout
 function ReviewCard({ review, writerName }: { review: any; writerName: string }) {
-    // Extract first name (e.g., "Claire H." → "Claire")
     const firstName = writerName.split(' ')[0]
     
     return (
@@ -405,9 +414,11 @@ function ReviewCard({ review, writerName }: { review: any; writerName: string })
         {/* Balanced Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           
-          {/* Left: Customer Info + Paper Type */}
+          {/* Left: Order Info + Paper Type */}
           <div className="flex-1">
-            <p className="text-sm font-semibold text-gray-900">{review.customerId}</p>
+            <p className="text-xs text-gray-600">
+              Order: <span className="font-semibold text-gray-900">{review.orderNumber}</span>
+            </p>
             <div className="flex items-center gap-2 mt-1">
               <p className="text-xs text-gray-500">{review.date}</p>
               <span className="text-gray-400">•</span>
@@ -418,14 +429,14 @@ function ReviewCard({ review, writerName }: { review: any; writerName: string })
           </div>
   
           {/* Right: Star Rating */}
-            <div className="flex items-center gap-1 ml-4">
+          <div className="flex items-center gap-1 ml-4">
             {[...Array(5)].map((_, i) => (
-                <IconStarFilled 
+              <IconStarFilled 
                 key={i} 
                 className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                />
+              />
             ))}
-            </div>
+          </div>
         </div>
   
         {/* Writer Response (if exists) */}
