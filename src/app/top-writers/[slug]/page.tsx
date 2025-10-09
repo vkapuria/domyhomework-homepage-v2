@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { use, useState, useMemo } from 'react'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -54,8 +54,8 @@ interface Writer {
     }>
   }
 
-  export default async function WriterProfilePage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params
+  export default function WriterProfilePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = use(params)
     const [showAllReviews, setShowAllReviews] = useState(false)
     const [bioExpanded, setBioExpanded] = useState(false)
     
