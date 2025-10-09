@@ -1,73 +1,224 @@
 [
     {
-      "id": "sarah-chen",
-      "name": "Dr. Sarah Chen",
-      "photo": "/images/writers/sarah-chen.jpg",
-      "country": "US",
-      "countryFlag": "🇺🇸",
-      "specializations": ["Academic Writing", "Research Methods"],
-      "stats": {
-        "projects": 247,
-        "successRate": 98,
-        "rating": 4.9
+        "id": "claire-h",
+        "name": "Claire H.",
+        "title": "Professor of English Literature",
+        "photo": "/images/writers/claire-h.jpg",
+        "country": "UK",
+        "countryFlag": "🇬🇧",
+        "specializations": ["Literature Review", "Critical Analysis", "Essay Writing", "Research Papers"],
+        "stats": {
+          "projects": 387,
+          "successRate": 97,
+          "rating": 5.0
+        },
+        "bio": "Professor of English Literature with 15+ years of academic experience...",
+        "subjects": ["Literature", "English", "Humanities", "Writing"],
+        "lastOrder": "2025-10-07",
+        "reviewCount": 45,
+        "ratingBreakdown": {
+          "qualityOfWork": 4.9,
+          "followsInstructions": 4.8,
+          "responseSpeed": 5.0,
+          "communication": 4.9
+        },
+        "topSubjects": [
+          { "name": "Literature", "count": 145, "percentage": 37 },
+          { "name": "English", "count": 120, "percentage": 31 },
+          { "name": "Humanities", "count": 78, "percentage": 20 },
+          { "name": "Writing", "count": 44, "percentage": 12 }
+        ],
+        "topPaperTypes": [
+          { "name": "Essay (any type)", "count": 180, "percentage": 47 },
+          { "name": "Research Paper", "count": 98, "percentage": 25 },
+          { "name": "Literature Review", "count": 65, "percentage": 17 },
+          { "name": "Critical Analysis", "count": 44, "percentage": 11 }
+        ],
+        "premiumReviews": [
+          {
+            "id": "premium-1",
+            "orderNumber": "DMH23890_25",
+            "date": "2025-10-08",
+            "rating": 5,
+            "comment": "Working with Claire was a breath of fresh air. She took the time to understand my project's nuances and delivered a piece that perfectly captured what I was looking for. Her attention to detail was remarkable. The analysis was thorough and the writing style was exactly what I needed for my graduate-level course.",
+            "paperType": "Literary Analysis",
+            "writerResponse": "Thank you so much! It was a pleasure working on your project. 😊",
+            "helpfulCount": 42
+          },
+          {
+            "id": "premium-2",
+            "orderNumber": "DMH45721_25",
+            "date": "2025-10-06",
+            "rating": 5,
+            "comment": "I was initially hesitant about using this service, but I'm glad I did. Claire was incredibly helpful and patient with my numerous questions. The final paper was well-researched and eloquently written. She provided insightful comments that helped me understand the topic better. I'm thoroughly impressed!",
+            "paperType": "Research Paper",
+            "writerResponse": "❤️ Glad you loved it! Looking forward to our next collaboration.",
+            "helpfulCount": 38
+          },
+          {
+            "id": "premium-3",
+            "orderNumber": "DMH67834_25",
+            "date": "2025-10-05",
+            "rating": 5,
+            "comment": "Claire's expertise in my subject area was evident from the start. She asked insightful questions and provided perspectives I hadn't considered. The resulting paper was not just well-written but genuinely thought-provoking. Her knowledge of English literature is exceptional and it shows in every paragraph.",
+            "paperType": "Essay (any type)",
+            "writerResponse": "🙏 Thank you for the kind words!",
+            "helpfulCount": 29
+          }
+        ],
+        "reviews": [
+          {
+            "id": "rev-001",
+            "orderNumber": "DMH23890_25",
+            "date": "Oct 8, 2025",
+            "rating": 5,
+            "comment": "Excellent writer! The essay was well-researched, beautifully written, and exceeded all my expectations. Claire really knows her stuff.",
+            "paperType": "Essay (any type)",
+            "writerResponse": "Thank you so much! It was a pleasure working on your project. 😊"
+          },
+          {
+            "id": "rev-002",
+            "orderNumber": "DMH45721_25",
+            "date": "Oct 6, 2025",
+            "rating": 5,
+            "comment": "Amazing work on my literature review. Very thorough analysis and great use of sources. Will definitely hire again!",
+            "paperType": "Literature Review",
+            "writerResponse": "❤️ Glad you loved it! Looking forward to our next collaboration."
+          },
+          {
+            "id": "rev-003",
+            "orderNumber": "DMH67834_25",
+            "date": "Oct 5, 2025",
+            "rating": 5,
+            "comment": "Highly professional and delivered before the deadline. The critical analysis was exactly what I needed. Thank you!",
+            "paperType": "Critical Analysis",
+            "writerResponse": "👍"
+          },
+          {
+            "id": "rev-004",
+            "orderNumber": "DMH12456_25",
+            "date": "Oct 3, 2025",
+            "rating": 5,
+            "comment": "Outstanding quality! Claire's expertise in English literature really shows. Got an A+ on my paper!",
+            "paperType": "Research Paper",
+            "writerResponse": "🙏 Congratulations on your A+! Well deserved."
+          }
+        ]
       },
-      "bio": "PhD in Education with 8+ years helping students master academic writing, research methodology, and critical analysis across multiple disciplines.",
-      "subjects": ["Education", "Social Sciences", "Humanities"]
-    },
     {
-      "id": "marcus-wright",
-      "name": "Marcus Wright",
-      "photo": "/images/writers/marcus-wright.jpg",
+      "id": "bella-w",
+      "name": "Bella W.",
+      "photo": "/images/writers/bella-w.jpg",
       "country": "UK",
       "countryFlag": "🇬🇧",
-      "specializations": ["STEM Writing", "Engineering"],
+      "specializations": ["Sociology", "Anthropology"],
       "stats": {
-        "projects": 189,
+        "projects": 356,
         "successRate": 96,
-        "rating": 4.8
+        "rating": 4.9
       },
-      "bio": "MS Engineering from MIT. Combines technical expertise with exceptional writing skills to make complex STEM concepts accessible and engaging.",
-      "subjects": ["Engineering", "Mathematics", "Physics"]
+      "bio": "Professor of Sociology with expertise in qualitative research, social theory, and cultural analysis across diverse communities.",
+      "subjects": ["Sociology", "Anthropology", "Social Sciences"]
     },
     {
-      "id": "priya-sharma",
-      "name": "Dr. Priya Sharma",
-      "photo": "/images/writers/priya-sharma.jpg",
+      "id": "mihir-j",
+      "name": "Mihir J.",
+      "photo": "/images/writers/mihir-j.jpg",
+      "country": "IN",
+      "countryFlag": "🇮🇳",
+      "specializations": ["History Research", "Political Science"],
+      "stats": {
+        "projects": 367,
+        "successRate": 96,
+        "rating": 4.9
+      },
+      "bio": "History professor with deep expertise in historical research, archival analysis, and political science papers with global perspectives.",
+      "subjects": ["History", "Political Science", "International Relations"]
+    },
+    {
+      "id": "charles-t",
+      "name": "Charles T.",
+      "photo": "/images/writers/charles-t.jpg",
       "country": "CA",
       "countryFlag": "🇨🇦",
       "specializations": ["Business Analysis", "Finance"],
       "stats": {
         "projects": 312,
-        "successRate": 97,
+        "successRate": 96,
         "rating": 4.9
       },
-      "bio": "MBA from Harvard. Specializes in business cases, financial analysis, and strategic management papers with real-world industry insights.",
+      "bio": "MBA from top business school. Specializes in business cases, financial analysis, and strategic management papers with real-world industry insights.",
       "subjects": ["Business", "Finance", "Economics"]
     },
     {
-      "id": "james-anderson",
-      "name": "Prof. James Anderson",
-      "photo": "/images/writers/james-anderson.jpg",
-      "country": "AU",
-      "countryFlag": "🇦🇺",
-      "specializations": ["Literature Review", "Critical Analysis"],
+      "id": "greene-s",
+      "name": "Greene S.",
+      "photo": "/images/writers/greene-s.jpg",
+      "country": "IE",
+      "countryFlag": "🇮🇪",
+      "specializations": ["Chemistry", "Organic Chemistry"],
       "stats": {
-        "projects": 421,
-        "successRate": 99,
-        "rating": 5.0
+        "projects": 298,
+        "successRate": 97,
+        "rating": 4.9
       },
-      "bio": "Professor of English Literature with 15+ years of academic experience. Expert in literary analysis, comparative literature, and research papers.",
-      "subjects": ["Literature", "English", "Humanities"]
+      "bio": "Chemistry PhD with lab experience in organic synthesis, analytical chemistry, and comprehensive laboratory report writing.",
+      "subjects": ["Chemistry", "Biochemistry", "Life Sciences"]
     },
     {
-      "id": "elena-rodriguez",
-      "name": "Dr. Elena Rodriguez",
-      "photo": "/images/writers/elena-rodriguez.jpg",
+      "id": "elijah-m",
+      "name": "Elijah M.",
+      "photo": "/images/writers/elijah-m.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
+      "specializations": ["Philosophy", "Ethics"],
+      "stats": {
+        "projects": 289,
+        "successRate": 97,
+        "rating": 4.9
+      },
+      "bio": "Philosophy PhD specializing in ethics, logic, and critical thinking. Expert in analytical essays and philosophical argumentation.",
+      "subjects": ["Philosophy", "Ethics", "Humanities"]
+    },
+    {
+      "id": "marie-l",
+      "name": "Marie L.",
+      "photo": "/images/writers/marie-l.jpg",
+      "country": "FR",
+      "countryFlag": "🇫🇷",
+      "specializations": ["Art History", "Cultural Studies"],
+      "stats": {
+        "projects": 276,
+        "successRate": 97,
+        "rating": 4.9
+      },
+      "bio": "Art historian with deep knowledge of classical and contemporary art movements, museum studies, and visual culture analysis.",
+      "subjects": ["Art History", "Humanities", "Cultural Studies"]
+    },
+    {
+      "id": "rebecca-e",
+      "name": "Rebecca E.",
+      "photo": "/images/writers/rebecca-e.jpg",
+      "country": "AU",
+      "countryFlag": "🇦🇺",
+      "specializations": ["Biology Research", "Lab Reports"],
+      "stats": {
+        "projects": 234,
+        "successRate": 97,
+        "rating": 4.8
+      },
+      "bio": "PhD in Biology with extensive lab experience. Specializes in research papers, lab reports, and scientific writing across life sciences.",
+      "subjects": ["Biology", "Chemistry", "Life Sciences"]
+    },
+    {
+      "id": "daria-g",
+      "name": "Daria G.",
+      "photo": "/images/writers/daria-g.jpg",
+      "country": "RU",
+      "countryFlag": "🇷🇺",
       "specializations": ["Psychology Research", "Statistics"],
       "stats": {
-        "projects": 278,
+        "projects": 218,
         "successRate": 97,
         "rating": 4.8
       },
@@ -75,29 +226,74 @@
       "subjects": ["Psychology", "Statistics", "Social Sciences"]
     },
     {
-      "id": "david-kim",
-      "name": "David Kim",
-      "photo": "/images/writers/david-kim.jpg",
-      "country": "US",
-      "countryFlag": "🇺🇸",
-      "specializations": ["Programming", "Computer Science"],
+      "id": "ava-t",
+      "name": "Ava T.",
+      "photo": "/images/writers/ava-t.jpg",
+      "country": "NZ",
+      "countryFlag": "🇳🇿",
+      "specializations": ["Creative Writing", "Journalism"],
       "stats": {
-        "projects": 193,
-        "successRate": 95,
-        "rating": 4.7
+        "projects": 198,
+        "successRate": 97,
+        "rating": 4.8
       },
-      "bio": "Software engineer and CS educator. Delivers well-commented code, algorithms, and technical documentation for programming assignments.",
-      "subjects": ["Computer Science", "Programming", "IT"]
+      "bio": "Award-winning journalist and creative writer specializing in narrative essays, feature articles, and compelling storytelling.",
+      "subjects": ["Journalism", "Creative Writing", "Communications"]
     },
     {
-      "id": "sophia-martinez",
-      "name": "Dr. Sophia Martinez",
-      "photo": "/images/writers/sophia-martinez.jpg",
-      "country": "ES",
-      "countryFlag": "🇪🇸",
+      "id": "vincent-d",
+      "name": "Vincent D.",
+      "photo": "/images/writers/vincent-d.jpg",
+      "country": "BE",
+      "countryFlag": "🇧🇪",
+      "specializations": ["Economics", "Data Analysis"],
+      "stats": {
+        "projects": 187,
+        "successRate": 97,
+        "rating": 4.8
+      },
+      "bio": "Economics PhD specializing in econometrics, data analysis, and quantitative research with advanced statistical modeling expertise.",
+      "subjects": ["Economics", "Statistics", "Finance"]
+    },
+    {
+      "id": "ellie-m",
+      "name": "Ellie M.",
+      "photo": "/images/writers/ellie-m.jpg",
+      "country": "SE",
+      "countryFlag": "🇸🇪",
+      "specializations": ["Public Health", "Epidemiology"],
+      "stats": {
+        "projects": 176,
+        "successRate": 97,
+        "rating": 4.8
+      },
+      "bio": "Public health expert specializing in epidemiology, health policy analysis, and evidence-based research papers.",
+      "subjects": ["Public Health", "Medicine", "Healthcare"]
+    },
+    {
+      "id": "aaron-k",
+      "name": "Aaron K.",
+      "photo": "/images/writers/aaron-k.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Academic Writing", "Research Methods"],
+      "stats": {
+        "projects": 147,
+        "successRate": 98,
+        "rating": 4.9
+      },
+      "bio": "PhD in Education with 8+ years helping students master academic writing, research methodology, and critical analysis across multiple disciplines.",
+      "subjects": ["Education", "Social Sciences", "Humanities"]
+    },
+    {
+      "id": "lydia-w",
+      "name": "Lydia W.",
+      "photo": "/images/writers/lydia-w.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
       "specializations": ["Nursing Papers", "Healthcare"],
       "stats": {
-        "projects": 256,
+        "projects": 134,
         "successRate": 98,
         "rating": 4.9
       },
@@ -105,33 +301,123 @@
       "subjects": ["Nursing", "Healthcare", "Medicine"]
     },
     {
-      "id": "thomas-mueller",
-      "name": "Prof. Thomas Mueller",
-      "photo": "/images/writers/thomas-mueller.jpg",
-      "country": "DE",
-      "countryFlag": "🇩🇪",
-      "specializations": ["History Research", "Political Science"],
+      "id": "anjali-p",
+      "name": "Anjali P.",
+      "photo": "/images/writers/anjali-p.jpg",
+      "country": "IN",
+      "countryFlag": "🇮🇳",
+      "specializations": ["Data Science", "Machine Learning"],
       "stats": {
-        "projects": 367,
+        "projects": 128,
         "successRate": 98,
-        "rating": 4.9
+        "rating": 4.8
       },
-      "bio": "History professor with deep expertise in historical research, archival analysis, and political science papers with global perspectives.",
-      "subjects": ["History", "Political Science", "International Relations"]
+      "bio": "Data scientist with expertise in machine learning, Python, R, and statistical modeling for complex data analysis projects.",
+      "subjects": ["Data Science", "Statistics", "Computer Science"]
     },
     {
-      "id": "olivia-chen",
-      "name": "Olivia Chen",
-      "photo": "/images/writers/olivia-chen.jpg",
-      "country": "SG",
-      "countryFlag": "🇸🇬",
+      "id": "paul",
+      "name": "Paul",
+      "photo": "/images/writers/paul.jpg",
+      "country": "FR",
+      "countryFlag": "🇫🇷",
       "specializations": ["Marketing Strategy", "Digital Media"],
       "stats": {
-        "projects": 215,
-        "successRate": 96,
+        "projects": 119,
+        "successRate": 98,
         "rating": 4.8
       },
       "bio": "Marketing strategist with agency experience. Expert in digital marketing plans, consumer behavior analysis, and brand strategy papers.",
       "subjects": ["Marketing", "Business", "Communications"]
+    },
+    {
+      "id": "david-r",
+      "name": "David R.",
+      "photo": "/images/writers/david-r.jpg",
+      "country": "CA",
+      "countryFlag": "🇨🇦",
+      "specializations": ["Accounting", "Auditing"],
+      "stats": {
+        "projects": 107,
+        "successRate": 98,
+        "rating": 4.8
+      },
+      "bio": "CPA with extensive experience in financial accounting, auditing, and corporate finance assignments with practical applications.",
+      "subjects": ["Accounting", "Finance", "Business"]
+    },
+    {
+      "id": "susan-l",
+      "name": "Susan L.",
+      "photo": "/images/writers/susan-l.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Law Essays", "Legal Research"],
+      "stats": {
+        "projects": 92,
+        "successRate": 99,
+        "rating": 4.9
+      },
+      "bio": "JD from top law school. Expert in legal writing, case briefs, constitutional analysis, and legal research papers.",
+      "subjects": ["Law", "Legal Studies", "Criminal Justice"]
+    },
+    {
+      "id": "arun-n",
+      "name": "Arun N.",
+      "photo": "/images/writers/arun-n.jpg",
+      "country": "IN",
+      "countryFlag": "🇮🇳",
+      "specializations": ["STEM Writing", "Engineering"],
+      "stats": {
+        "projects": 87,
+        "successRate": 99,
+        "rating": 4.8
+      },
+      "bio": "MS Engineering from IIT. Combines technical expertise with exceptional writing skills to make complex STEM concepts accessible and engaging.",
+      "subjects": ["Engineering", "Mathematics", "Physics"]
+    },
+    {
+      "id": "grace-k",
+      "name": "Grace K.",
+      "photo": "/images/writers/grace-k.jpg",
+      "country": "AU",
+      "countryFlag": "🇦🇺",
+      "specializations": ["Environmental Science", "Sustainability"],
+      "stats": {
+        "projects": 81,
+        "successRate": 99,
+        "rating": 4.8
+      },
+      "bio": "Environmental scientist passionate about sustainability research, climate studies, and ecological impact assessments.",
+      "subjects": ["Environmental Science", "Biology", "Earth Sciences"]
+    },
+    {
+      "id": "eric-h",
+      "name": "Eric H.",
+      "photo": "/images/writers/eric-h.jpg",
+      "country": "US",
+      "countryFlag": "🇺🇸",
+      "specializations": ["Architecture", "Urban Planning"],
+      "stats": {
+        "projects": 74,
+        "successRate": 99,
+        "rating": 4.7
+      },
+      "bio": "Architect specializing in design theory, urban planning, and sustainable architecture with hands-on project experience.",
+      "subjects": ["Architecture", "Design", "Engineering"]
+    },
+    {
+      "id": "eden-m",
+      "name": "Eden M.",
+      "photo": "/images/writers/eden-m.jpg",
+      "country": "IL",
+      "countryFlag": "🇮🇱",
+      "specializations": ["Programming", "Computer Science"],
+      "stats": {
+        "projects": 68,
+        "successRate": 100,
+        "rating": 4.7
+      },
+      "bio": "Software engineer and CS educator. Delivers well-commented code, algorithms, and technical documentation for programming assignments.",
+      "subjects": ["Computer Science", "Programming", "IT"]
     }
   ]

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://domyhomework.co/top-writers',
     siteName: 'DoMyHomework.co',
     title: 'Top Expert Writers - Professional Homework Help',
-    description: 'Meet our verified expert writers. PhD and Master's qualified professionals ready to help.',
+    description: 'Meet our verified expert writers. PhD and Master\'s qualified professionals ready to help.',
     images: [
       {
         url: '/og-image.jpg',
