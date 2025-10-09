@@ -357,7 +357,7 @@ interface Writer {
 
                 {/* CTA Button */}
                 
-                  href="https://order.domyhomework.co"
+                 <a href="https://order.domyhomework.co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold text-base hover:bg-purple-700 transition-all shadow-lg mb-4"
