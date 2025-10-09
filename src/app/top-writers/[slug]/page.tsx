@@ -54,11 +54,12 @@ interface Writer {
     }>
   }
 
-  export default function WriterProfilePage({ params }: { params: { slug: string } }) {
+  export default async function WriterProfilePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
     const [showAllReviews, setShowAllReviews] = useState(false)
     const [bioExpanded, setBioExpanded] = useState(false)
     
-    const writer = writersData.find((w: any) => w.id === params.slug) as Writer | undefined
+    const writer = writersData.find((w: any) => w.id === slug) as Writer | undefined
     
     if (!writer) {
       notFound()

@@ -10,11 +10,12 @@ interface Writer {
 }
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const writer = writersData.find((w: Writer) => w.id === params.slug)
+  const { slug } = await params
+  const writer = writersData.find((w: Writer) => w.id === slug)
   
   if (!writer) {
     return {
@@ -31,12 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     publisher: 'DoMyHomework.co',
     robots: 'index, follow',
     alternates: {
-      canonical: `https://domyhomework.co/top-writers/${params.slug}`,
+      canonical: `https://domyhomework.co/top-writers/${slug}`,
     },
     openGraph: {
       type: 'profile',
       locale: 'en_US',
-      url: `https://domyhomework.co/top-writers/${params.slug}`,
+      url: `https://domyhomework.co/top-writers/${slug}`,
       siteName: 'DoMyHomework.co',
       title: `${writer.name} - Expert Writer`,
       description: `Hire ${writer.name} for professional academic writing services.`,
@@ -59,8 +60,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Generate breadcrumb structured data
-function generateStructuredData(params: { slug: string }) {
-  const writer = writersData.find((w: Writer) => w.id === params.slug)
+async function generateStructuredData(params: Promise<{ slug: string }>) {
+  const { slug } = await params
+  const writer = writersData.find((w: Writer) => w.id === slug)
   
   if (!writer) return []
 
@@ -84,7 +86,7 @@ function generateStructuredData(params: { slug: string }) {
         "@type": "ListItem",
         "position": 3,
         "name": writer.name,
-        "item": `https://domyhomework.co/top-writers/${params.slug}`
+        "item": `https://domyhomework.co/top-writers/${slug}`
       }
     ]
   }
@@ -101,14 +103,14 @@ function generateStructuredData(params: { slug: string }) {
   return [breadcrumbSchema, personSchema]
 }
 
-export default function WriterProfileLayout({
+export default async function WriterProfileLayout({
   children,
   params,
 }: {
   children: React.ReactNode
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const structuredData = generateStructuredData(params)
+  const structuredData = await generateStructuredData(params)
 
   return (
     <>
