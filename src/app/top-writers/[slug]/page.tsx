@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { IconStarFilled, IconQuote, IconHome, IconUsers } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 import FeaturedReviews from '@/components/FeaturedReviews'
+import WorkHistoryChart from '@/components/WorkHistoryChart'
 
 interface Writer {
   id: string
@@ -58,7 +59,7 @@ export default function WriterProfilePage({ params }: { params: Promise<{ slug: 
   const [premiumReviews, setPremiumReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [showAllReviews, setShowAllReviews] = useState(false)
+  const [displayedCount, setDisplayedCount] = useState(6)
   const [bioExpanded, setBioExpanded] = useState(false)
 
 // ✅ Fetch writer + reviews in PARALLEL
@@ -157,7 +158,9 @@ useEffect(() => {
   }
 
   // Show all reviews or just first 6
-  const displayedReviews = showAllReviews ? reviews : reviews.slice(0, 6)
+  const displayedReviews = reviews.slice(0, displayedCount)
+  const remainingCount = reviews.length - displayedCount
+  const hasMore = remainingCount > 0
   
   // Calculate days ago for last order
   const lastOrderDate = new Date(writer.last_order)
@@ -213,35 +216,34 @@ useEffect(() => {
                     <div className="absolute -top-2 -right-3 text-3xl">{writer.country_flag}</div>
                   </div>
 
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                      <h1 className="text-3xl font-extrabold text-gray-900">{writer.name}</h1>
-                      <Image
-                        src="/icons/insurance.svg"
-                        alt="Verified"
-                        width={22}
-                        height={22}
-                        className="w-6 h-6"
-                        title="Credentials Verified"
-                      />
+                  <div className="flex-1 flex flex-col md:flex-row justify-between items-center gap-4">
+                    {/* Left side - Name & Title */}
+                    <div className="text-center md:text-left">
+                      <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                        <h1 className="text-3xl font-extrabold text-gray-900">{writer.name}</h1>
+                        <Image
+                          src="/icons/insurance.svg"
+                          alt="Verified"
+                          width={22}
+                          height={22}
+                          className="w-6 h-6"
+                          title="Credentials Verified"
+                        />
+                      </div>
+
+                      {writer.title && (
+                        <p className="text-base text-gray-600 font-medium">
+                          {writer.title}
+                        </p>
+                      )}
                     </div>
 
-                    {writer.title && (
-                      <p className="text-base text-gray-600 mb-3 font-medium">
-                        {writer.title}
-                      </p>
-                    )}
-
-                    <div className="flex items-center justify-center md:justify-start gap-2">
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <IconStarFilled 
-                            key={i} 
-                            className={`w-5 h-5 ${i < Math.floor(writer.stats.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
-                          />
-                        ))}
+                    {/* Right side - Stars & Reviews */}
+                    <div className="flex flex-col items-center md:items-end gap-1">
+                      <div className="flex items-center gap-2">
+                        <StarRating rating={writer.stats.rating} size={5} />
+                        <span className="text-lg font-bold text-gray-900">{writer.stats.rating}</span>
                       </div>
-                      <span className="text-lg font-bold text-gray-900">{writer.stats.rating}</span>
                       <span className="text-sm text-gray-600">({writer.review_count} reviews)</span>
                     </div>
                   </div>
@@ -257,39 +259,26 @@ useEffect(() => {
                 </div>
               </div>
 
-              {/* Specializations */}
-              {writer.specializations && writer.specializations.length > 0 && (
-                <div className="mb-8">
-                  <h2 className="text-lg font-bold text-gray-900 mb-3">Specializations</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {writer.specializations.map((spec, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-purple-50 text-purple-700 text-sm font-medium px-3 py-1.5 rounded-full border border-purple-200"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
+              {/* Expert In + Work History Split */}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                
+                {/* Left: Expert In (40%) */}
+                <div className="md:col-span-2">
+                  <h2 className="text-lg font-bold text-gray-900 mb-4">Expert In</h2>
+                  <p className="text-gray-700 leading-relaxed">
+                    {[
+                      ...(writer.specializations || []),
+                      ...(writer.subjects || [])
+                    ].join(' • ')}
+                  </p>
                 </div>
-              )}
 
-              {/* Subjects */}
-              {writer.subjects && writer.subjects.length > 0 && (
-                <div className="mb-8">
-                  <h2 className="text-lg font-bold text-gray-900 mb-3">Expert In</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {writer.subjects.map((subject, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-200"
-                      >
-                        {subject}
-                      </span>
-                    ))}
-                  </div>
+                {/* Right: Work History Chart (60%) */}
+                <div className="md:col-span-3">
+                  <WorkHistoryChart totalProjects={writer.stats.projects} />
                 </div>
-              )}
+
+              </div>
 
               {/* Bio */}
               <div>
@@ -378,90 +367,97 @@ useEffect(() => {
               </div>
             )}
 
-            {/* Reviews Section */}
+            {/* Reviews Section - Timeline Style */}
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Work History & Client Feedback</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Client Feedback</h2>
               <p className="text-sm text-gray-600 mb-6">Real feedback from verified projects</p>
-              <div className="space-y-6">
-                {displayedReviews.map((review) => (
-                  <ReviewCard key={review.id} review={review} writerName={writer.name} />
-                ))}
-              </div>
               
-              {!showAllReviews && reviews.length > 6 && (
-                <div className="mt-6 text-center">
-                  <button
-                    onClick={() => {
-                      console.log(`🔽 [ACTION] Load More clicked - Showing all ${reviews.length} reviews`)
-                      setShowAllReviews(true)
-                    }}
-                    className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
+              <div className="space-y-0">
+                {displayedReviews.map((review, index) => (
+                  <div
+                    key={review.id}
+                    id={`review-${index}`}
+                    className={`
+                      ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} 
+                      rounded-xl p-6
+                      transition-all duration-300
+                    `}
                   >
-                    Load More Reviews ({reviews.length - 6} more)
-                  </button>
-                </div>
-              )}
+                    <TimelineReviewCard review={review} writerName={writer.name} />
+                  </div>
+                ))}
+              </div>        
+            {hasMore && (
+              <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                <button
+                  onClick={() => {
+                    const previousCount = displayedCount
+                    const newCount = Math.min(displayedCount + 12, reviews.length)
+                    
+                    console.log(`🔽 [ACTION] Load More clicked - Showing ${newCount} of ${reviews.length} reviews`)
+                    
+                    setDisplayedCount(newCount)
+                    
+                    // Smooth scroll to first newly loaded review after state updates
+                    setTimeout(() => {
+                      const newReviewElement = document.getElementById(`review-${previousCount}`)
+                      if (newReviewElement) {
+                        newReviewElement.scrollIntoView({ 
+                          behavior: 'smooth', 
+                          block: 'center' 
+                        })
+                      }
+                    }, 100)
+                  }}
+                  className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors shadow-sm hover:shadow-md"
+                >
+                  Load More Reviews ({remainingCount} more)
+                </button>
+              </div>
+            )}
             </div>
-
           </div>
-
           {/* RIGHT COLUMN - Sticky CTA */}
           <div className="lg:col-span-1">
-            <div className="sticky top-6 self-start">
+            <div className="sticky top-20 self-start z-40">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all">
                 
-                <div className="text-center mb-6">
-                  <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden ring-4 ring-purple-100 mb-3">
+                {/* Writer Photo + Name - Side by Side */}
+                <div className="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden ring-4 ring-purple-100 flex-shrink-0">
                     <Image
                       src={writer.photo}
                       alt={writer.name}
-                      width={80}
-                      height={80}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{writer.name}</h3>
-                  <div className="flex items-center justify-center gap-1 text-yellow-500">
-                    {[...Array(Math.round(writer.stats.rating))].map((_, i) => (
-                      <IconStarFilled key={i} className="w-5 h-5" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-gray-600">{writer.review_count} verified reviews</p>
+                  <h3 className="text-xl font-bold text-gray-900">{writer.name}</h3>
                 </div>
 
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="text-green-600 text-lg">✓</span> Credentials Verified
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="text-green-600 text-lg">✓</span> 100% Original Work
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="text-green-600 text-lg">✓</span> Free Revisions
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="text-green-600 text-lg">✓</span> On-Time Delivery
-                  </li>
-                </ul>
+                {/* Benefits - 3 random items */}
+                <div className="space-y-4 mb-6">
+                  <RandomBenefits />
+                </div>
 
-                <a
-                  href="https://order.domyhomework.co"
+                {/* CTA Button */}
+                
+                <a href="https://order.domyhomework.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  role="button"
-                  aria-label={`Hire ${writer.name} now`}
-                  className="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold text-base hover:bg-purple-700 transition-all shadow-lg mb-4"
+                  className="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold text-base hover:bg-purple-700 transition-all shadow-lg mb-3"
                 >
-                  Hire This Writer
+                  Get Help from {writer.name.split(' ')[0]}
                 </a>
 
+                {/* Security Badge */}
                 <p className="text-xs text-gray-500 text-center">
                   🔒 Secure & Confidential
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -472,63 +468,175 @@ useEffect(() => {
 function StatBlock({ label, value }: { label: string; value: any }) {
   return (
     <div className="text-center">
-      <div className="text-base text-gray-600 mb-1">{label}</div>
+      <div className="text-xs sm:text-base text-gray-600 mb-1 uppercase tracking-wide">{label}</div>
       <div className="flex items-center justify-center gap-1.5">
-        <span className="text-xl font-bold text-gray-900">{value}</span>
+        <span className="text-xl sm:text-2xl font-bold text-gray-900">{value}</span>
       </div>
     </div>
   )
 }
 
-function ReviewCard({ review, writerName }: { review: Review; writerName: string }) {
+function TimelineReviewCard({ review, writerName }: { review: Review; writerName: string }) {
   const firstName = writerName.split(' ')[0]
-  
+
   return (
-    <div className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">
-      <div className="absolute top-4 right-4">
-        <IconQuote className="w-12 h-12 text-gray-200 opacity-40" />
-      </div>
-
-      <div className="relative z-10 mb-4">
-        <p className="text-gray-800 text-base leading-relaxed">
-          {review.comment}
-        </p>
-      </div>
-
-      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div className="flex-1">
-          <p className="text-xs text-gray-600">
-            Order: <span className="font-semibold text-gray-900">{review.order_number}</span>
-          </p>
-          <div className="flex items-center gap-2 mt-1">
-            <p className="text-xs text-gray-500">{review.date}</p>
-            <span className="text-gray-400">•</span>
-            <span className="text-xs font-medium text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">
-              {review.paper_type}
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-1 ml-4">
+    <div className="py-4">
+      {/* Header Row: Stars left / Chip right */}
+      <div className="flex items-center justify-between mb-3">
+        {/* Stars */}
+        <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
-            <IconStarFilled 
-              key={i} 
+            <IconStarFilled
+              key={i}
               className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
             />
           ))}
         </div>
+        {/* Paper Type Chip */}
+        <span
+          className="
+            text-xs sm:text-sm 
+            font-medium 
+            text-purple-700 
+            bg-purple-50 
+            px-2 py-0.5 sm:px-2.5 sm:py-1 
+            rounded-full 
+            border border-purple-200
+          "
+        >
+          {review.paper_type}
+        </span>
+
       </div>
 
+      {/* Review Content */}
+      <p className="text-gray-800 text-base leading-relaxed mt-5 mb-5">
+        {review.comment}
+      </p>
+
+      {/* Footer Row: Order left / Date right */}
+      <div className="flex items-center justify-between text-sm text-gray-600">
+        <p>
+          Order: <span className="font-semibold text-gray-900">{review.order_number}</span>
+        </p>
+        <p className="text-gray-500">{new Date(review.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+      </div>
+
+      {/* Writer Response */}
       {review.writer_response && (
-        <div className="mt-4 ml-6 pl-4 border-l-2 border-gray-300 bg-gray-50 rounded-r-lg p-4">
+        <div className="mt-4 pl-4 border-l-2 border-purple-300 bg-purple-50/40 py-2 pr-2 rounded-r">
           <div className="flex items-start gap-2">
-            <span className="text-sm font-semibold text-gray-900">{firstName}:</span>
-            <p className="text-sm text-gray-700 flex-1">
-              {review.writer_response}
-            </p>
+            <span className="text-sm font-semibold text-purple-900">{firstName}:</span>
+            <p className="text-sm text-gray-700 flex-1">{review.writer_response}</p>
           </div>
         </div>
       )}
+    </div>
+  )
+}
+
+function BenefitItem({ icon, title, description }: { icon: string; title: string; description: string }) {
+  return (
+    <div className="flex gap-3 items-start">
+      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+        <Image
+          src={icon}
+          alt={title}
+          width={40}
+          height={40}
+          className="w-10 h-10 object-contain"
+        />
+      </div>
+      <div className="flex-1">
+        <h4 className="text-sm font-semibold text-gray-900 mb-1">{title}</h4>
+        <p className="text-xs text-gray-600 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  )
+}
+
+function RandomBenefits() {
+  const benefits = [
+    {
+      icon: '/images/trophy.jpg',
+      title: 'Credentials Verified',
+      description: 'Verified academic expertise and professional qualifications'
+    },
+    {
+      icon: '/icons/quick.svg',
+      title: 'On-Time Delivery',
+      description: 'Consistently meeting deadlines with efficient workflow'
+    },
+    {
+      icon: '/icons/authenticity.svg',
+      title: '100% Original Work',
+      description: 'Plagiarism-free and AI-free guaranteed solutions'
+    },
+    {
+      icon: '/icons/infinity.svg',
+      title: 'Free Revisions',
+      description: 'Unlimited revisions until you\'re completely satisfied'
+    }
+  ]
+
+  // Randomly select 3 benefits on component mount
+  const [selectedBenefits] = useState(() => {
+    const shuffled = [...benefits].sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, 3)
+  })
+
+  return (
+    <>
+      {selectedBenefits.map((benefit, idx) => (
+        <BenefitItem
+          key={idx}
+          icon={benefit.icon}
+          title={benefit.title}
+          description={benefit.description}
+        />
+      ))}
+    </>
+  )
+}
+
+function StarRating({ rating, size = 5 }: { rating: number; size?: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {[...Array(5)].map((_, i) => {
+        const starPosition = i + 1
+        const fillPercentage = Math.min(Math.max((rating - i) * 100, 0), 100)
+        
+        if (fillPercentage === 0) {
+          // Empty star
+          return (
+            <IconStarFilled
+              key={i}
+              className={`w-${size} h-${size} text-gray-300`}
+            />
+          )
+        } else if (fillPercentage === 100) {
+          // Full star
+          return (
+            <IconStarFilled
+              key={i}
+              className={`w-${size} h-${size} text-yellow-400`}
+            />
+          )
+        } else {
+          // Partial star
+          return (
+            <div key={i} className="relative inline-block">
+              <IconStarFilled className={`w-${size} h-${size} text-gray-300`} />
+              <div
+                className="absolute top-0 left-0 overflow-hidden"
+                style={{ width: `${fillPercentage}%` }}
+              >
+                <IconStarFilled className={`w-${size} h-${size} text-yellow-400`} />
+              </div>
+            </div>
+          )
+        }
+      })}
     </div>
   )
 }

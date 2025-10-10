@@ -19,6 +19,26 @@ interface Writer {
     paperType: string;
     writerResponse?: string | null;
   }
+
+  // Gender-neutral writer references
+function getWriterReference(writerName: string, useCase: 'subject' | 'object' | 'possessive'): string {
+  const firstName = writerName.split(' ')[0]
+  
+  // 20% chance to use actual name
+  if (Math.random() < 0.2) {
+    return firstName
+  }
+  
+  // 80% use gender-neutral alternatives
+  const alternatives = {
+    subject: ['this expert', 'the writer', 'my tutor', 'this writer', 'my helper', 'the tutor', 'this professional'],
+    object: ['this expert', 'the writer', 'them', 'this tutor', 'my helper'],
+    possessive: ['their', 'this expert\'s', 'the writer\'s', 'my tutor\'s']
+  }
+  
+  const options = alternatives[useCase]
+  return options[Math.floor(Math.random() * options.length)]
+}
   
   // ==================== TEMPLATES ====================
   
@@ -244,41 +264,29 @@ const structuredReasons = [
   
   // ==================== DATE GENERATION ====================
   
-  function generateReviewDate(index: number, total: number, oldestDate: Date): Date {
-    const now = new Date();
-    const timeSpan = now.getTime() - oldestDate.getTime();
+  function generateReviewDate(): Date {
+    // 15-month rolling window from today
+    const today = new Date()
+    const fifteenMonthsAgo = new Date()
+    fifteenMonthsAgo.setMonth(today.getMonth() - 15)
     
-    // Distribution: 40% recent (0-30 days), 35% mid (31-90 days), 25% old (91+ days)
-    let daysAgo: number;
+    // Random date within window
+    const timeSpan = today.getTime() - fifteenMonthsAgo.getTime()
+    const randomTime = Math.random() * timeSpan
+    const reviewDate = new Date(fifteenMonthsAgo.getTime() + randomTime)
     
-    if (index < total * 0.4) {
-      // Recent: 0-30 days ago
-      daysAgo = Math.random() * 30;
-    } else if (index < total * 0.75) {
-      // Mid: 31-90 days ago
-      daysAgo = 31 + Math.random() * 60;
-    } else {
-      // Old: 91+ days ago
-      const maxOldDays = Math.min(365, Math.floor(timeSpan / (1000 * 60 * 60 * 24)));
-      daysAgo = 91 + Math.random() * (maxOldDays - 91);
-    }
+    // Add random hours/minutes
+    reviewDate.setHours(Math.floor(Math.random() * 24))
+    reviewDate.setMinutes(Math.floor(Math.random() * 60))
     
-    const reviewDate = new Date(now.getTime() - (daysAgo * 24 * 60 * 60 * 1000));
-    
-    // Add random hours/minutes for natural timestamps
-    reviewDate.setHours(Math.floor(Math.random() * 24));
-    reviewDate.setMinutes(Math.floor(Math.random() * 60));
-    
-    return reviewDate;
+    return reviewDate
   }
   
   // ==================== MAIN GENERATOR ====================
   
   export function generateReviews(
     writer: Writer,
-    count: number = 10,
-    oldestDate: Date = new Date('2021-11-10'),
-    includePremium: boolean = false
+    count: number = 10
   ): GeneratedReview[] {
     const reviews: GeneratedReview[] = [];
     const firstName = writer.name.split(' ')[0];
@@ -326,7 +334,7 @@ const structuredReasons = [
       const comment = template.replace(/{name}/g, firstName);
       
       // Generate date
-      const reviewDate = generateReviewDate(i, count, oldestDate);
+      const reviewDate = generateReviewDate();
       
       // Generate order number
       const randomNum = Math.floor(10000 + Math.random() * 90000);
@@ -383,19 +391,19 @@ const structuredReasons = [
     
     paperTypes = [...new Set(paperTypes)];
     
-    // Premium reviews are always from last 6 months
+    // Premium reviews from 15-month rolling window
     const now = new Date();
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(now.getMonth() - 6);
+    const fifteenMonthsAgo = new Date();
+    fifteenMonthsAgo.setMonth(now.getMonth() - 15);
     
     for (let i = 0; i < Math.min(count, premiumTemplates.length); i++) {
       const template = premiumTemplates[i];
       const comment = template.replace(/{name}/g, firstName);
       
       // Random date in last 6 months
-      const timeSpan = now.getTime() - sixMonthsAgo.getTime();
+      const timeSpan = now.getTime() - fifteenMonthsAgo.getTime();
       const randomTime = Math.random() * timeSpan;
-      const reviewDate = new Date(sixMonthsAgo.getTime() + randomTime);
+      const reviewDate = new Date(fifteenMonthsAgo.getTime() + randomTime);
       reviewDate.setHours(Math.floor(Math.random() * 24));
       reviewDate.setMinutes(Math.floor(Math.random() * 60));
       
