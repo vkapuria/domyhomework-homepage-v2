@@ -1,12 +1,21 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import writersData from '@/data/writers.json'
 
 interface Writer {
   id: string
   name: string
+  title?: string
+  photo: string
+  countryFlag: string
   specializations: string[]
+  stats: {
+    projects: number
+    successRate: number
+    rating: number
+  }
   bio: string
+  subjects: string[]
+  reviewCount: number
 }
 
 interface Props {
@@ -15,22 +24,29 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const writer = writersData.find((w: Writer) => w.id === slug)
+  const writer = writersData.find((w: any) => w.id === slug) as Writer | undefined
   
   if (!writer) {
     return {
       title: 'Writer Not Found | DoMyHomework.co',
+      description: 'The writer profile you are looking for does not exist.'
     }
   }
 
+  const writerTitle = writer.title || 'Expert Writer'
+  const specializations = writer.specializations.slice(0, 2).join(' & ')
+  const rating = writer.stats.rating
+  const reviews = writer.reviewCount
+  const projects = writer.stats.projects
+
   return {
-    title: `${writer.name} - Expert Writer | DoMyHomework.co`,
-    description: `Hire ${writer.name}, expert in ${writer.specializations.slice(0, 2).join(' and ')}. ${writer.bio.substring(0, 150)}...`,
-    keywords: `${writer.name}, ${writer.specializations.join(', ')}, academic writer, homework help`,
+    title: `${writer.name} - ${writerTitle} | DoMyHomework.co`,
+    description: `Hire ${writer.name}, ${writerTitle} with ${rating}/5 rating (${reviews}+ verified reviews). Specializes in ${specializations}. ${projects}+ completed projects with ${writer.stats.successRate}% success rate.`,
+    keywords: `${writer.name}, ${writer.specializations.join(', ')}, ${writer.subjects.join(', ')}, academic writer, homework help, expert tutor`,
     authors: [{ name: 'DoMyHomework.co' }],
     creator: 'DoMyHomework.co',
     publisher: 'DoMyHomework.co',
-    robots: 'index, follow',
+    robots: 'noindex, follow',
     alternates: {
       canonical: `https://domyhomework.co/top-writers/${slug}`,
     },
@@ -39,30 +55,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: 'en_US',
       url: `https://domyhomework.co/top-writers/${slug}`,
       siteName: 'DoMyHomework.co',
-      title: `${writer.name} - Expert Writer`,
-      description: `Hire ${writer.name} for professional academic writing services.`,
+      title: `${writer.name} - ${writerTitle}`,
+      description: `⭐ ${rating}/5 (${reviews} reviews) • ${projects}+ projects • ${specializations}`,
       images: [
         {
-          url: '/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: `${writer.name} - DoMyHomework.co`,
+          url: writer.photo,
+          width: 400,
+          height: 400,
+          alt: `${writer.name} - Expert Writer at DoMyHomework.co`,
         },
       ],
     },
     twitter: {
-      card: 'summary_large_image',
-      title: `${writer.name} | DoMyHomework.co`,
-      description: `Expert in ${writer.specializations.slice(0, 2).join(' & ')}`,
-      images: ['/twitter-image.jpg'],
+      card: 'summary',
+      title: `${writer.name} - ${writerTitle}`,
+      description: `⭐ ${rating}/5 • ${reviews} reviews • Expert in ${specializations}`,
+      images: [writer.photo],
     },
   }
 }
 
-// Generate breadcrumb structured data
+// Generate breadcrumb structured data + Enhanced Person Schema
 async function generateStructuredData(params: Promise<{ slug: string }>) {
   const { slug } = await params
-  const writer = writersData.find((w: Writer) => w.id === slug)
+  const writer = writersData.find((w: any) => w.id === slug) as Writer | undefined
   
   if (!writer) return []
 
@@ -95,9 +111,24 @@ async function generateStructuredData(params: Promise<{ slug: string }>) {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": writer.name,
-    "jobTitle": "Academic Writer",
+    "jobTitle": writer.title || "Academic Writer",
     "description": writer.bio,
-    "knowsAbout": writer.specializations
+    "knowsAbout": writer.specializations,
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": writer.title || "Academic Writer",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": writer.countryFlag
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": writer.stats.rating,
+      "reviewCount": writer.reviewCount,
+      "bestRating": 5,
+      "worstRating": 1
+    }
   }
 
   return [breadcrumbSchema, personSchema]
@@ -127,7 +158,7 @@ export default async function WriterProfileLayout({
 }
 
 export async function generateStaticParams() {
-  return writersData.map((writer: Writer) => ({
+  return writersData.map((writer: any) => ({
     slug: writer.id,
   }))
 }

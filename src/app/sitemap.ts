@@ -15,13 +15,14 @@ type StaticPage = {
   priority: number
 }
 
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://domyhomework-co.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://domyhomework.co'
   
   // Cast JSON data to proper type
   const staticPages = staticPagesData as StaticPage[]
   
-  // Static pages - NOW FULLY DYNAMIC FROM JSON!
+  // Static pages - FULLY DYNAMIC FROM JSON
   const staticPageUrls = staticPages.map((page) => ({
     url: page.slug ? `${baseUrl}/${page.slug}` : baseUrl,
     lastModified: new Date(),

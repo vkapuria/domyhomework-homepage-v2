@@ -12,7 +12,7 @@
           "successRate": 97,
           "rating": 5.0
         },
-        "bio": "Professor of English Literature with 15+ years of academic experience...",
+        "bio": "Professor of English Literature with 15+ years of academic experience. Specialized in Victorian literature, modernist poetry, and contemporary literary theory. Published author with expertise in critical analysis and scholarly writing.",
         "subjects": ["Literature", "English", "Humanities", "Writing"],
         "lastOrder": "2025-10-07",
         "reviewCount": 45,
@@ -40,9 +40,9 @@
             "orderNumber": "DMH23890_25",
             "date": "2025-10-08",
             "rating": 5,
-            "comment": "Working with Claire was a breath of fresh air. She took the time to understand my project's nuances and delivered a piece that perfectly captured what I was looking for. Her attention to detail was remarkable. The analysis was thorough and the writing style was exactly what I needed for my graduate-level course.",
-            "paperType": "Literary Analysis",
-            "writerResponse": "Thank you so much! It was a pleasure working on your project. 😊",
+            "comment": "ngl I was stressed about this lit review but Claire really delivered. She caught some themes in the texts I completely missed lol. Had to ask for one small revision on the conclusion but she turned it around in like 6 hours. My professor actually commented on how thorough the analysis was",
+            "paperType": "Literature Review",
+            "writerResponse": "glad it worked out! 😊",
             "helpfulCount": 42
           },
           {
@@ -50,9 +50,9 @@
             "orderNumber": "DMH45721_25",
             "date": "2025-10-06",
             "rating": 5,
-            "comment": "I was initially hesitant about using this service, but I'm glad I did. Claire was incredibly helpful and patient with my numerous questions. The final paper was well-researched and eloquently written. She provided insightful comments that helped me understand the topic better. I'm thoroughly impressed!",
+            "comment": "honestly this was way better than I expected. Claire knows her stuff especially with Victorian lit. The essay flowed really well and all the citations were spot on. Communication was good too, she kept me updated throughout. Would definitely use again for my next paper",
             "paperType": "Research Paper",
-            "writerResponse": "❤️ Glad you loved it! Looking forward to our next collaboration.",
+            "writerResponse": "Thanks! Happy to help anytime 👍",
             "helpfulCount": 38
           },
           {
@@ -60,54 +60,17 @@
             "orderNumber": "DMH67834_25",
             "date": "2025-10-05",
             "rating": 5,
-            "comment": "Claire's expertise in my subject area was evident from the start. She asked insightful questions and provided perspectives I hadn't considered. The resulting paper was not just well-written but genuinely thought-provoking. Her knowledge of English literature is exceptional and it shows in every paragraph.",
-            "paperType": "Essay (any type)",
-            "writerResponse": "🙏 Thank you for the kind words!",
-            "helpfulCount": 29
-          }
-        ],
-        "reviews": [
-          {
-            "id": "rev-001",
-            "orderNumber": "DMH23890_25",
-            "date": "Oct 8, 2025",
-            "rating": 5,
-            "comment": "Excellent writer! The essay was well-researched, beautifully written, and exceeded all my expectations. Claire really knows her stuff.",
-            "paperType": "Essay (any type)",
-            "writerResponse": "Thank you so much! It was a pleasure working on your project. 😊"
-          },
-          {
-            "id": "rev-002",
-            "orderNumber": "DMH45721_25",
-            "date": "Oct 6, 2025",
-            "rating": 5,
-            "comment": "Amazing work on my literature review. Very thorough analysis and great use of sources. Will definitely hire again!",
-            "paperType": "Literature Review",
-            "writerResponse": "❤️ Glad you loved it! Looking forward to our next collaboration."
-          },
-          {
-            "id": "rev-003",
-            "orderNumber": "DMH67834_25",
-            "date": "Oct 5, 2025",
-            "rating": 5,
-            "comment": "Highly professional and delivered before the deadline. The critical analysis was exactly what I needed. Thank you!",
+            "comment": "Claire's analysis of the modernist poetry was really insightful. She picked up on symbolism I hadn't even considered. The writing style matched what my prof expects too which was clutch. Only minor thing was I wished there was a bit more on T.S. Eliot but overall super satisfied",
             "paperType": "Critical Analysis",
-            "writerResponse": "👍"
-          },
-          {
-            "id": "rev-004",
-            "orderNumber": "DMH12456_25",
-            "date": "Oct 3, 2025",
-            "rating": 5,
-            "comment": "Outstanding quality! Claire's expertise in English literature really shows. Got an A+ on my paper!",
-            "paperType": "Research Paper",
-            "writerResponse": "🙏 Congratulations on your A+! Well deserved."
+            "writerResponse": "🙏 appreciate the feedback!",
+            "helpfulCount": 29
           }
         ]
       },
     {
       "id": "bella-w",
       "name": "Bella W.",
+      "title": "Associate Professor of Sociology",
       "photo": "/images/writers/bella-w.jpg",
       "country": "UK",
       "countryFlag": "🇬🇧",
@@ -118,11 +81,64 @@
         "rating": 4.9
       },
       "bio": "Professor of Sociology with expertise in qualitative research, social theory, and cultural analysis across diverse communities.",
-      "subjects": ["Sociology", "Anthropology", "Social Sciences"]
+      "subjects": ["Sociology", "Anthropology", "Social Sciences"],
+      "lastOrder": "2025-10-06",
+      "reviewCount": 42,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.9,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Sociology", "count": 156, "percentage": 44 },
+        { "name": "Anthropology", "count": 112, "percentage": 31 },
+        { "name": "Social Sciences", "count": 67, "percentage": 19 },
+        { "name": "Cultural Studies", "count": 21, "percentage": 6 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 142, "percentage": 40 },
+        { "name": "Essay (any type)", "count": 124, "percentage": 35 },
+        { "name": "Case Study", "count": 53, "percentage": 15 },
+        { "name": "Literature Review", "count": 37, "percentage": 10 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH34521_25",
+          "date": "2025-09-28",
+          "rating": 5,
+          "comment": "Bella really understood the assignment. My sociology paper on social stratification was due in 3 days and she got it done with time to spare. The research was solid, used current studies and everything. There was one citation that needed fixing but she handled it quick. Def recommend",
+          "paperType": "Research Paper",
+          "writerResponse": "thanks! glad the revisions worked 👍",
+          "helpfulCount": 35
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH45109_25",
+          "date": "2025-09-15",
+          "rating": 4,
+          "comment": "pretty good work overall. The anthropology case study had good analysis but I had to ask for more detail on the methodology section. Bella was responsive tho and added what was needed. Got a B+ on it which im happy with considering how rushed I was",
+          "paperType": "Case Study",
+          "writerResponse": "appreciate it! sorry about the initial oversight",
+          "helpfulCount": 28
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH52890_25",
+          "date": "2025-08-30",
+          "rating": 5,
+          "comment": "tbh this saved me. Had 2 other assignments due same week and couldn't get to this one. Bella's work on cultural analysis was really detailed and well structured. She even threw in some extra sources I didn't know about. Communication was good throughout",
+          "paperType": "Essay (any type)",
+          "writerResponse": "Happy to help! 😊",
+          "helpfulCount": 31
+        }
+      ]
     },
     {
       "id": "mihir-j",
       "name": "Mihir J.",
+      "title": "History Professor & Political Analyst",
       "photo": "/images/writers/mihir-j.jpg",
       "country": "IN",
       "countryFlag": "🇮🇳",
@@ -133,11 +149,64 @@
         "rating": 4.9
       },
       "bio": "History professor with deep expertise in historical research, archival analysis, and political science papers with global perspectives.",
-      "subjects": ["History", "Political Science", "International Relations"]
+      "subjects": ["History", "Political Science", "International Relations"],
+      "lastOrder": "2025-10-05",
+      "reviewCount": 44,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.9,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "History", "count": 165, "percentage": 45 },
+        { "name": "Political Science", "count": 128, "percentage": 35 },
+        { "name": "International Relations", "count": 55, "percentage": 15 },
+        { "name": "Government", "count": 19, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 147, "percentage": 40 },
+        { "name": "Essay (any type)", "count": 110, "percentage": 30 },
+        { "name": "Historical Analysis", "count": 73, "percentage": 20 },
+        { "name": "Term Paper", "count": 37, "percentage": 10 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH28934_25",
+          "date": "2025-09-22",
+          "rating": 5,
+          "comment": "Mihir knows his history. My paper on Cold War politics was really well researched with primary sources I hadn't found. He even suggested some books for further reading which was cool. Delivery was on time and formatting was perfect. Will use again for sure",
+          "paperType": "Research Paper",
+          "writerResponse": "glad you found it helpful!",
+          "helpfulCount": 40
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH41256_25",
+          "date": "2025-09-10",
+          "rating": 5,
+          "comment": "honestly impressed. The political analysis was nuanced and covered different perspectives which is exactly what my prof wanted. Mihir responded to messages pretty fast and was open to feedback. Only tiny thing was one date was wrong but he fixed it immediately when I pointed it out",
+          "paperType": "Essay (any type)",
+          "writerResponse": "Thanks for catching that! 👍",
+          "helpfulCount": 36
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH53712_25",
+          "date": "2025-08-25",
+          "rating": 5,
+          "comment": "needed a paper on Indian independence movement and Mihir was perfect for it. The historical context was rich and he tied it well to modern politics. Got an A on this one. Really appreciate the work",
+          "paperType": "Historical Analysis",
+          "writerResponse": "🙏",
+          "helpfulCount": 33
+        }
+      ]
     },
     {
       "id": "charles-t",
       "name": "Charles T.",
+      "title": "MBA & Business Strategy Consultant",
       "photo": "/images/writers/charles-t.jpg",
       "country": "CA",
       "countryFlag": "🇨🇦",
@@ -148,11 +217,64 @@
         "rating": 4.9
       },
       "bio": "MBA from top business school. Specializes in business cases, financial analysis, and strategic management papers with real-world industry insights.",
-      "subjects": ["Business", "Finance", "Economics"]
+      "subjects": ["Business", "Finance", "Economics"],
+      "lastOrder": "2025-10-08",
+      "reviewCount": 38,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Business", "count": 140, "percentage": 45 },
+        { "name": "Finance", "count": 109, "percentage": 35 },
+        { "name": "Economics", "count": 47, "percentage": 15 },
+        { "name": "Management", "count": 16, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Case Study", "count": 125, "percentage": 40 },
+        { "name": "Business Plan", "count": 87, "percentage": 28 },
+        { "name": "Financial Analysis", "count": 62, "percentage": 20 },
+        { "name": "Research Paper", "count": 38, "percentage": 12 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH29845_25",
+          "date": "2025-10-01",
+          "rating": 5,
+          "comment": "Charles killed it with the business case analysis. Had real world examples and the financial calculations were all correct. My group presented this and prof loved it. Worth every penny tbh",
+          "paperType": "Case Study",
+          "writerResponse": "awesome! glad it went well 🎉",
+          "helpfulCount": 44
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH38291_25",
+          "date": "2025-09-18",
+          "rating": 5,
+          "comment": "needed a business plan for my entrepreneurship class and Charles delivered. The market analysis section was particularly strong. He asked good questions upfront to understand what I needed. Turned it in 2 days early which gave me time to review",
+          "paperType": "Business Plan",
+          "writerResponse": "Thanks! Good luck with the venture 👍",
+          "helpfulCount": 39
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH45673_25",
+          "date": "2025-09-05",
+          "rating": 4,
+          "comment": "solid work on the financial analysis. The ratios and charts were done well. Only thing was I had to ask for more explanation on the ROI section but Charles added it same day. Overall good experience",
+          "paperType": "Financial Analysis",
+          "writerResponse": "appreciate the feedback!",
+          "helpfulCount": 32
+        }
+      ]
     },
     {
       "id": "greene-s",
       "name": "Greene S.",
+      "title": "PhD in Organic Chemistry",
       "photo": "/images/writers/greene-s.jpg",
       "country": "IE",
       "countryFlag": "🇮🇪",
@@ -163,11 +285,64 @@
         "rating": 4.9
       },
       "bio": "Chemistry PhD with lab experience in organic synthesis, analytical chemistry, and comprehensive laboratory report writing.",
-      "subjects": ["Chemistry", "Biochemistry", "Life Sciences"]
+      "subjects": ["Chemistry", "Biochemistry", "Life Sciences"],
+      "lastOrder": "2025-10-04",
+      "reviewCount": 36,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Chemistry", "count": 149, "percentage": 50 },
+        { "name": "Organic Chemistry", "count": 89, "percentage": 30 },
+        { "name": "Biochemistry", "count": 45, "percentage": 15 },
+        { "name": "Life Sciences", "count": 15, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Lab Report", "count": 134, "percentage": 45 },
+        { "name": "Research Paper", "count": 89, "percentage": 30 },
+        { "name": "Homework Help", "count": 54, "percentage": 18 },
+        { "name": "Assignment", "count": 21, "percentage": 7 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH31247_25",
+          "date": "2025-09-29",
+          "rating": 5,
+          "comment": "Greene saved my grade lol. The organic chem lab report was detailed with all the mechanisms drawn correctly. Even explained the reaction pathways in the discussion which helped me understand it better. Formatting was exactly what my TA wanted",
+          "paperType": "Lab Report",
+          "writerResponse": "happy to help! 😊",
+          "helpfulCount": 41
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH39821_25",
+          "date": "2025-09-14",
+          "rating": 5,
+          "comment": "really good work on the synthesis paper. Greene clearly knows organic chemistry inside out. All the structures and spectroscopy data were spot on. Communication was professional and he delivered before deadline",
+          "paperType": "Research Paper",
+          "writerResponse": "Thanks! 👍",
+          "helpfulCount": 37
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH46129_25",
+          "date": "2025-08-28",
+          "rating": 5,
+          "comment": "honestly this was perfect. My biochem assignment was complex but Greene handled it well. The graphs and data analysis were well presented. Would definitely recommend for any chem work",
+          "paperType": "Assignment",
+          "writerResponse": "appreciate it!",
+          "helpfulCount": 34
+        }
+      ]
     },
     {
       "id": "elijah-m",
       "name": "Elijah M.",
+      "title": "Philosophy PhD & Ethics Researcher",
       "photo": "/images/writers/elijah-m.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
@@ -178,11 +353,64 @@
         "rating": 4.9
       },
       "bio": "Philosophy PhD specializing in ethics, logic, and critical thinking. Expert in analytical essays and philosophical argumentation.",
-      "subjects": ["Philosophy", "Ethics", "Humanities"]
+      "subjects": ["Philosophy", "Ethics", "Humanities"],
+      "lastOrder": "2025-10-06",
+      "reviewCount": 35,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.9,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Philosophy", "count": 144, "percentage": 50 },
+        { "name": "Ethics", "count": 89, "percentage": 31 },
+        { "name": "Humanities", "count": 43, "percentage": 15 },
+        { "name": "Logic", "count": 13, "percentage": 4 }
+      ],
+      "topPaperTypes": [
+        { "name": "Essay (any type)", "count": 144, "percentage": 50 },
+        { "name": "Research Paper", "count": 81, "percentage": 28 },
+        { "name": "Critical Analysis", "count": 43, "percentage": 15 },
+        { "name": "Term Paper", "count": 21, "percentage": 7 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH27456_25",
+          "date": "2025-09-25",
+          "rating": 5,
+          "comment": "Elijah's philosophical analysis was really thoughtful. My ethics paper needed to cover different moral theories and he did it well. The arguments were clear and well-structured. Prof gave me an A- which I'm really happy with",
+          "paperType": "Essay (any type)",
+          "writerResponse": "congrats on the A-! 🎉",
+          "helpfulCount": 38
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH35892_25",
+          "date": "2025-09-12",
+          "rating": 5,
+          "comment": "honestly wasn't expecting this level of depth. The paper on Kant's categorical imperative was well argued with good use of primary texts. Elijah responded quickly to my questions too. Would use again",
+          "paperType": "Research Paper",
+          "writerResponse": "glad it helped! 😊",
+          "helpfulCount": 35
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH42718_25",
+          "date": "2025-08-30",
+          "rating": 4,
+          "comment": "good work overall. The philosophical argumentation was solid but I wished there was a bit more on the counter-arguments. Elijah added some more when I asked tho. Pretty satisfied with the final result",
+          "paperType": "Critical Analysis",
+          "writerResponse": "thanks for the feedback 👍",
+          "helpfulCount": 30
+        }
+      ]
     },
     {
       "id": "marie-l",
       "name": "Marie L.",
+      "title": "Art History Professor",
       "photo": "/images/writers/marie-l.jpg",
       "country": "FR",
       "countryFlag": "🇫🇷",
@@ -193,11 +421,64 @@
         "rating": 4.9
       },
       "bio": "Art historian with deep knowledge of classical and contemporary art movements, museum studies, and visual culture analysis.",
-      "subjects": ["Art History", "Humanities", "Cultural Studies"]
+      "subjects": ["Art History", "Humanities", "Cultural Studies"],
+      "lastOrder": "2025-10-07",
+      "reviewCount": 34,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Art History", "count": 152, "percentage": 55 },
+        { "name": "Humanities", "count": 72, "percentage": 26 },
+        { "name": "Cultural Studies", "count": 41, "percentage": 15 },
+        { "name": "Visual Arts", "count": 11, "percentage": 4 }
+      ],
+      "topPaperTypes": [
+        { "name": "Essay (any type)", "count": 127, "percentage": 46 },
+        { "name": "Research Paper", "count": 77, "percentage": 28 },
+        { "name": "Critical Analysis", "count": 50, "percentage": 18 },
+        { "name": "Exhibition Review", "count": 22, "percentage": 8 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH30158_25",
+          "date": "2025-10-02",
+          "rating": 5,
+          "comment": "Marie's knowledge of Renaissance art is impressive. My paper on Caravaggio was detailed with great analysis of the paintings. She even included some French sources which added depth. Really happy with this",
+          "paperType": "Research Paper",
+          "writerResponse": "merci! glad you liked it 😊",
+          "helpfulCount": 37
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH37294_25",
+          "date": "2025-09-19",
+          "rating": 5,
+          "comment": "needed an analysis of modern art movements and Marie delivered. The connections between different artists and periods were well explained. Formatting was perfect and delivery was early. Would recommend",
+          "paperType": "Essay (any type)",
+          "writerResponse": "appreciate it! 👍",
+          "helpfulCount": 33
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH44621_25",
+          "date": "2025-09-03",
+          "rating": 5,
+          "comment": "tbh this was really well written. The cultural analysis went beyond just describing the art and looked at historical context too. Marie was responsive and professional throughout. Got a B+ on it",
+          "paperType": "Critical Analysis",
+          "writerResponse": "🙏",
+          "helpfulCount": 31
+        }
+      ]
     },
     {
       "id": "rebecca-e",
       "name": "Rebecca E.",
+      "title": "PhD in Molecular Biology",
       "photo": "/images/writers/rebecca-e.jpg",
       "country": "AU",
       "countryFlag": "🇦🇺",
@@ -208,11 +489,64 @@
         "rating": 4.8
       },
       "bio": "PhD in Biology with extensive lab experience. Specializes in research papers, lab reports, and scientific writing across life sciences.",
-      "subjects": ["Biology", "Chemistry", "Life Sciences"]
+      "subjects": ["Biology", "Chemistry", "Life Sciences"],
+      "lastOrder": "2025-10-05",
+      "reviewCount": 29,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Biology", "count": 117, "percentage": 50 },
+        { "name": "Life Sciences", "count": 61, "percentage": 26 },
+        { "name": "Chemistry", "count": 42, "percentage": 18 },
+        { "name": "Microbiology", "count": 14, "percentage": 6 }
+      ],
+      "topPaperTypes": [
+        { "name": "Lab Report", "count": 105, "percentage": 45 },
+        { "name": "Research Paper", "count": 70, "percentage": 30 },
+        { "name": "Assignment", "count": 42, "percentage": 18 },
+        { "name": "Case Study", "count": 17, "percentage": 7 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH26734_25",
+          "date": "2025-09-27",
+          "rating": 5,
+          "comment": "Rebecca really understands biology. My lab report on enzyme kinetics was thorough with all calculations shown. The discussion section tied everything together nicely. Delivered on time and formatted correctly",
+          "paperType": "Lab Report",
+          "writerResponse": "thanks! glad it worked out 😊",
+          "helpfulCount": 34
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH34189_25",
+          "date": "2025-09-11",
+          "rating": 4,
+          "comment": "good work on the molecular biology paper. The research was solid but I had to ask for more detail on the methodology. Rebecca added it quickly tho. Communication was good throughout",
+          "paperType": "Research Paper",
+          "writerResponse": "sorry about that, thanks for feedback 👍",
+          "helpfulCount": 29
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH41295_25",
+          "date": "2025-08-26",
+          "rating": 5,
+          "comment": "honestly saved me with this one. Had 3 assignments due same week and Rebecca handled the bio one perfectly. The cell biology concepts were explained clearly. Would use again",
+          "paperType": "Assignment",
+          "writerResponse": "happy to help!",
+          "helpfulCount": 27
+        }
+      ]
     },
     {
       "id": "daria-g",
       "name": "Daria G.",
+      "title": "Clinical Psychologist & Researcher",
       "photo": "/images/writers/daria-g.jpg",
       "country": "RU",
       "countryFlag": "🇷🇺",
@@ -223,11 +557,64 @@
         "rating": 4.8
       },
       "bio": "Clinical psychologist with expertise in research methodology, statistical analysis, and APA formatting for psychology papers.",
-      "subjects": ["Psychology", "Statistics", "Social Sciences"]
+      "subjects": ["Psychology", "Statistics", "Social Sciences"],
+      "lastOrder": "2025-10-08",
+      "reviewCount": 27,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Psychology", "count": 109, "percentage": 50 },
+        { "name": "Statistics", "count": 59, "percentage": 27 },
+        { "name": "Social Sciences", "count": 37, "percentage": 17 },
+        { "name": "Research Methods", "count": 13, "percentage": 6 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 98, "percentage": 45 },
+        { "name": "Essay (any type)", "count": 59, "percentage": 27 },
+        { "name": "Literature Review", "count": 39, "percentage": 18 },
+        { "name": "Case Study", "count": 22, "percentage": 10 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH28947_25",
+          "date": "2025-10-03",
+          "rating": 5,
+          "comment": "Daria knows psychology research really well. My paper on cognitive development had proper APA formatting and good use of recent studies. The statistical analysis section was particularly strong. Really appreciate the work",
+          "paperType": "Research Paper",
+          "writerResponse": "glad you're satisfied! 😊",
+          "helpfulCount": 32
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH36421_25",
+          "date": "2025-09-16",
+          "rating": 4,
+          "comment": "pretty good overall. The psychology essay covered the main theories well. Had to ask for one more source to be added but Daria did it same day. Communication was professional",
+          "paperType": "Essay (any type)",
+          "writerResponse": "thanks for the feedback 👍",
+          "helpfulCount": 28
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH43087_25",
+          "date": "2025-09-01",
+          "rating": 5,
+          "comment": "honestly impressed with the lit review. Daria found relevant studies I hadn't come across. The synthesis of different perspectives was well done. Would definitely use again for psych work",
+          "paperType": "Literature Review",
+          "writerResponse": "appreciate it!",
+          "helpfulCount": 26
+        }
+      ]
     },
     {
       "id": "ava-t",
       "name": "Ava T.",
+      "title": "Award-Winning Journalist",
       "photo": "/images/writers/ava-t.jpg",
       "country": "NZ",
       "countryFlag": "🇳🇿",
@@ -238,11 +625,64 @@
         "rating": 4.8
       },
       "bio": "Award-winning journalist and creative writer specializing in narrative essays, feature articles, and compelling storytelling.",
-      "subjects": ["Journalism", "Creative Writing", "Communications"]
+      "subjects": ["Journalism", "Creative Writing", "Communications"],
+      "lastOrder": "2025-10-04",
+      "reviewCount": 25,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Journalism", "count": 89, "percentage": 45 },
+        { "name": "Creative Writing", "count": 69, "percentage": 35 },
+        { "name": "Communications", "count": 30, "percentage": 15 },
+        { "name": "English", "count": 10, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Essay (any type)", "count": 89, "percentage": 45 },
+        { "name": "Article", "count": 59, "percentage": 30 },
+        { "name": "Creative Writing", "count": 40, "percentage": 20 },
+        { "name": "Content Writing", "count": 10, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH25918_25",
+          "date": "2025-09-24",
+          "rating": 5,
+          "comment": "Ava's writing style is really engaging. My narrative essay flowed beautifully and the storytelling kept me hooked even tho I knew the topic lol. Prof loved it and said it was one of the best in class. Super happy with this",
+          "paperType": "Essay (any type)",
+          "writerResponse": "that's amazing to hear! 🎉",
+          "helpfulCount": 30
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH33561_25",
+          "date": "2025-09-08",
+          "rating": 5,
+          "comment": "needed a feature article for my journalism class and Ava nailed it. The research was thorough and the writing was professional. She even suggested a better angle for the story. Really appreciate the extra effort",
+          "paperType": "Article",
+          "writerResponse": "glad it worked! 😊",
+          "helpfulCount": 27
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH40172_25",
+          "date": "2025-08-22",
+          "rating": 5,
+          "comment": "honestly this was perfect for what I needed. The creative piece had vivid descriptions and good character development. Ava was responsive to messages and delivered early. Would recommend",
+          "paperType": "Creative Writing",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 24
+        }
+      ]
     },
     {
       "id": "vincent-d",
       "name": "Vincent D.",
+      "title": "Economics PhD & Data Analyst",
       "photo": "/images/writers/vincent-d.jpg",
       "country": "BE",
       "countryFlag": "🇧🇪",
@@ -253,11 +693,64 @@
         "rating": 4.8
       },
       "bio": "Economics PhD specializing in econometrics, data analysis, and quantitative research with advanced statistical modeling expertise.",
-      "subjects": ["Economics", "Statistics", "Finance"]
+      "subjects": ["Economics", "Statistics", "Finance"],
+      "lastOrder": "2025-10-06",
+      "reviewCount": 24,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Economics", "count": 84, "percentage": 45 },
+        { "name": "Statistics", "count": 56, "percentage": 30 },
+        { "name": "Finance", "count": 37, "percentage": 20 },
+        { "name": "Business", "count": 10, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 84, "percentage": 45 },
+        { "name": "Data Analysis", "count": 56, "percentage": 30 },
+        { "name": "Essay (any type)", "count": 37, "percentage": 20 },
+        { "name": "Assignment", "count": 10, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH27685_25",
+          "date": "2025-09-28",
+          "rating": 5,
+          "comment": "Vincent's econometric analysis was spot on. My economics paper needed regression models and he explained everything clearly with good charts. The interpretation of results was particularly helpful. Got an A on this",
+          "paperType": "Research Paper",
+          "writerResponse": "congrats! 🎉",
+          "helpfulCount": 29
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH35274_25",
+          "date": "2025-09-13",
+          "rating": 4,
+          "comment": "good work on the data analysis. The statistical tests were done correctly but I wished there was more discussion on the implications. Vincent added it when I asked tho. Overall satisfied",
+          "paperType": "Data Analysis",
+          "writerResponse": "appreciate the feedback 👍",
+          "helpfulCount": 25
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH42349_25",
+          "date": "2025-08-29",
+          "rating": 5,
+          "comment": "honestly really good. The macroeconomics essay covered all the theories I needed with current examples. Vincent was professional and delivered on time. Would use again",
+          "paperType": "Essay (any type)",
+          "writerResponse": "thanks! 😊",
+          "helpfulCount": 23
+        }
+      ]
     },
     {
       "id": "ellie-m",
       "name": "Ellie M.",
+      "title": "Public Health Expert",
       "photo": "/images/writers/ellie-m.jpg",
       "country": "SE",
       "countryFlag": "🇸🇪",
@@ -268,11 +761,64 @@
         "rating": 4.8
       },
       "bio": "Public health expert specializing in epidemiology, health policy analysis, and evidence-based research papers.",
-      "subjects": ["Public Health", "Medicine", "Healthcare"]
+      "subjects": ["Public Health", "Medicine", "Healthcare"],
+      "lastOrder": "2025-10-07",
+      "reviewCount": 22,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Public Health", "count": 88, "percentage": 50 },
+        { "name": "Epidemiology", "count": 53, "percentage": 30 },
+        { "name": "Healthcare", "count": 26, "percentage": 15 },
+        { "name": "Medicine", "count": 9, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 79, "percentage": 45 },
+        { "name": "Essay (any type)", "count": 53, "percentage": 30 },
+        { "name": "Case Study", "count": 35, "percentage": 20 },
+        { "name": "Literature Review", "count": 9, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH29341_25",
+          "date": "2025-10-01",
+          "rating": 5,
+          "comment": "Ellie knows public health really well. My paper on disease prevention strategies was detailed with current WHO guidelines and recent studies. The policy recommendations were practical too. Really happy with the work",
+          "paperType": "Research Paper",
+          "writerResponse": "glad you liked it! 😊",
+          "helpfulCount": 27
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH36827_25",
+          "date": "2025-09-17",
+          "rating": 5,
+          "comment": "needed an epidemiology case study and Ellie delivered. The data analysis was thorough and the conclusions were well supported. Delivered before deadline which gave me time to review. Would recommend",
+          "paperType": "Case Study",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 24
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH43951_25",
+          "date": "2025-09-04",
+          "rating": 4,
+          "comment": "good work overall. The healthcare policy essay was solid but I had to ask for more on the economic impact. Ellie added it pretty quickly. Communication was good throughout",
+          "paperType": "Essay (any type)",
+          "writerResponse": "appreciate the feedback!",
+          "helpfulCount": 21
+        }
+      ]
     },
     {
       "id": "aaron-k",
       "name": "Aaron K.",
+      "title": "PhD in Education",
       "photo": "/images/writers/aaron-k.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
@@ -283,11 +829,64 @@
         "rating": 4.9
       },
       "bio": "PhD in Education with 8+ years helping students master academic writing, research methodology, and critical analysis across multiple disciplines.",
-      "subjects": ["Education", "Social Sciences", "Humanities"]
+      "subjects": ["Education", "Social Sciences", "Humanities"],
+      "lastOrder": "2025-10-08",
+      "reviewCount": 19,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Education", "count": 66, "percentage": 45 },
+        { "name": "Social Sciences", "count": 44, "percentage": 30 },
+        { "name": "Humanities", "count": 29, "percentage": 20 },
+        { "name": "Research Methods", "count": 8, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 66, "percentage": 45 },
+        { "name": "Essay (any type)", "count": 51, "percentage": 35 },
+        { "name": "Literature Review", "count": 22, "percentage": 15 },
+        { "name": "Thesis", "count": 8, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH24875_25",
+          "date": "2025-10-02",
+          "rating": 5,
+          "comment": "Aaron really helped me understand research methodology better. My education paper was well structured with proper citations and clear arguments. He even suggested improvements to my research question. Super helpful",
+          "paperType": "Research Paper",
+          "writerResponse": "glad I could help! 😊",
+          "helpfulCount": 23
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH32649_25",
+          "date": "2025-09-18",
+          "rating": 5,
+          "comment": "honestly this was great. The academic writing was polished and the lit review covered all major theories. Aaron was responsive and professional throughout. Would definitely use again",
+          "paperType": "Literature Review",
+          "writerResponse": "thanks! appreciate it 👍",
+          "helpfulCount": 20
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH39814_25",
+          "date": "2025-09-05",
+          "rating": 5,
+          "comment": "needed help with a pedagogy essay and Aaron delivered. The analysis of teaching methods was thorough with good examples. Formatting was perfect. Really happy with this",
+          "paperType": "Essay (any type)",
+          "writerResponse": "🙏",
+          "helpfulCount": 18
+        }
+      ]
     },
     {
       "id": "lydia-w",
       "name": "Lydia W.",
+      "title": "Doctorate in Nursing Practice (DNP)",
       "photo": "/images/writers/lydia-w.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
@@ -298,11 +897,64 @@
         "rating": 4.9
       },
       "bio": "DNP with clinical experience. Specializes in evidence-based nursing papers, case studies, and healthcare policy analysis.",
-      "subjects": ["Nursing", "Healthcare", "Medicine"]
+      "subjects": ["Nursing", "Healthcare", "Medicine"],
+      "lastOrder": "2025-10-05",
+      "reviewCount": 17,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Nursing", "count": 67, "percentage": 50 },
+        { "name": "Healthcare", "count": 40, "percentage": 30 },
+        { "name": "Medicine", "count": 20, "percentage": 15 },
+        { "name": "Patient Care", "count": 7, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Case Study", "count": 60, "percentage": 45 },
+        { "name": "Research Paper", "count": 40, "percentage": 30 },
+        { "name": "Essay (any type)", "count": 27, "percentage": 20 },
+        { "name": "Care Plan", "count": 7, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH26492_25",
+          "date": "2025-09-29",
+          "rating": 5,
+          "comment": "Lydia's nursing case study was exactly what I needed. The assessment and care plan were detailed with proper NANDA diagnoses. She clearly has clinical experience. Got an A on this which I'm really happy about",
+          "paperType": "Case Study",
+          "writerResponse": "congrats on the A! 🎉",
+          "helpfulCount": 21
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH34017_25",
+          "date": "2025-09-14",
+          "rating": 5,
+          "comment": "honestly really impressed. My evidence-based practice paper had current research and good application to nursing practice. Lydia was professional and delivered on time. Would definitely recommend",
+          "paperType": "Research Paper",
+          "writerResponse": "appreciate it! 😊",
+          "helpfulCount": 19
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH41526_25",
+          "date": "2025-08-31",
+          "rating": 5,
+          "comment": "needed a healthcare policy essay and Lydia delivered. The analysis was thorough with good use of sources. Communication was good throughout. Really happy with the work",
+          "paperType": "Essay (any type)",
+          "writerResponse": "glad you're happy! 👍",
+          "helpfulCount": 17
+        }
+      ]
     },
     {
       "id": "anjali-p",
       "name": "Anjali P.",
+      "title": "Data Scientist & ML Engineer",
       "photo": "/images/writers/anjali-p.jpg",
       "country": "IN",
       "countryFlag": "🇮🇳",
@@ -313,11 +965,64 @@
         "rating": 4.8
       },
       "bio": "Data scientist with expertise in machine learning, Python, R, and statistical modeling for complex data analysis projects.",
-      "subjects": ["Data Science", "Statistics", "Computer Science"]
+      "subjects": ["Data Science", "Statistics", "Computer Science"],
+      "lastOrder": "2025-10-07",
+      "reviewCount": 16,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Data Science", "count": 58, "percentage": 45 },
+        { "name": "Machine Learning", "count": 38, "percentage": 30 },
+        { "name": "Statistics", "count": 26, "percentage": 20 },
+        { "name": "Computer Science", "count": 6, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Data Analysis", "count": 58, "percentage": 45 },
+        { "name": "Research Paper", "count": 38, "percentage": 30 },
+        { "name": "Assignment", "count": 26, "percentage": 20 },
+        { "name": "Project Report", "count": 6, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH28156_25",
+          "date": "2025-10-01",
+          "rating": 5,
+          "comment": "Anjali knows her ML stuff. My data science project had well-commented Python code and good model performance. The visualizations were clean too. She explained the approach which helped me understand it better",
+          "paperType": "Data Analysis",
+          "writerResponse": "glad it helped! 😊",
+          "helpfulCount": 19
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH35843_25",
+          "date": "2025-09-16",
+          "rating": 4,
+          "comment": "pretty good work. The machine learning assignment was done correctly but I had to ask for more comments in the code. Anjali added them quickly tho. Overall satisfied with the result",
+          "paperType": "Assignment",
+          "writerResponse": "thanks for the feedback 👍",
+          "helpfulCount": 16
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH42718_25",
+          "date": "2025-09-02",
+          "rating": 5,
+          "comment": "honestly this was perfect. The statistical analysis used appropriate tests and the R code ran without issues. Anjali was responsive and professional. Would use again",
+          "paperType": "Research Paper",
+          "writerResponse": "appreciate it!",
+          "helpfulCount": 15
+        }
+      ]
     },
     {
       "id": "paul",
       "name": "Paul",
+      "title": "Marketing Strategist",
       "photo": "/images/writers/paul.jpg",
       "country": "FR",
       "countryFlag": "🇫🇷",
@@ -328,11 +1033,64 @@
         "rating": 4.8
       },
       "bio": "Marketing strategist with agency experience. Expert in digital marketing plans, consumer behavior analysis, and brand strategy papers.",
-      "subjects": ["Marketing", "Business", "Communications"]
+      "subjects": ["Marketing", "Business", "Communications"],
+      "lastOrder": "2025-10-06",
+      "reviewCount": 15,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Marketing", "count": 60, "percentage": 50 },
+        { "name": "Business", "count": 36, "percentage": 30 },
+        { "name": "Communications", "count": 18, "percentage": 15 },
+        { "name": "Digital Media", "count": 5, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Marketing Plan", "count": 54, "percentage": 45 },
+        { "name": "Case Study", "count": 36, "percentage": 30 },
+        { "name": "Research Paper", "count": 24, "percentage": 20 },
+        { "name": "Essay (any type)", "count": 5, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH25749_25",
+          "date": "2025-09-27",
+          "rating": 5,
+          "comment": "Paul's marketing plan was really comprehensive. The SWOT analysis and digital strategy sections were particularly strong. He used current examples from real brands which made it relevant. Really happy with this",
+          "paperType": "Marketing Plan",
+          "writerResponse": "merci! glad you liked it 😊",
+          "helpfulCount": 18
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH33294_25",
+          "date": "2025-09-12",
+          "rating": 5,
+          "comment": "needed a consumer behavior analysis and Paul delivered. The research was solid with good psychological insights. Communication was professional and delivery was on time. Would recommend",
+          "paperType": "Case Study",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 16
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH40581_25",
+          "date": "2025-08-28",
+          "rating": 4,
+          "comment": "good work on the social media strategy. The content calendar was detailed. Had to ask for more on the metrics section but Paul added it same day. Overall satisfied",
+          "paperType": "Marketing Plan",
+          "writerResponse": "appreciate the feedback!",
+          "helpfulCount": 14
+        }
+      ]
     },
     {
       "id": "david-r",
       "name": "David R.",
+      "title": "Certified Public Accountant (CPA)",
       "photo": "/images/writers/david-r.jpg",
       "country": "CA",
       "countryFlag": "🇨🇦",
@@ -343,11 +1101,64 @@
         "rating": 4.8
       },
       "bio": "CPA with extensive experience in financial accounting, auditing, and corporate finance assignments with practical applications.",
-      "subjects": ["Accounting", "Finance", "Business"]
+      "subjects": ["Accounting", "Finance", "Business"],
+      "lastOrder": "2025-10-08",
+      "reviewCount": 14,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.7,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Accounting", "count": 54, "percentage": 50 },
+        { "name": "Finance", "count": 32, "percentage": 30 },
+        { "name": "Auditing", "count": 16, "percentage": 15 },
+        { "name": "Business", "count": 5, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Assignment", "count": 48, "percentage": 45 },
+        { "name": "Case Study", "count": 32, "percentage": 30 },
+        { "name": "Problem Set", "count": 21, "percentage": 20 },
+        { "name": "Research Paper", "count": 6, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH27385_25",
+          "date": "2025-10-03",
+          "rating": 5,
+          "comment": "David knows accounting really well. My financial statements assignment had all calculations shown and the ratios were correct. He even explained the reasoning which helped me learn. Got a solid grade on this",
+          "paperType": "Assignment",
+          "writerResponse": "glad it helped! 😊",
+          "helpfulCount": 17
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH34921_25",
+          "date": "2025-09-19",
+          "rating": 5,
+          "comment": "needed help with an auditing case study and David delivered. The analysis followed proper audit standards and the recommendations were practical. Communication was good. Would use again",
+          "paperType": "Case Study",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 15
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH41847_25",
+          "date": "2025-09-06",
+          "rating": 4,
+          "comment": "good work on the cost accounting problems. All calculations were correct but I wished there was more explanation on the overhead allocation. David added it when I asked tho. Overall satisfied",
+          "paperType": "Problem Set",
+          "writerResponse": "appreciate the feedback!",
+          "helpfulCount": 13
+        }
+      ]
     },
     {
       "id": "susan-l",
       "name": "Susan L.",
+      "title": "Juris Doctor (JD)",
       "photo": "/images/writers/susan-l.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
@@ -358,11 +1169,64 @@
         "rating": 4.9
       },
       "bio": "JD from top law school. Expert in legal writing, case briefs, constitutional analysis, and legal research papers.",
-      "subjects": ["Law", "Legal Studies", "Criminal Justice"]
+      "subjects": ["Law", "Legal Studies", "Criminal Justice"],
+      "lastOrder": "2025-10-07",
+      "reviewCount": 12,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.9,
+        "followsInstructions": 4.9,
+        "responseSpeed": 4.9,
+        "communication": 4.9
+      },
+      "topSubjects": [
+        { "name": "Law", "count": 46, "percentage": 50 },
+        { "name": "Legal Studies", "count": 28, "percentage": 30 },
+        { "name": "Criminal Justice", "count": 14, "percentage": 15 },
+        { "name": "Constitutional Law", "count": 4, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Essay (any type)", "count": 41, "percentage": 45 },
+        { "name": "Case Brief", "count": 28, "percentage": 30 },
+        { "name": "Research Paper", "count": 18, "percentage": 20 },
+        { "name": "Legal Memo", "count": 5, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH26831_25",
+          "date": "2025-10-02",
+          "rating": 5,
+          "comment": "Susan's legal analysis was really thorough. My constitutional law essay cited relevant cases and the IRAC format was perfect. She clearly knows legal writing. Prof gave me an A- which I'm super happy with",
+          "paperType": "Essay (any type)",
+          "writerResponse": "congrats! well deserved 🎉",
+          "helpfulCount": 15
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH34652_25",
+          "date": "2025-09-17",
+          "rating": 5,
+          "comment": "honestly this was exactly what I needed. The case brief was well structured with proper legal citations. Susan identified the key issues and holdings correctly. Would definitely use again for law assignments",
+          "paperType": "Case Brief",
+          "writerResponse": "glad it worked! 😊",
+          "helpfulCount": 13
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH42174_25",
+          "date": "2025-09-03",
+          "rating": 5,
+          "comment": "needed help with a criminal justice paper and Susan delivered. The research was solid with current cases and statutes. Communication was professional and delivery was on time. Really appreciate it",
+          "paperType": "Research Paper",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 12
+        }
+      ]
     },
     {
       "id": "arun-n",
       "name": "Arun N.",
+      "title": "MS in Engineering (IIT)",
       "photo": "/images/writers/arun-n.jpg",
       "country": "IN",
       "countryFlag": "🇮🇳",
@@ -373,11 +1237,64 @@
         "rating": 4.8
       },
       "bio": "MS Engineering from IIT. Combines technical expertise with exceptional writing skills to make complex STEM concepts accessible and engaging.",
-      "subjects": ["Engineering", "Mathematics", "Physics"]
+      "subjects": ["Engineering", "Mathematics", "Physics"],
+      "lastOrder": "2025-10-05",
+      "reviewCount": 11,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Engineering", "count": 44, "percentage": 50 },
+        { "name": "Mathematics", "count": 26, "percentage": 30 },
+        { "name": "Physics", "count": 13, "percentage": 15 },
+        { "name": "STEM", "count": 4, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Assignment", "count": 39, "percentage": 45 },
+        { "name": "Problem Set", "count": 26, "percentage": 30 },
+        { "name": "Lab Report", "count": 17, "percentage": 20 },
+        { "name": "Research Paper", "count": 5, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH25417_25",
+          "date": "2025-09-28",
+          "rating": 5,
+          "comment": "Arun's engineering assignment was well done. All calculations were shown step by step and the diagrams were clear. He explained the concepts which helped me understand the material better. Really happy with this",
+          "paperType": "Assignment",
+          "writerResponse": "glad it helped! 😊",
+          "helpfulCount": 14
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH33859_25",
+          "date": "2025-09-13",
+          "rating": 5,
+          "comment": "honestly impressed. My thermodynamics problem set had all solutions worked out correctly. Arun was responsive to questions and delivered on time. Would definitely use again for engineering work",
+          "paperType": "Problem Set",
+          "writerResponse": "thanks! 👍",
+          "helpfulCount": 12
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH41295_25",
+          "date": "2025-08-30",
+          "rating": 4,
+          "comment": "good work on the physics lab report. The data analysis was correct but I had to ask for more on the error analysis section. Arun added it pretty quickly. Overall satisfied",
+          "paperType": "Lab Report",
+          "writerResponse": "appreciate the feedback!",
+          "helpfulCount": 10
+        }
+      ]
     },
     {
       "id": "grace-k",
       "name": "Grace K.",
+      "title": "Environmental Scientist",
       "photo": "/images/writers/grace-k.jpg",
       "country": "AU",
       "countryFlag": "🇦🇺",
@@ -388,11 +1305,64 @@
         "rating": 4.8
       },
       "bio": "Environmental scientist passionate about sustainability research, climate studies, and ecological impact assessments.",
-      "subjects": ["Environmental Science", "Biology", "Earth Sciences"]
+      "subjects": ["Environmental Science", "Biology", "Earth Sciences"],
+      "lastOrder": "2025-10-06",
+      "reviewCount": 10,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.8,
+        "followsInstructions": 4.8,
+        "responseSpeed": 4.8,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Environmental Science", "count": 41, "percentage": 50 },
+        { "name": "Sustainability", "count": 24, "percentage": 30 },
+        { "name": "Biology", "count": 12, "percentage": 15 },
+        { "name": "Earth Sciences", "count": 4, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Research Paper", "count": 36, "percentage": 45 },
+        { "name": "Essay (any type)", "count": 24, "percentage": 30 },
+        { "name": "Case Study", "count": 16, "percentage": 20 },
+        { "name": "Lab Report", "count": 5, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH27941_25",
+          "date": "2025-09-30",
+          "rating": 5,
+          "comment": "Grace's environmental science paper was really well researched. The climate change analysis used current data and the sustainability recommendations were practical. She's clearly passionate about the topic. Got an A on this",
+          "paperType": "Research Paper",
+          "writerResponse": "that's great! congrats 🎉",
+          "helpfulCount": 13
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH35274_25",
+          "date": "2025-09-15",
+          "rating": 5,
+          "comment": "needed an ecological impact assessment and Grace delivered. The case study was thorough with good analysis of the environmental factors. Communication was good throughout. Would use again",
+          "paperType": "Case Study",
+          "writerResponse": "thanks! 😊",
+          "helpfulCount": 11
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH42638_25",
+          "date": "2025-09-01",
+          "rating": 4,
+          "comment": "pretty good work. The sustainability essay covered the main topics well. Had to ask for one more source on renewable energy but Grace added it same day. Overall satisfied with the result",
+          "paperType": "Essay (any type)",
+          "writerResponse": "appreciate it! 👍",
+          "helpfulCount": 9
+        }
+      ]
     },
     {
       "id": "eric-h",
       "name": "Eric H.",
+      "title": "Licensed Architect",
       "photo": "/images/writers/eric-h.jpg",
       "country": "US",
       "countryFlag": "🇺🇸",
@@ -403,11 +1373,64 @@
         "rating": 4.7
       },
       "bio": "Architect specializing in design theory, urban planning, and sustainable architecture with hands-on project experience.",
-      "subjects": ["Architecture", "Design", "Engineering"]
+      "subjects": ["Architecture", "Design", "Engineering"],
+      "lastOrder": "2025-10-04",
+      "reviewCount": 9,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.7,
+        "followsInstructions": 4.7,
+        "responseSpeed": 4.7,
+        "communication": 4.8
+      },
+      "topSubjects": [
+        { "name": "Architecture", "count": 37, "percentage": 50 },
+        { "name": "Urban Planning", "count": 22, "percentage": 30 },
+        { "name": "Design", "count": 11, "percentage": 15 },
+        { "name": "Engineering", "count": 4, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Essay (any type)", "count": 33, "percentage": 45 },
+        { "name": "Research Paper", "count": 22, "percentage": 30 },
+        { "name": "Case Study", "count": 15, "percentage": 20 },
+        { "name": "Project Report", "count": 4, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH26594_25",
+          "date": "2025-09-26",
+          "rating": 5,
+          "comment": "Eric knows architecture really well. My urban planning essay had good analysis of sustainable design principles. He used examples from real projects which made it more interesting. Delivered on time too",
+          "paperType": "Essay (any type)",
+          "writerResponse": "glad you liked it! 😊",
+          "helpfulCount": 11
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH34182_25",
+          "date": "2025-09-11",
+          "rating": 4,
+          "comment": "pretty good work on the architecture case study. The design analysis was solid but I had to ask for more on the structural aspects. Eric added it within a day tho. Overall good experience",
+          "paperType": "Case Study",
+          "writerResponse": "thanks for the feedback 👍",
+          "helpfulCount": 9
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH41729_25",
+          "date": "2025-08-27",
+          "rating": 5,
+          "comment": "honestly this was really helpful. The research paper on modernist architecture was well written with good references. Eric was professional and communication was good. Would recommend",
+          "paperType": "Research Paper",
+          "writerResponse": "appreciate it!",
+          "helpfulCount": 8
+        }
+      ]
     },
     {
       "id": "eden-m",
       "name": "Eden M.",
+      "title": "Software Engineer & CS Educator",
       "photo": "/images/writers/eden-m.jpg",
       "country": "IL",
       "countryFlag": "🇮🇱",
@@ -418,6 +1441,58 @@
         "rating": 4.7
       },
       "bio": "Software engineer and CS educator. Delivers well-commented code, algorithms, and technical documentation for programming assignments.",
-      "subjects": ["Computer Science", "Programming", "IT"]
+      "subjects": ["Computer Science", "Programming", "IT"],
+      "lastOrder": "2025-10-08",
+      "reviewCount": 8,
+      "ratingBreakdown": {
+        "qualityOfWork": 4.7,
+        "followsInstructions": 4.7,
+        "responseSpeed": 4.7,
+        "communication": 4.7
+      },
+      "topSubjects": [
+        { "name": "Programming", "count": 34, "percentage": 50 },
+        { "name": "Computer Science", "count": 20, "percentage": 30 },
+        { "name": "Algorithms", "count": 10, "percentage": 15 },
+        { "name": "IT", "count": 4, "percentage": 5 }
+      ],
+      "topPaperTypes": [
+        { "name": "Programming Assignment", "count": 31, "percentage": 45 },
+        { "name": "Project", "count": 20, "percentage": 30 },
+        { "name": "Homework Help", "count": 14, "percentage": 20 },
+        { "name": "Research Paper", "count": 3, "percentage": 5 }
+      ],
+      "premiumReviews": [
+        {
+          "id": "premium-1",
+          "orderNumber": "DMH25836_25",
+          "date": "2025-10-03",
+          "rating": 5,
+          "comment": "Eden's code was clean and well commented. My Java assignment compiled without errors and the logic was easy to follow. He even added some optimizations I didn't think of. Really happy with this",
+          "paperType": "Programming Assignment",
+          "writerResponse": "glad it worked! 😊",
+          "helpfulCount": 10
+        },
+        {
+          "id": "premium-2",
+          "orderNumber": "DMH33471_25",
+          "date": "2025-09-18",
+          "rating": 4,
+          "comment": "good work on the algorithm assignment. The implementation was correct but I had to ask for more comments explaining the time complexity. Eden added them quickly. Overall satisfied",
+          "paperType": "Homework Help",
+          "writerResponse": "thanks for feedback 👍",
+          "helpfulCount": 8
+        },
+        {
+          "id": "premium-3",
+          "orderNumber": "DMH40925_25",
+          "date": "2025-09-04",
+          "rating": 5,
+          "comment": "honestly saved me. My Python project was due in 2 days and Eden got it done with time to spare. The code followed best practices and documentation was solid. Would definitely use again",
+          "paperType": "Project",
+          "writerResponse": "happy to help!",
+          "helpfulCount": 7
+        }
+      ]
     }
   ]
