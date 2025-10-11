@@ -47,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ✅ ADD: Writer profiles (noindex but include in sitemap for discovery)
   const writerUrls = writers.map((writer: any) => ({
-    url: `${baseUrl}/top-writers/${writer.slug}`,
+    url: `${baseUrl}/top-writers/${writer.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.6, // Lower priority since noindexed
