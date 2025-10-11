@@ -97,46 +97,7 @@ function generateHomepageStructuredData() {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can you do my homework online?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes – we complete homework fully online for you. Our platform matches your task with a subject expert, who delivers accurate solutions directly through our system."
-        }
-      },
-      {
-        "@type": "Question", 
-        "name": "Is the homework help 100% human-written?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely – every solution is written by a real expert. We do not use AI generators; all work is custom, plagiarism-free, and checked for academic integrity."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What subjects do you cover?", 
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We cover 100+ subjects – from Math and Science to Nursing and Programming. Assignments range from essays and reports to coding projects, lab work, and case studies."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How fast can you deliver my homework?",
-        "acceptedAnswer": {
-          "@type": "Answer", 
-          "text": "As fast as a few hours – for urgent homework. We also handle regular deadlines with planned scheduling to guarantee on-time delivery."
-        }
-      }
-    ]
-  };
-
-  return [organizationSchema, serviceSchema, breadcrumbSchema, productSchema, faqSchema];
+  return [organizationSchema, serviceSchema, breadcrumbSchema, productSchema];
 }
 
 export default function Home() {
