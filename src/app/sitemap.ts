@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import servicePages from '@/data/servicePages.json'
 import blogs from '@/data/blogs.json'
 import staticPagesData from '@/data/staticPages.json'
+import writers from '@/data/writers.json' // ✅ Add this
 
 type ServicePage = {
   slug: string
@@ -15,14 +16,12 @@ type StaticPage = {
   priority: number
 }
 
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://domyhomework.co'
   
-  // Cast JSON data to proper type
   const staticPages = staticPagesData as StaticPage[]
   
-  // Static pages - FULLY DYNAMIC FROM JSON
+  // Static pages
   const staticPageUrls = staticPages.map((page) => ({
     url: page.slug ? `${baseUrl}/${page.slug}` : baseUrl,
     lastModified: new Date(),
@@ -46,5 +45,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticPageUrls, ...servicePageUrls, ...blogUrls]
+  // ✅ ADD: Writer profiles (noindex but include in sitemap for discovery)
+  const writerUrls = writers.map((writer: any) => ({
+    url: `${baseUrl}/top-writers/${writer.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.6, // Lower priority since noindexed
+  }))
+
+  return [...staticPageUrls, ...servicePageUrls, ...blogUrls, ...writerUrls]
 }
