@@ -149,9 +149,66 @@ const securityQuestions = [
   }
 ]
 
+// ✅ Generate structured data for FAQ page
+function generateFAQStructuredData() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://domyhomework.co"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ",
+        "item": "https://domyhomework.co/faq"
+      }
+    ]
+  }
+
+  // Combine all FAQ questions from arrays
+  const allQuestions = [
+    ...generalQuestions,
+    ...orderingQuestions,
+    ...qualityQuestions,
+    ...pricingQuestions,
+    ...guaranteeQuestions,
+    ...securityQuestions
+  ].map(q => ({
+    "@type": "Question",
+    "name": q.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": q.answer
+    }
+  }))
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allQuestions
+  }
+
+  return [breadcrumbSchema, faqSchema]
+}
+
 export default function FAQPage() {
+  const structuredData = generateFAQStructuredData()
+
   return (
     <>
+      {/* ✅ Add structured data */}
+      {structuredData.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
       <div className="bg-white min-h-screen">
         {/* Hero Section */}

@@ -110,19 +110,6 @@ function generateServiceStructuredData(page: ServicePageData) {
     ]
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": page.sections.faq.items.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  }
-
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -149,7 +136,7 @@ function generateServiceStructuredData(page: ServicePageData) {
     }
   }
 
-  return [serviceSchema, breadcrumbSchema, faqSchema, productSchema]
+  return [serviceSchema, breadcrumbSchema, productSchema]
 }
 
 export default function ServicePage({ params }: { params: { slug: string } }) {

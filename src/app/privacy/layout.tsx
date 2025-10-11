@@ -46,35 +46,6 @@ function generatePrivacyStructuredData() {
         "@type": "ImageObject",
         "url": "https://domyhomework.co/logo.png"
       }
-    },
-    "mainEntity": {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is my information kept private?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We keep your academic details, orders, and contact info 100% confidential. Your school or college will never know you used our services."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How safe are my payments?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "All payments are encrypted and securely processed through PCI-DSS compliant payment gateways. We never store raw card details."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you sell my data?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. We never sell your personal information to advertisers or third parties. Your privacy is our top priority."
-          }
-        }
-      ]
     }
   }
 

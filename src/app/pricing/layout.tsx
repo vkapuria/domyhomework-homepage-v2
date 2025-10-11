@@ -69,38 +69,7 @@ function generatePricingStructuredData() {
     ]
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does homework help cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our pricing starts at $12 per page for high school level work with a 14-day deadline. Prices vary based on academic level (high school, bachelor's, master's, PhD), deadline urgency, and assignment complexity. We offer bulk discounts: 10% off for 5-9 pages, 15% off for 10-14 pages, and 20% off for 15+ pages."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are there any hidden fees?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. All prices shown include everything - research, writing, formatting, title page, and bibliography. The only additional costs would be optional extras you specifically choose, like VIP support or progressive delivery."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer discounts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We offer automatic bulk discounts: 10% off for 5-9 pages, 15% off for 10-14 pages, and 20% off for 15+ pages. First-time customers also receive a welcome discount. Check our calculator for exact pricing with discounts applied."
-        }
-      }
-    ]
-  }
-
-  return [priceSpecification, breadcrumbSchema, faqSchema]
+  return [priceSpecification, breadcrumbSchema]
 }
 
 export default function PricingLayout({
