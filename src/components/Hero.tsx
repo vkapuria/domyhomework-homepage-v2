@@ -159,15 +159,22 @@ const FeatureHighlights = () => (
     className="flex flex-col md:flex-row items-center justify-between gap-8 py-12 border-y border-gray-200 mt-20"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
+    transition={{ duration: 0.8, ease: 'easeOut' }}
     viewport={{ once: true, amount: 0.1 }}
   >
     {FEATURE_HIGHLIGHTS.map((feature, index) => (
-      <div key={index} className="flex items-center gap-3 text-center md:text-left max-w-xs">
-        <feature.icon className={`w-6 h-6 ${feature.color}`} />
+      <div
+        key={index}
+        className="flex items-center gap-3 text-center md:text-left max-w-xs"
+      >
+        <feature.icon className={`w-9 h-9 ${feature.color}`} />
         <div>
-          <h3 className="text-sm font-semibold text-gray-900">{feature.title}</h3>
-          <p className="text-xs text-gray-500">{feature.description}</p>
+          <h3 className="text-sm font-semibold text-gray-900">
+            {feature.title}
+          </h3>
+          <p className="text-sm leading-5 text-gray-600 font-normal">
+            {feature.description}
+          </p>
         </div>
       </div>
     ))}
@@ -255,7 +262,7 @@ export default function Hero() {
           </div>
 
           {/* ========== RIGHT COLUMN - FORM ========== */}
-          <div id="order-form" className="scroll-mt-28 bg-white border-[3px] border-[#9333ea] p-6 sm:p-8 shadow-[8px_8px_0px_#9333ea]">
+          <div id="order-form" className="scroll-mt-28 bg-white border-2 border-black p-6 sm:p-8 drop-shadow-[7px_7px_0_#000]">
             {/* Form Header */}
             <div className="text-center mb-6">
             <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-2">

@@ -164,7 +164,7 @@ export default function Testimonials() {
         <div className="-mx-4 sm:-mx-6 lg:-mx-8">
           <div
             ref={trackRef}
-            className="flex gap-6 px-4 sm:px-6 lg:px-8 overflow-hidden"
+            className="flex gap-6 px-4 py-4 sm:px-6 lg:px-8 overflow-x-hidden overflow-y-visible"
             style={{ scrollBehavior: 'auto' }}
           >
             {loopList.map((r, idx) => (
@@ -197,7 +197,7 @@ function Card({ review, reviewIndex }: { review: Review; reviewIndex: number }) 
   const dynamicDate = generateDynamicDate(reviewIndex)
 
   return (
-    <article className="relative flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] bg-white border border-gray-200 hover:border-gray-300 hover:border-2 rounded-2xl shadow-sm hover:shadow-md transition-all p-6">
+    <article className="relative flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] bg-white border-2 border-black rounded-md drop-shadow-[7px_7px_0_#000] transition-transform duration-200 ease-in-out hover:-translate-y-1 p-6">
       
       <div className="space-y-4 relative z-10">
                 {/* Blockquote with title + decorative icon */}
