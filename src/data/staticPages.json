@@ -42,6 +42,12 @@
     "priority": 0.9
   },
   {
+    "slug": "services",
+    "title": "Services",
+    "changeFrequency": "weekly",
+    "priority": 0.9
+  },
+  {
     "slug": "privacy",
     "title": "Privacy Policy",
     "changeFrequency": "yearly",
