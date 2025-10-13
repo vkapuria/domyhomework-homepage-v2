@@ -16,6 +16,7 @@ export default function PageTemplate({ data }: PageTemplateProps) {
   return (
     <main>
       <DynamicHero 
+        badgeText={data.hero.badgeText}
         title={data.hero.title}
         subtitle={data.hero.subtitle}
         bulletPoints={data.hero.bulletPoints}

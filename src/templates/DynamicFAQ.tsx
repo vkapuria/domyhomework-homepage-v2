@@ -41,7 +41,7 @@ export default function DynamicFAQ({
           <div className="text-xs text-gray-500 mb-2">
             Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </div>
-          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight border-y-4 border-black inline-block px-6 py-2">
             {title}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4">
@@ -62,11 +62,11 @@ export default function DynamicFAQ({
         </div>
 
         {/* EXACT SAME ACCORDION AS HOMEPAGE */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((faq, i) => (
             <div
               key={i}
-              className="border rounded-lg overflow-hidden shadow-sm"
+              className="bg-white border-2 border-black rounded-md drop-shadow-[7px_7px_0_#000] transition-transform duration-200 ease-in-out hover:-translate-y-1"
             >
               {/* Header */}
               <button

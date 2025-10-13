@@ -125,8 +125,8 @@ export default function FAQ() {
           <div className="text-xs text-gray-500 mb-2">
             Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </div>
-          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            FAQ – Online Homework Help &amp; Do My Homework Services
+          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight border-y-4 border-black inline-block px-6 py-2">
+            FAQ – Do My Homework Services
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4">
             Answers to the most common questions students ask before ordering homework help online.
@@ -144,23 +144,24 @@ export default function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="border rounded-lg overflow-hidden shadow-sm"
+              className="bg-white border-2 border-black rounded-md drop-shadow-[7px_7px_0_#000] transition-transform duration-200 ease-in-out hover:-translate-y-1"
             >
               {/* Header */}
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className={`w-full flex justify-between items-center px-6 py-4 font-medium text-gray-800 bg-white hover:bg-gray-200 transition-colors`}
+                className="w-full flex justify-between items-center px-6 py-4 font-semibold text-gray-900 bg-white"
               >
                 {faq.question}
-                {open === i ? (
-                  <IconMinus className="w-5 h-5 text-gray-600" />
-                ) : (
-                  <IconPlus className="w-5 h-5 text-gray-600" />
-                )}
+                <IconPlus
+                className={`w-5 h-5 text-gray-800 transform transition-transform duration-300 ${
+                  open === i ? "rotate-45" : "rotate-0"
+                }`}
+              />
+
               </button>
 
               {/* Answer */}
@@ -172,7 +173,7 @@ export default function FAQ() {
                 }`}
               >
                 <div className="overflow-hidden bg-white">
-                  <div className="px-6 py-3 pb-4 text-gray-600 space-y-2">
+                  <div className="px-6 py-4 text-sm text-gray-700 leading-5 space-y-2">
                     {faq.answer}
                   </div>
                 </div>

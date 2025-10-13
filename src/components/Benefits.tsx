@@ -100,7 +100,7 @@ export default function Benefits() {
                 Affordable Pricing
               </h3>
               <p className="text-sm text-gray-600 text-left leading-relaxed">
-                Fair pricing with no hidden fees—get high-quality work within your budget. Completely transparent rates with no subscription, no hidden fee, secure payment for all students. <a href="/pricing" className="text-purple-600 hover:text-purple-800 underline font-medium">View pricing</a>.
+                Fair pricing with no hidden fees—get high-quality work within your budget. Completely transparent rates with no subscription, secure payment for all students. <a href="/pricing" className="text-purple-600 hover:text-purple-800 underline font-medium">View pricing</a>.
               </p>
             </div>
           </div>

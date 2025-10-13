@@ -43,7 +43,9 @@ export default function DynamicServices({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Service 1 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconBook2 className="w-10 h-10 text-blue-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Homework & Assignments
@@ -54,7 +56,9 @@ export default function DynamicServices({
           </div>
 
           {/* Service 2 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconFileText className="w-10 h-10 text-green-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Essays & Reports
@@ -65,7 +69,9 @@ export default function DynamicServices({
           </div>
 
           {/* Service 3 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconPresentation className="w-10 h-10 text-yellow-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Presentations & Projects
@@ -76,7 +82,9 @@ export default function DynamicServices({
           </div>
 
           {/* Service 4 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconMathFunction className="w-10 h-10 text-purple-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Math & Statistics Help
@@ -87,7 +95,9 @@ export default function DynamicServices({
           </div>
 
           {/* Service 5 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconCertificate className="w-10 h-10 text-pink-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Research Papers & Dissertations
@@ -98,7 +108,9 @@ export default function DynamicServices({
           </div>
 
           {/* Service 6 */}
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-200 hover:border-gray-300 hover:border-2 transition-all duration-300 hover:scale-105 text-center">
+          <div className="bg-white p-6 border-2 border-black rounded-md 
+                          drop-shadow-[7px_7px_0_#000] 
+                          transition-transform duration-200 ease-in-out hover:-translate-y-1 text-center">
             <IconChalkboard className="w-10 h-10 text-indigo-600 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Online Tutoring & Guidance

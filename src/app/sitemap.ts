@@ -3,6 +3,7 @@ import servicePages from '@/data/servicePages.json'
 import blogs from '@/data/blogs.json'
 import staticPagesData from '@/data/staticPages.json'
 import writers from '@/data/writers.json' // ✅ Add this
+import tier2Config from '@/data/configs/tier2-subjects.json' // ← ADD THIS
 
 type ServicePage = {
   slug: string
@@ -30,12 +31,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Service pages
-  const servicePageUrls = servicePages.map((page: ServicePage) => ({
-    url: `${baseUrl}/${page.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  // T1 Service pages (from servicePages.json)
+const t1ServiceUrls = servicePages.map((page: ServicePage) => ({
+  url: `${baseUrl}/${page.slug}`,
+  lastModified: new Date(),
+  changeFrequency: 'monthly' as const,
+  priority: 0.8,
+}))
+
+// T2 Service pages (from tier2-subjects.json)
+const t2ServiceUrls = tier2Config.subjects.map((subject: any) => ({
+  url: `${baseUrl}/${subject.slug}`,
+  lastModified: new Date(),
+  changeFrequency: 'monthly' as const,
+  priority: 0.7, // Slightly lower priority than T1 hub pages
+}))
 
   // Blog posts
   const blogUrls = blogs.map((post: any) => ({
@@ -53,5 +63,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6, // Lower priority since noindexed
   }))
 
-  return [...staticPageUrls, ...servicePageUrls, ...blogUrls, ...writerUrls]
+  return [...staticPageUrls, ...t1ServiceUrls, ...t2ServiceUrls, ...blogUrls, ...writerUrls]
 }

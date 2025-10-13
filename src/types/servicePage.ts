@@ -6,6 +6,7 @@ export interface ServicePageData {
     h1: string
     
     hero: {
+      badgeText?: string  // <-- ADD THIS LINE
       title: string
       subtitle: string
       bulletPoints?: string[]

@@ -3,13 +3,25 @@ import { notFound } from 'next/navigation'
 import PageTemplate from '@/components/PageTemplate'
 import servicePages from '@/data/servicePages.json'
 import { ServicePageData } from '@/types/servicePage'
+// Import at top of file
 
 const RESERVED_SLUGS = new Set(['blog', 'api', 'sitemap.xml', 'robots.txt', 'favicon.ico', '_next'])
 
 export async function generateStaticParams() {
-  return servicePages.map((page) => ({
+  
+  
+  // Generate params for T1 pages
+  const t1Params = servicePages.map((page) => ({
     slug: page.slug
   }))
+  
+  // Generate params for T2 pages
+  const t2Params = tier2Config.subjects.map((subject: any) => ({
+    slug: subject.slug
+  }))
+  
+  // Combine both
+  return [...t1Params, ...t2Params]
 }
 
 // Enhanced metadata function
@@ -139,17 +151,33 @@ function generateServiceStructuredData(page: ServicePageData) {
   return [serviceSchema, breadcrumbSchema, productSchema]
 }
 
+// Import the new files at the top
+import tier2Template from '@/data/templates/tier2-template.json'
+import tier2Config from '@/data/configs/tier2-subjects.json'
+import { mergeTemplateWithSubject } from '@/lib/mergeTemplate'
+
 export default function ServicePage({ params }: { params: { slug: string } }) {
   if (RESERVED_SLUGS.has(params.slug)) {
     return notFound()
   }
 
-  const page = servicePages.find((p) => p.slug === params.slug) as ServicePageData | undefined
+  // First, check if it's a T1 page (existing servicePages.json)
+  let page = servicePages.find((p) => p.slug === params.slug) as ServicePageData | undefined
 
+  // If not found, check if it's a T2 page (template-based)
+  if (!page) {
+    const subject = tier2Config.subjects.find((s: any) => s.slug === params.slug)
+    
+    if (subject) {
+      // Merge template with subject config
+      page = mergeTemplateWithSubject(tier2Template, subject)
+    }
+  }
+
+  // If still not found, return 404
   if (!page) {
     return notFound()
   }
-
   const structuredData = generateServiceStructuredData(page)
 
   return (

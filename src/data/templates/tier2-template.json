@@ -1,0 +1,105 @@
+{
+    "slug": "{{SLUG}}",
+    "focusKeyword": "{{FOCUS_KEYWORD}}",
+    "title": "{{META_TITLE}}",
+    "metaDescription": "{{META_DESCRIPTION}}",
+    "h1": "{{H1}}",
+    
+    "hero": {
+      "badgeText": "🎓 {{SUBJECT_NAME}} Homework Help – Expert {{SUBJECT_NAME}} Tutors 24/7",
+      "title": "Do My {{SUBJECT_NAME}} Homework",
+      "subtitle": "Struggling with {{SUBJECT_NAME_LOWER}} assignments? Our expert {{SUBJECT_NAME_LOWER}} tutors provide personalized help to boost your understanding and grades. Get professional {{SUBJECT_NAME_LOWER}} assistance whenever you need it.",
+      "bulletPoints": [
+        "Expert {{SUBJECT_NAME_LOWER}} tutors with advanced degrees",
+        "24/7 {{SUBJECT_NAME_LOWER}} homework assistance",
+        "Step-by-step {{SUBJECT_NAME_LOWER}} solutions with explanations",
+        "Affordable rates with guaranteed quality"
+      ],
+      "ctaText": "Get {{SUBJECT_NAME}} Help Now",
+      "trustSignals": [
+        "500+ {{SUBJECT_NAME}} Experts Available",
+        "98% Student Satisfaction Rate",
+        "24/7 Academic Support",
+        "10+ Years Helping Students"
+      ]
+    },
+    
+    "sections": {
+      "testimonials": {
+        "title": "What Students Say About Our {{SUBJECT_NAME}} Tutoring",
+        "subtitle": "Real testimonials from students who improved their {{SUBJECT_NAME_LOWER}} grades with our expert help.",
+        "chipText": "Student Reviews"
+      },
+      
+      "benefits": {
+        "title": "{{BENEFITS_H2}}",
+        "subtitle": "Experience personalized {{SUBJECT_NAME_LOWER}} tutoring designed to help you master concepts and excel academically",
+        "items": [
+          {
+            "icon": "/icons/expert-writers.svg",
+            "title": "{{BENEFIT_1_TITLE}}",
+            "description": "{{BENEFIT_1_DESCRIPTION}} {{PARENT_T1_LINK_1}} {{PARENT_T1_LINK_2}}"
+          },
+          {
+            "icon": "/icons/on-time.svg",
+            "title": "Step-by-Step {{SUBJECT_NAME}} Solutions",
+            "description": "{{BENEFIT_2_DESCRIPTION}} Every solution includes detailed explanations to help you understand the concepts, not just get answers. Perfect for exam preparation and building long-term mastery."
+          },
+          {
+            "icon": "/icons/insurance.svg",
+            "title": "100% Original {{SUBJECT_NAME}} Work",
+            "description": "Every {{SUBJECT_NAME_LOWER}} assignment is completed from scratch by real experts—no AI, no plagiarism. We provide free plagiarism and AI-detection reports with every order, ensuring your academic integrity is protected. Your work is unique and tailored to your specific requirements."
+          },
+          {
+            "icon": "/icons/affordable.svg",
+            "title": "Comprehensive {{SUBJECT_NAME}} Coverage",
+            "description": "{{BENEFIT_4_DESCRIPTION}} {{SIBLING_T2_LINK_1}} {{SIBLING_T2_LINK_2}}"
+          }
+        ]
+      },
+      
+      "howItWorks": {
+        "title": "{{HOW_IT_WORKS_H2}}",
+        "subtitle": "Getting expert {{SUBJECT_NAME_LOWER}} tutoring is simple—connect with qualified tutors in just three steps.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Submit Your {{SUBJECT_NAME}} Assignment",
+            "description": "Share your {{SUBJECT_NAME_LOWER}} homework details including the topic, deadline, specific requirements, and any materials your professor provided. The more details you give, the better we can help you."
+          },
+          {
+            "number": "2",
+            "title": "Connect With {{SUBJECT_NAME}} Expert",
+            "description": "We instantly match you with a qualified {{SUBJECT_NAME_LOWER}} tutor who specializes in your topic. Review their credentials, communicate directly, and ask questions about your assignment to ensure they understand your needs."
+          },
+          {
+            "number": "3",
+            "title": "Receive Quality {{SUBJECT_NAME}} Solutions",
+            "description": "Get your professionally completed {{SUBJECT_NAME_LOWER}} homework with detailed explanations. Review the work, ask follow-up questions, and request free revisions if needed. Learn while getting your assignment done right."
+          }
+        ]
+      },
+      
+      "services": {
+        "title": "Complete {{SUBJECT_NAME}} Homework Services",
+        "subtitle": "Professional {{SUBJECT_NAME_LOWER}} tutoring and homework help for every topic, assignment type, and academic level."
+      },
+      
+      "pricing": {
+        "title": "Affordable {{SUBJECT_NAME}} Homework Help Rates",
+        "subtitle": "Student-friendly pricing for expert {{SUBJECT_NAME_LOWER}} tutoring. Transparent rates, flexible payment options, and no hidden fees."
+      },
+      
+      "faq": {
+        "title": "Common Questions About {{SUBJECT_NAME}} Homework Help",
+        "subtitle": "Everything you need to know about our {{SUBJECT_NAME_LOWER}} tutoring service and how we help students succeed.",
+        "items": "{{FAQ_ITEMS}}"
+      },
+      
+      "seoContent": {
+        "title": "Complete Guide: {{SUBJECT_NAME}} Homework Help",
+        "content": "{{SEO_CONTENT}}",
+        "isVisible": false
+      }
+    }
+  }
