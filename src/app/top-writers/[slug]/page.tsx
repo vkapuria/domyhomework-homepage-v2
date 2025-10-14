@@ -470,25 +470,24 @@ useEffect(() => {
           </div>
         </div>
       </div>
-      {/* Sticky Mobile CTA - Option D */}
+      {/* Sticky Mobile CTA - Black Brutalist Style */}
       <div 
         className={`
           fixed bottom-0 left-0 right-0 z-50
           lg:hidden
           bg-white border-t-2 border-gray-200
-          shadow-[0_-4px_12px_rgba(0,0,0,0.15)]
           transition-transform duration-500 ease-out
           ${showMobileCTA ? 'translate-y-0' : 'translate-y-full'}
         `}
       >
-        <div className="w-full px-3 py-3">
+        <div className="w-full px-2 py-3">
           
-           <a href={`https://order.domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
-            className="flex items-center justify-between gap-3 bg-purple-600 hover:bg-purple-700 rounded-full px-4 py-3 shadow-lg transition-all"
+           <a href={`http://domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
+            className="flex items-center justify-between gap-2 bg-black hover:bg-gray-800 border-2 border-black rounded-lg px-3 py-3 transition-all"
           >
             {/* Left: Photo */}
             <div className="flex-shrink-0">
-              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white shadow-sm">
+              <div className="w-10 h-10 rounded-lg overflow-hidden ring-2 ring-white">
                 <Image
                   src={writer.photo}
                   alt={writer.name}
@@ -501,15 +500,38 @@ useEffect(() => {
 
             {/* Center: Text */}
             <div className="flex-1 min-w-0">
-              <div className="text-white font-bold text-sm">
-                Hire {writer.name.split(' ')[0]} →
+              <div className="text-white font-bold text-sm flex items-center gap-1.5">
+                Hire {writer.name.split(' ')[0]}
+                <Image
+                  src="/icons/submit.svg"
+                  alt="arrow"
+                  width={17}
+                  height={17}
+                  className="w-3.5 h-3.5 invert"
+                />
               </div>
-              <div className="text-purple-100 text-xs flex items-center gap-1.5 mt-0.5">
-                <span className="flex items-center gap-0.5">
-                  ⭐ {writer.stats.rating}
+              <div className="text-gray-300 text-xs flex items-center gap-1.5 mt-0.5">
+                <span className="flex items-center gap-1">
+                  <Image
+                    src="/icons/star.svg"
+                    alt="rating"
+                    width={14}
+                    height={14}
+                    className="w-3 h-3"
+                  />
+                  {writer.stats.rating}
                 </span>
                 <span>•</span>
-                <span>{writer.stats.successRate}% success</span>
+                <span className="flex items-center gap-1">
+                  <Image
+                    src="/icons/checked.svg"
+                    alt="success"
+                    width={14}
+                    height={14}
+                    className="w-3 h-3"
+                  />
+                  {writer.stats.successRate}% success
+                </span>
               </div>
             </div>
           </a>
