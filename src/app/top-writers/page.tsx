@@ -1,10 +1,12 @@
 'use client'
+
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import { IconStarFilled } from '@tabler/icons-react'
 import writersData from '@/data/writers.json'
 import Link from 'next/link'
 
+/* ---------------- TYPES ---------------- */
 interface Writer {
   id: string
   name: string
@@ -21,11 +23,13 @@ interface Writer {
   subjects: string[]
 }
 
+/* ---------------- MAIN PAGE ---------------- */
 export default function TopWritersPage() {
   const [selectedSubject, setSelectedSubject] = useState<string>('All Subjects')
+  const [sortBy, setSortBy] = useState<string>('most-rated')
   const [displayCount, setDisplayCount] = useState(6)
 
-  // Get unique subjects
+  // All subjects (unique)
   const allSubjects = useMemo(() => {
     const subjects = new Set<string>()
     writersData.forEach((writer: Writer) => {
@@ -34,20 +38,27 @@ export default function TopWritersPage() {
     return ['All Subjects', ...Array.from(subjects).sort()]
   }, [])
 
-  // Filter writers by subject
+  // Filter + sort writers
   const filteredWriters = useMemo(() => {
-    if (selectedSubject === 'All Subjects') {
-      return writersData
-    }
-    return writersData.filter((writer: Writer) =>
-      writer.subjects.includes(selectedSubject)
-    )
-  }, [selectedSubject])
+    let filtered = selectedSubject === 'All Subjects' 
+      ? writersData 
+      : writersData.filter((writer: Writer) => writer.subjects.includes(selectedSubject))
+    
+    return [...filtered].sort((a, b) => {
+      switch(sortBy) {
+        case 'most-rated': return b.stats.rating - a.stats.rating
+        case 'most-reviewed': return b.stats.projects - a.stats.projects
+        case 'finished-projects': return b.stats.projects - a.stats.projects
+        case 'success-rate': return b.stats.successRate - a.stats.successRate
+        default: return 0
+      }
+    })
+  }, [selectedSubject, sortBy])
 
   const displayedWriters = filteredWriters.slice(0, displayCount)
   const hasMore = displayCount < filteredWriters.length
 
-  // Pick top 3 featured writers (e.g. highest rating & success rate)
+  // Featured = Top 3
   const featuredWriters = [...writersData]
     .sort((a, b) => b.stats.rating - a.stats.rating || b.stats.successRate - a.stats.successRate)
     .slice(0, 3)
@@ -55,58 +66,95 @@ export default function TopWritersPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 to-white py-20">
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="grid grid-cols-6 gap-8 max-w-6xl mx-auto px-6">
-            {writersData.slice(0, 12).map((writer) => (
-              <div key={writer.id} className="w-16 h-16 rounded-full overflow-hidden mx-auto">
-                <Image
-                  src={writer.photo}
-                  alt={writer.name}
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover"
-                />
+      {/* ---------------- HERO ---------------- */}
+      <section className="relative bg-gradient-to-br from-[#8300e9] via-purple-600 to-purple-500 py-16 lg:py-20 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+
+            {/* LEFT: Title + Filters */}
+            <div className="text-white space-y-8">
+              <div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Meet Our Team of Expert Homework Helpers
+                </h1>
+                <p className="text-lg text-purple-100 leading-relaxed max-w-2xl">
+                  We take pride in our exceptional team of subject matter experts. 
+                  Only the most qualified professionals with verified credentials join us, 
+                  ensuring top-quality academic support for your assignments.
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
-          <span className="inline-block text-sm font-medium bg-purple-50 text-purple-700 px-3 py-1 rounded-full mb-4 border border-purple-500">
-            Our Expert Writers
-          </span>
+              {/* Filter Card */}
+              <div className="bg-white rounded-2xl shadow-2xl p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  
+                  {/* Subject Dropdown */}
+                  <select
+                    value={selectedSubject}
+                    onChange={(e) => {
+                      setSelectedSubject(e.target.value)
+                      setDisplayCount(6)
+                    }}
+                    className="w-full p-3.5 border-2 border-gray-300 bg-white text-gray-900 rounded-lg font-medium text-sm 
+                               focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
+                  >
+                    <option value="">All Subjects</option>
+                    {allSubjects.filter(s => s !== 'All Subjects').map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Meet Our Top-Rated Expert Writers
-          </h1>
+                  {/* Sort Dropdown */}
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="w-full p-3.5 border-2 border-gray-300 bg-white text-gray-900 rounded-lg font-medium text-sm 
+                               focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
+                  >
+                    <option value="most-rated">Most rated</option>
+                    <option value="most-reviewed">Most reviewed</option>
+                    <option value="finished-projects">Finished projects</option>
+                    <option value="success-rate">Success rate</option>
+                  </select>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Selected from the top 2% of applicants, our writers hold advanced degrees and have proven subject expertise to deliver high-quality, plagiarism-free work.
-          </p>
+                  {/* Search Button */}
+                  <button 
+                    onClick={() => setDisplayCount(6)}
+                    className="bg-black text-white py-3.5 px-6 rounded-lg font-bold hover:bg-gray-800 transition-all"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
 
-          {/* Trust metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-            <TrustCard icon="✓" number="500+" label="Verified Experts" color="purple" />
-            <TrustCard icon="★" number="98%" label="Success Rate" color="green" />
-            <TrustCard icon="🎓" number="100+" label="Subjects Covered" color="blue" />
-          </div>
+            {/* RIGHT: Avatars */}
+            <div className="hidden lg:flex justify-end items-center">
+              <div className="flex -space-x-6">
+                {featuredWriters.slice(0, 5).map((writer) => (
+                  <div 
+                    key={writer.id}
+                    className="relative w-40 h-40 rounded-full overflow-hidden border-[3px] border-white shadow-lg"
+                  >
+                    <Image
+                      src={writer.photo}
+                      alt={writer.name}
+                      width={150}
+                      height={150}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <div className="mt-10">
-            <a
-              href="https://order.domyhomework.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-all shadow-[4px_4px_0px_#000]"
-            >
-              Hire an Expert Now
-            </a>
           </div>
         </div>
       </section>
 
-      {/* Featured Writers Section */}
+      {/* ---------------- FEATURED WRITERS ---------------- */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
@@ -120,35 +168,10 @@ export default function TopWritersPage() {
         </div>
       </section>
 
-      {/* Writers Grid Section */}
+      {/* ---------------- WRITERS GRID ---------------- */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
-          {/* Filter Dropdown */}
-          <div className="mb-12 flex justify-center">
-            <div className="w-full max-w-xs">
-              <label htmlFor="subject-filter" className="block text-sm font-bold text-gray-900 mb-2">
-                Filter by Subject
-              </label>
-              <select
-                id="subject-filter"
-                value={selectedSubject}
-                onChange={(e) => {
-                  setSelectedSubject(e.target.value)
-                  setDisplayCount(9)
-                }}
-                className="w-full p-4 border-2 border-black bg-white text-base font-medium rounded-lg"
-              >
-                {allSubjects.map((subject) => (
-                  <option key={subject} value={subject}>
-                    {subject}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Writers Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {displayedWriters.map((writer: Writer) => (
               <WriterCard key={writer.id} writer={writer} />
@@ -179,68 +202,28 @@ export default function TopWritersPage() {
   )
 }
 
-/* ---------------- TRUST CARD ---------------- */
-function TrustCard({ icon, number, label, color }: { icon: string, number: string, label: string, color: string }) {
-  const bg = color === 'purple' ? 'bg-purple-100 text-purple-700' :
-             color === 'green' ? 'bg-green-100 text-green-700' :
-             'bg-blue-100 text-blue-700'
-  return (
-    <div className="flex flex-col items-center bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-  <div className={`w-12 h-12 ${bg} rounded-full flex items-center justify-center text-2xl font-bold mb-3`}>
-    {icon}
-  </div>
-  <div className="text-3xl font-bold text-gray-900">{number}</div>
-  <div className="text-sm text-gray-600">{label}</div>
-</div>
-  )
-}
-
 /* ---------------- FEATURED WRITER CARD ---------------- */
 function FeaturedWriterCard({ writer }: { writer: Writer }) {
-    const [showTooltip, setShowTooltip] = useState(false)
-  
-    return (
-      <article className="bg-white border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all relative">
-        
-        {/* Verification Badge - Top Right */}
-        <div 
-          className="absolute top-4 right-4 cursor-help"
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-        >
-          <Image
-            src="/icons/insurance.svg"
-            alt="Verified"
-            width={24}
-            height={24}
-            className="w-6 h-6"
-          />
-          {showTooltip && (
-            <div className="absolute top-8 right-0 bg-gray-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-lg z-10">
-              Credentials Verified
-              <div className="absolute -top-1 right-4 w-2 h-2 bg-gray-900 transform rotate-45"></div>
-            </div>
-          )}
-        </div>
-  
-        <div className="flex items-center gap-4 mb-4">
-          <div className="relative flex-shrink-0">
-            <div className="w-20 h-20 rounded-xl overflow-hidden">
-              <Image
-                src={writer.photo}
-                alt={writer.name}
-                width={80}
-                height={80}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -top-1 -right-1 text-2xl">{writer.countryFlag}</div>
+  return (
+    <article className="bg-white border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all relative">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="relative flex-shrink-0">
+          <div className="w-20 h-20 rounded-xl overflow-hidden">
+            <Image
+              src={writer.photo}
+              alt={writer.name}
+              width={80}
+              height={80}
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div>
-            <h3 className="text-xl font-bold text-gray-900">{writer.name}</h3>
-            <p className="text-sm text-gray-600">{writer.specializations.join(' • ')}</p>
-          </div>
+          <div className="absolute -top-1 -right-1 text-2xl">{writer.countryFlag}</div>
         </div>
+        <div>
+          <h3 className="text-xl font-bold text-gray-900">{writer.name}</h3>
+          <p className="text-xs text-purple-600">{writer.subjects.slice(0, 3).join(' • ')}</p>
+        </div>
+      </div>
       <p className="text-sm text-gray-700 mb-4 line-clamp-4">{writer.bio}</p>
       <div className="flex items-center justify-between text-sm font-medium text-gray-700 mb-6">
         <span>Projects: <strong>{writer.stats.projects}</strong></span>
@@ -251,13 +234,13 @@ function FeaturedWriterCard({ writer }: { writer: Writer }) {
       </div>
       <div className="grid grid-cols-2 gap-3">
         <a
-          href="https://order.domyhomework.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-black text-white text-center py-2.5 rounded-lg font-bold text-xs hover:bg-gray-800"
-        >
-          Hire Now
-        </a>
+        href={`https://order.domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-black text-white text-center py-2.5 rounded-lg font-bold text-xs hover:bg-gray-800"
+      >
+        Hire Now
+      </a>
         <Link
           href={`/top-writers/${writer.id}`}
           className="bg-gray-200 text-black text-center py-2.5 border border-gray-300 rounded-lg font-bold text-xs hover:bg-purple-50 hover:border-purple-300"
@@ -269,34 +252,27 @@ function FeaturedWriterCard({ writer }: { writer: Writer }) {
   )
 }
 
-/* ---------------- STANDARD WRITER CARD ---------------- */
+/* ---------------- WRITER CARD ---------------- */
 function WriterCard({ writer }: { writer: Writer }) {
-  const randomSpecialization = writer.specializations[
-    Math.floor(Math.random() * writer.specializations.length)
-  ]
-
   return (
     <article className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 hover:-translate-y-1 transition-all duration-300">
       <div className="flex items-start gap-4 mb-3">
-      <div className="relative flex-shrink-0">
-        <div className="w-16 h-16 rounded-xl overflow-hidden">
+        <div className="relative flex-shrink-0">
+          <div className="w-16 h-16 rounded-xl overflow-hidden">
             <Image
-            src={writer.photo}
-            alt={writer.name}
-            width={64}
-            height={64}
-            className="object-cover w-full h-full"
+              src={writer.photo}
+              alt={writer.name}
+              width={64}
+              height={64}
+              className="object-cover w-full h-full"
             />
-        </div>
-        {/* Flag badge */}
-        <div className="absolute -top-1 -right-1 text-lg">
-            {writer.countryFlag}
-        </div>
+          </div>
+          <div className="absolute -top-1 -right-1 text-lg">{writer.countryFlag}</div>
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-base font-bold text-gray-900">{writer.name}</h3>
           <div className="flex flex-wrap gap-1 mt-1">
-            {writer.specializations.slice(0, 2).map((spec, idx) => (
+            {writer.subjects.slice(0, 2).map((spec, idx) => (
               <span key={idx} className="bg-purple-50 text-purple-700 text-[12px] font-medium px-2 py-0.5 rounded-full border border-purple-200">
                 {spec}
               </span>
@@ -309,7 +285,6 @@ function WriterCard({ writer }: { writer: Writer }) {
         {writer.bio}
       </p>
 
-      {/* Stats */}
       <div className="flex items-center justify-around mb-5 py-3">
         <StatBlock label="Projects" value={writer.stats.projects} />
         <div className="w-px h-10 bg-gray-300"></div>
@@ -318,16 +293,15 @@ function WriterCard({ writer }: { writer: Writer }) {
         <StatBlock label="Rating" value={writer.stats.rating} icon />
       </div>
 
-      {/* Buttons */}
       <div className="grid grid-cols-2 gap-2.5">
         <a
-          href="https://order.domyhomework.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-black text-white text-center py-2.5 px-3 rounded-lg font-bold text-xs hover:bg-gray-800 transition-all"
-        >
-          Hire Now
-        </a>
+        href={`https://order.domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-black text-white text-center py-2.5 px-3 rounded-lg font-bold text-xs hover:bg-gray-800 transition-all"
+      >
+        Hire Now
+      </a>
         <Link
           href={`/top-writers/${writer.id}`}
           className="bg-gray-200 text-black text-center py-2.5 px-3 border border-gray-300 rounded-lg font-bold text-xs hover:bg-purple-50 hover:border-purple-300 transition-all"

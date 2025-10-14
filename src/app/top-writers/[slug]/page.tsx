@@ -61,6 +61,7 @@ export default function WriterProfilePage({ params }: { params: Promise<{ slug: 
   const [error, setError] = useState<string | null>(null)
   const [displayedCount, setDisplayedCount] = useState(6)
   const [bioExpanded, setBioExpanded] = useState(false)
+  const [showMobileCTA, setShowMobileCTA] = useState(false)
 
 // ✅ Fetch writer + reviews in PARALLEL
 useEffect(() => {
@@ -137,6 +138,15 @@ useEffect(() => {
 
   fetchAllData()
 }, [slug])
+
+  // Show mobile CTA after 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMobileCTA(true)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   // Show loading state
   if (loading) {
@@ -443,7 +453,7 @@ useEffect(() => {
 
                 {/* CTA Button */}
                 
-                <a href="https://order.domyhomework.co"
+                <a href={`https://order.domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold text-base hover:bg-purple-700 transition-all shadow-lg mb-3"
@@ -458,6 +468,51 @@ useEffect(() => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/* Sticky Mobile CTA - Option D */}
+      <div 
+        className={`
+          fixed bottom-0 left-0 right-0 z-50
+          lg:hidden
+          bg-white border-t-2 border-gray-200
+          shadow-[0_-4px_12px_rgba(0,0,0,0.15)]
+          transition-transform duration-500 ease-out
+          ${showMobileCTA ? 'translate-y-0' : 'translate-y-full'}
+        `}
+      >
+        <div className="w-full px-3 py-3">
+          
+           <a href={`https://order.domyhomework.co?writerId=${writer.id}&writerName=${encodeURIComponent(writer.name)}&writerPhoto=${encodeURIComponent(writer.photo)}&writerRating=${writer.stats.rating}&writerProjects=${writer.stats.projects}&writerSuccessRate=${writer.stats.successRate}`}
+            className="flex items-center justify-between gap-3 bg-purple-600 hover:bg-purple-700 rounded-full px-4 py-3 shadow-lg transition-all"
+          >
+            {/* Left: Photo */}
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white shadow-sm">
+                <Image
+                  src={writer.photo}
+                  alt={writer.name}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Center: Text */}
+            <div className="flex-1 min-w-0">
+              <div className="text-white font-bold text-sm">
+                Hire {writer.name.split(' ')[0]} →
+              </div>
+              <div className="text-purple-100 text-xs flex items-center gap-1.5 mt-0.5">
+                <span className="flex items-center gap-0.5">
+                  ⭐ {writer.stats.rating}
+                </span>
+                <span>•</span>
+                <span>{writer.stats.successRate}% success</span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
