@@ -228,7 +228,7 @@ export default function Hero() {
               {/* Badge */}
               <div className="inline-block">
                 <span className="px-4 py-1 rounded-full bg-purple-50 border border-purple-500 text-purple-700 text-sm font-medium">
-                  🎓 Do My Homework Online – 100% Human-Written
+                  100% Human-Written
                 </span>
               </div>
 
