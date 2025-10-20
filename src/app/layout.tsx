@@ -68,6 +68,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <script 
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="0c039096-8034-4264-9f1c-be8364e51aba";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`
+          }}
+        />
       </head>
       <body className={inter.className}>
         {/* GTM NoScript (fallback) */}
