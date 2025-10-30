@@ -1,4 +1,10 @@
 'use client'
+// Declare dataLayer type for GTM
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -198,6 +204,7 @@ export default function DynamicHero({
   })
 
   const [currentMetric, setCurrentMetric] = useState(0)
+  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
 
   // ========== EFFECTS (KEEP IDENTICAL) ==========
   useEffect(() => {
@@ -206,6 +213,16 @@ export default function DynamicHero({
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
+  // Track form start on first interaction
+  const trackFormStart = () => {
+    if (!hasTrackedFormStart && typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'form_start_interaction'
+      });
+      setHasTrackedFormStart(true);
+    }
+  };
 
   // ========== HANDLERS (KEEP IDENTICAL) ==========
   const handleSubmit = (e: React.FormEvent) => {
@@ -286,6 +303,7 @@ export default function DynamicHero({
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    onFocus={trackFormStart}
                     className={`${INPUT_STYLES} ${formData.subject === '' ? 'text-gray-400' : 'text-black'}`} 
                   >
                     <option value="">Choose one...</option>
@@ -309,6 +327,7 @@ export default function DynamicHero({
                   <DatePicker
                     selected={formData.deadline}
                     onChange={(date) => setFormData({ ...formData, deadline: date })}
+                    onFocus={trackFormStart}
                     minDate={new Date()}
                     placeholderText="Select deadline date"
                     className={INPUT_STYLES}
@@ -325,14 +344,15 @@ export default function DynamicHero({
                   Email Address *
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="your@email.com"
-                    className={INPUT_STYLES}
-                  />
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onFocus={trackFormStart}
+                  placeholder="your@email.com"
+                  className={INPUT_STYLES}
+                />
                   
                   <button
                     type="submit"

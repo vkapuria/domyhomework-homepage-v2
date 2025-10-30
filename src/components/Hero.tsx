@@ -1,4 +1,10 @@
 'use client'
+// Declare dataLayer type for GTM
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -192,6 +198,7 @@ export default function Hero() {
   })
 
   const [currentMetric, setCurrentMetric] = useState(0)
+  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
 
   // ========== EFFECTS ==========
   // Auto-flip trust metrics every 5 seconds (increased delay for better readability)
@@ -201,6 +208,16 @@ export default function Hero() {
     }, 5000) // Increased to 5 seconds for better readability
     return () => clearInterval(interval)
   }, [])
+
+  // Track form start on first interaction
+  const trackFormStart = () => {
+    if (!hasTrackedFormStart && typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'form_start_interaction'
+      });
+      setHasTrackedFormStart(true);
+    }
+  };
 
   // ========== HANDLERS ==========
   const handleSubmit = (e: React.FormEvent) => {
@@ -289,6 +306,7 @@ export default function Hero() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    onFocus={trackFormStart}
                     className={`${INPUT_STYLES} ${formData.subject === '' ? 'text-gray-400' : 'text-black'}`} 
                   >
                     <option value="">Choose one...</option>
@@ -311,15 +329,16 @@ export default function Hero() {
                     Deadline *
                   </label>
                   <DatePicker
-                    selected={formData.deadline}
-                    onChange={(date) => setFormData({ ...formData, deadline: date })}
-                    minDate={new Date()}
-                    placeholderText="Select deadline date"
-                    className={INPUT_STYLES}
-                    calendarClassName="brutalist-calendar"
-                    wrapperClassName="w-full"
-                    required
-                  />
+                  selected={formData.deadline}
+                  onChange={(date) => setFormData({ ...formData, deadline: date })}
+                  onFocus={trackFormStart}
+                  minDate={new Date()}
+                  placeholderText="Select deadline date"
+                  className={INPUT_STYLES}
+                  calendarClassName="brutalist-calendar"
+                  wrapperClassName="w-full"
+                  required
+                />
                 </div>
               </div>
 
@@ -336,6 +355,7 @@ export default function Hero() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onFocus={trackFormStart}
                     placeholder="your@email.com"
                     className={INPUT_STYLES}
                   />
