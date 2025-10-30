@@ -18,7 +18,7 @@ type Review = {
 }
 
 const SOURCE_BADGE: Record<SourceKey, { label: string; icon: string }> = {
-  domyhomework: { label: 'DMH', icon: '/icons/Favicon-DMH-Transp-bg.png' },
+  domyhomework: { label: 'DMH', icon: '/favicon.ico' },
   gmail:        { label: 'Gmail', icon: '/icons/gmail.png' },
   sitejabber:   { label: 'Sitejabber', icon: '/icons/sitejabber-logo.svg' },
   reviewsio:    { label: 'Reviews.io', icon: '/icons/Reviews.io.svg' },
