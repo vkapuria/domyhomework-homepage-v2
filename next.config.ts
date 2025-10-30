@@ -1,17 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // ✅ ADD: Enforce trailing slashes across entire site
+  trailingSlash: true,
 
   // Temporarily disable ESLint during build
   eslint: {
     ignoreDuringBuilds: true,
   },
+  
   // Fix the turbopack root directory issue
   turbopack: {
     root: __dirname,
   },
   
-  // Image optimization for your icons and images
+  // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -34,6 +37,23 @@ const nextConfig: NextConfig = {
   // Compile options
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // ✅ ADD: Redirects for www → non-www
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.domyhomework.co',
+          },
+        ],
+        destination: 'https://domyhomework.co/:path*',
+        permanent: true, // 301 redirect
+      },
+    ];
   },
   
   // Headers for better SEO and security

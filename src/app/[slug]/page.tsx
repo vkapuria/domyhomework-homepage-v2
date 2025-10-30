@@ -3,13 +3,13 @@ import { notFound } from 'next/navigation'
 import PageTemplate from '@/components/PageTemplate'
 import servicePages from '@/data/servicePages.json'
 import { ServicePageData } from '@/types/servicePage'
-// Import at top of file
+import tier2Template from '@/data/templates/tier2-template.json'
+import tier2Config from '@/data/configs/tier2-subjects.json'
+import { mergeTemplateWithSubject } from '@/lib/mergeTemplate'
 
 const RESERVED_SLUGS = new Set(['blog', 'api', 'sitemap.xml', 'robots.txt', 'favicon.ico', '_next'])
 
 export async function generateStaticParams() {
-  
-  
   // Generate params for T1 pages
   const t1Params = servicePages.map((page) => ({
     slug: page.slug
@@ -24,15 +24,29 @@ export async function generateStaticParams() {
   return [...t1Params, ...t2Params]
 }
 
-// Enhanced metadata function
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const page = servicePages.find((p) => p.slug === params.slug) as ServicePageData | undefined
+// ✅ FIXED: Enhanced metadata function that handles BOTH T1 and T2 pages
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  // First, check if it's a T1 page (existing servicePages.json)
+  let page = servicePages.find((p) => p.slug === slug) as ServicePageData | undefined
   
+  // ✅ NEW: If not found, check if it's a T2 page (template-based)
+  if (!page) {
+    const subject = tier2Config.subjects.find((s: any) => s.slug === slug)
+    
+    if (subject) {
+      // Merge template with subject config to get full page data
+      page = mergeTemplateWithSubject(tier2Template, subject)
+    }
+  }
+  
+  // If still not found, return empty metadata
   if (!page) {
     return {}
   }
 
-  const pageUrl = `https://domyhomework.co/${page.slug}`
+  // ✅ FIXED: Now includes trailing slash
+  const pageUrl = `https://domyhomework.co/${page.slug}/`
   
   return {
     title: page.title,
@@ -43,7 +57,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     publisher: 'DoMyHomework.co',
     robots: 'index, follow',
     alternates: {
-      canonical: pageUrl,
+      canonical: pageUrl, // ✅ Now T2 pages get correct self-referencing canonical
     },
     openGraph: {
       type: 'website',
@@ -75,7 +89,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // Generate service-specific structured data
 function generateServiceStructuredData(page: ServicePageData) {
-  const pageUrl = `https://domyhomework.co/${page.slug}`
+  const pageUrl = `https://domyhomework.co/${page.slug}/` // ✅ Added trailing slash
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -85,7 +99,7 @@ function generateServiceStructuredData(page: ServicePageData) {
     "provider": {
       "@type": "Organization",
       "name": "DoMyHomework.co",
-      "url": "https://domyhomework.co"
+      "url": "https://domyhomework.co/"
     },
     "areaServed": "Worldwide",
     "availableChannel": {
@@ -111,7 +125,7 @@ function generateServiceStructuredData(page: ServicePageData) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://domyhomework.co"
+        "item": "https://domyhomework.co/"
       },
       {
         "@type": "ListItem",
@@ -151,22 +165,18 @@ function generateServiceStructuredData(page: ServicePageData) {
   return [serviceSchema, breadcrumbSchema, productSchema]
 }
 
-// Import the new files at the top
-import tier2Template from '@/data/templates/tier2-template.json'
-import tier2Config from '@/data/configs/tier2-subjects.json'
-import { mergeTemplateWithSubject } from '@/lib/mergeTemplate'
-
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  if (RESERVED_SLUGS.has(params.slug)) {
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  if (RESERVED_SLUGS.has(slug)) {
     return notFound()
   }
 
   // First, check if it's a T1 page (existing servicePages.json)
-  let page = servicePages.find((p) => p.slug === params.slug) as ServicePageData | undefined
+  let page = servicePages.find((p) => p.slug === slug) as ServicePageData | undefined
 
   // If not found, check if it's a T2 page (template-based)
   if (!page) {
-    const subject = tier2Config.subjects.find((s: any) => s.slug === params.slug)
+    const subject = tier2Config.subjects.find((s: any) => s.slug === slug)
     
     if (subject) {
       // Merge template with subject config
@@ -178,6 +188,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   if (!page) {
     return notFound()
   }
+  
   const structuredData = generateServiceStructuredData(page)
 
   return (
