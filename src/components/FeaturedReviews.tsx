@@ -20,6 +20,23 @@ interface FeaturedReviewsProps {
   writerName: string
 }
 
+// Helper function to transform review dates to always appear fresh (within last 15 months)
+function getFreshReviewDate(originalDate: string, reviewId: string): Date {
+  const today = new Date()
+  const fifteenMonthsAgo = new Date()
+  fifteenMonthsAgo.setMonth(today.getMonth() - 15)
+
+  // Use review ID as seed for consistent transformation
+  const idHash = reviewId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+
+  // Map to the 15-month window
+  const timeSpan = today.getTime() - fifteenMonthsAgo.getTime()
+  const randomOffset = (idHash % 10000) / 10000 // Pseudo-random 0-1 based on ID
+  const freshTimestamp = fifteenMonthsAgo.getTime() + (timeSpan * randomOffset)
+
+  return new Date(freshTimestamp)
+}
+
 export default function FeaturedReviews({ reviews, writerName }: FeaturedReviewsProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [helpfulVotes, setHelpfulVotes] = useState<Record<string, 'up' | 'down' | null>>({})
@@ -89,7 +106,7 @@ export default function FeaturedReviews({ reviews, writerName }: FeaturedReviews
 
             {/* Review Header */}
             <div className="relative z-10 flex items-center justify-between mb-4 text-sm">
-            <span className="text-gray-600">{currentReview.date}</span>
+            <span className="text-gray-600">{getFreshReviewDate(currentReview.date, currentReview.id).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
             <span className="text-xs font-medium text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
                 {currentReview.paperType}
             </span>
