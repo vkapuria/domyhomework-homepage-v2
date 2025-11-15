@@ -7,6 +7,7 @@ declare global {
 }
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useOpenPanel } from '@openpanel/nextjs'
 import { 
   IconBook, 
   IconClock, 
@@ -190,6 +191,9 @@ const FeatureHighlights = () => (
 // ==================== MAIN COMPONENT ====================
 
 export default function Hero() {
+  // ========== HOOKS ==========
+  const op = useOpenPanel()
+
   // ========== STATE ==========
   const [formData, setFormData] = useState({
     subject: '',
@@ -211,10 +215,20 @@ export default function Hero() {
 
   // Track form start on first interaction
   const trackFormStart = () => {
-    if (!hasTrackedFormStart && typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        'event': 'form_start_interaction'
+    if (!hasTrackedFormStart) {
+      // Track to GTM
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'form_start_interaction'
+        });
+      }
+
+      // Track to OpenPanel
+      op?.track('quote_form_started', {
+        form_type: 'mini_form',
+        location: 'hero_section'
       });
+
       setHasTrackedFormStart(true);
     }
   };
@@ -222,6 +236,24 @@ export default function Hero() {
   // ========== HANDLERS ==========
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Track form submission to OpenPanel
+    op?.track('quote_form_submitted', {
+      form_type: 'mini_form',
+      location: 'hero_section',
+      document_type: formData.subject,
+      has_deadline: !!formData.deadline,
+      has_email: !!formData.email
+    });
+
+    // Track to GTM (if needed)
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'form_submission',
+        'form_type': 'mini_form'
+      });
+    }
+
     const submissionData = {
       documentType: formData.subject,
       deadline: formData.deadline ? formData.deadline.toISOString().split('T')[0] : '',

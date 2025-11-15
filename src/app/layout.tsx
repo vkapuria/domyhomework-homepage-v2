@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { OpenPanelComponent } from '@openpanel/nextjs'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -76,11 +77,19 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* OpenPanel Analytics */}
+        <OpenPanelComponent
+          clientId="0cfa62f6-4319-4a9d-a6ab-d4be6eab6975"
+          trackScreenViews={true}
+          trackOutgoingLinks={true}
+          trackAttributes={true}
+        />
+
         {/* GTM NoScript (fallback) */}
         <noscript>
-          <iframe 
+          <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KLFHQFR"
-            height="0" 
+            height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />

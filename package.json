@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.2.0",
     "@hugeicons/core-free-icons": "^1.1.0",
     "@hugeicons/react": "^1.1.1",
+    "@openpanel/nextjs": "^1.0.12",
     "@supabase/supabase-js": "^2.74.0",
     "@tabler/icons-react": "^3.35.0",
     "@types/react-datepicker": "^7.0.0",
