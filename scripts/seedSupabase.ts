@@ -40,24 +40,30 @@ async function seedDatabase() {
     let writersInserted = 0
 
     for (const writer of writersData) {
-      const writerData = {
-        id: writer.id,
-        name: writer.name,
-        title: writer.title || null,
-        photo: writer.photo,
-        country: writer.country,
-        country_flag: writer.countryFlag,
-        bio: writer.bio,
-        specializations: writer.specializations,
-        subjects: writer.subjects,
-        stats: writer.stats,
-        rating_breakdown: writer.ratingBreakdown || null,
-        top_subjects: writer.topSubjects || null,
-        top_paper_types: writer.topPaperTypes || null,
-        last_order: writer.lastOrder,
-        review_count: writer.reviewCount,
-        is_active: true
-      }
+      // ✅ Calculate last_order dynamically (1-7 days ago)
+const daysAgo = Math.floor(Math.random() * 7) + 1 // Random 1-7 days
+const lastOrderDate = new Date()
+lastOrderDate.setDate(lastOrderDate.getDate() - daysAgo)
+const lastOrder = lastOrderDate.toISOString().split('T')[0] // Format: YYYY-MM-DD
+
+  const writerData = {
+    id: writer.id,
+    name: writer.name,
+    title: writer.title || null,
+    photo: writer.photo,
+    country: writer.country,
+    country_flag: writer.countryFlag,
+    bio: writer.bio,
+    specializations: writer.specializations,
+    subjects: writer.subjects,
+    stats: writer.stats,
+    rating_breakdown: writer.ratingBreakdown || null,
+    top_subjects: writer.topSubjects || null,
+    top_paper_types: writer.topPaperTypes || null,
+    last_order: lastOrder, // ✅ DYNAMIC - always 1-7 days ago
+    review_count: writer.reviewCount,
+    is_active: true
+  }
 
       const { error } = await supabase.from('dmh_writers').insert(writerData)
 
@@ -97,17 +103,34 @@ async function seedDatabase() {
       }
 
       if (writer.premiumReviews && writer.premiumReviews.length > 0) {
-        const premiumReviewsData = writer.premiumReviews.map(review => ({
-          writer_id: writer.id,
-          order_number: review.orderNumber,
-          date: review.date,
-          rating: review.rating,
-          comment: review.comment,
-          paper_type: review.paperType,
-          writer_response: review.writerResponse || null,
-          helpful_count: review.helpfulCount || 0,
-          is_premium: true
-        }))
+        const premiumReviewsData = writer.premiumReviews.map((review, index) => {
+          // ✅ Generate date dynamically (within last 6 months)
+          const now = new Date()
+          const sixMonthsAgo = new Date()
+          sixMonthsAgo.setMonth(now.getMonth() - 6)
+          
+          const timeSpan = now.getTime() - sixMonthsAgo.getTime()
+          const randomTime = Math.random() * timeSpan
+          const reviewDate = new Date(sixMonthsAgo.getTime() + randomTime)
+          const formattedDate = reviewDate.toISOString().split('T')[0]
+          
+          // ✅ Generate order number with correct year
+          const year = reviewDate.getFullYear().toString().slice(-2)
+          const randomNum = Math.floor(10000 + Math.random() * 90000)
+          const orderNumber = `DMH${randomNum}_${year}`
+          
+          return {
+            writer_id: writer.id,
+            order_number: orderNumber, // ✅ DYNAMIC with matching year
+            date: formattedDate, // ✅ DYNAMIC date
+            rating: review.rating,
+            comment: review.comment,
+            paper_type: review.paperType,
+            writer_response: review.writerResponse || null,
+            helpful_count: review.helpfulCount || 0,
+            is_premium: true
+          }
+        })
 
         const { error: premiumError } = await supabase.from('dmh_reviews').insert(premiumReviewsData)
 
